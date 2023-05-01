@@ -26,9 +26,8 @@ export default function Home() {
             Hey, I&apos;m Sam—a product designer based in London, UK.
           </p>
           <p className="text-gray-400 text-lg mb-8">
-            I&apos;ve spent the past 10 years helping startups build design
-            teams that turn company vision into reality, and design into a
-            competitive advantage.
+            I&apos;ve spent the past 10 years helping startups translate vision
+            to reality, and design into a competitive advantage.
           </p>
           <div className="flex items-center gap-2">
             <Link
@@ -41,21 +40,21 @@ export default function Home() {
             <Link
               href="https://linkedin.com/in/samjwillis"
               target="_blank"
-              className="p-3 hover:bg-gray-800 rounded ml-2"
+              className="p-3 rounded-md hover:shadow-test-hover transition-all ease-in-out duration-300 ml-2"
             >
               <Image src="/logos/linkedin.svg" alt="" width={20} height={20} />
             </Link>
             <Link
               href="https://twitter.com/thesamwillis"
               target="_blank"
-              className="p-3 hover:bg-gray-800 rounded"
+              className="p-3 rounded-md hover:shadow-test-hover transition-all ease-in-out duration-300"
             >
               <Image src="/logos/twitter.svg" alt="" width={20} height={20} />
             </Link>
             <Link
               href="https://dribbble.com/sjwillis"
               target="_blank"
-              className="p-3 hover:bg-gray-800 rounded"
+              className="p-3 rounded-md hover:shadow-test-hover transition-all ease-in-out duration-300"
             >
               <Image src="/logos/dribbble.svg" alt="" width={20} height={20} />
             </Link>
