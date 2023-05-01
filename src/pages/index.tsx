@@ -67,7 +67,7 @@ export default function Home() {
             target="_blank"
             className="flex flex-row gap-4 rounded-lg grow align-baseline group bg-gray-900 p-3 hover:shadow-test z-10 hover:-z-0 transition-all ease-in-out duration-300"
           >
-            <div className="p-1 rounded">
+            <div className="p-1">
               <Image
                 src="/logos/alba.svg"
                 alt="Picture of the author"
@@ -94,7 +94,7 @@ export default function Home() {
             target="_blank"
             className="flex flex-row gap-4 rounded-lg grow align-baseline group bg-gray-900 p-3 hover:shadow-test z-10 hover:-z-0 transition-all ease-in-out duration-300"
           >
-            <div className="p-1 rounded">
+            <div className="p-1">
               <Image
                 src="/logos/gmstudio.svg"
                 alt="Picture of the author"
@@ -123,7 +123,7 @@ export default function Home() {
             target="_blank"
             className="flex flex-row gap-4 rounded-lg grow align-baseline group bg-gray-900 p-3 hover:shadow-test z-10 hover:-z-0 transition-all ease-in-out duration-300"
           >
-            <div className="p-1 rounded">
+            <div className="p-1">
               <Image
                 src="/logos/duffel.svg"
                 alt="Picture of the author"
@@ -150,7 +150,7 @@ export default function Home() {
             target="_blank"
             className="flex flex-row gap-4 rounded-lg grow align-baseline group bg-gray-900 p-3 hover:shadow-test z-10 hover:-z-0 transition-all ease-in-out duration-300"
           >
-            <div className="p-1 rounded">
+            <div className="p-1">
               <Image
                 src="/logos/memrise.svg"
                 alt="Picture of the author"
@@ -177,7 +177,7 @@ export default function Home() {
             target="_blank"
             className="flex flex-row gap-4 rounded-lg grow align-baseline group bg-gray-900 p-3 hover:shadow-test z-10 hover:-z-0 transition-all ease-in-out duration-300"
           >
-            <div className="p-1 rounded">
+            <div className="p-1">
               <Image
                 src="/logos/fat-llama.svg"
                 alt="Picture of the author"
@@ -204,7 +204,7 @@ export default function Home() {
             target="_blank"
             className="flex flex-row gap-4 rounded-lg grow align-baseline group bg-gray-900 p-3 hover:shadow-test z-10 hover:-z-0 transition-all ease-in-out duration-300"
           >
-            <div className="p-1 rounded">
+            <div className="p-1">
               <Image
                 src="/logos/gocardless.svg"
                 alt="Picture of the author"
@@ -233,7 +233,7 @@ export default function Home() {
             target="_blank"
             className="flex flex-row gap-4 rounded-lg grow align-baseline group bg-gray-900 p-3 hover:shadow-test z-10 hover:-z-0 transition-all ease-in-out duration-300"
           >
-            <div className="p-1 rounded">
+            <div className="p-1">
               <Image
                 src="/logos/incidentio.svg"
                 alt="Picture of the author"
@@ -260,7 +260,7 @@ export default function Home() {
             target="_blank"
             className="flex flex-row gap-4 rounded-lg grow align-baseline group bg-gray-900 p-3 hover:shadow-test z-10 hover:-z-0 transition-all ease-in-out duration-300"
           >
-            <div className="p-1 rounded">
+            <div className="p-1">
               <Image
                 src="/logos/dependabot.svg"
                 alt="Picture of the author"
@@ -289,7 +289,7 @@ export default function Home() {
             target="_blank"
             className="flex flex-row gap-4 rounded-lg grow align-baseline group bg-gray-900 p-3 hover:shadow-test z-10 hover:-z-0 transition-all ease-in-out duration-300"
           >
-            <div className="p-1 rounded">
+            <div className="p-1">
               <Image
                 src="/logos/dc.svg"
                 alt="Picture of the author"
@@ -316,7 +316,7 @@ export default function Home() {
             target="_blank"
             className="flex flex-row gap-4 rounded-lg grow align-baseline group bg-gray-900 p-3 hover:shadow-test z-10 hover:-z-0 transition-all ease-in-out duration-300"
           >
-            <div className="p-1 rounded">
+            <div className="p-1">
               <Image
                 src="/logos/designandbanter.svg"
                 alt="Picture of the author"
