@@ -1,10 +1,30 @@
+import * as React from "react";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import Link from "next/link";
+// import Lightbox from "yet-another-react-lightbox";
+// import Inline from "yet-another-react-lightbox/plugins/inline";
+// import slides from "@/Components/slides";
+// import Counter from "yet-another-react-lightbox/plugins/counter";
+// import Captions from "yet-another-react-lightbox/plugins/captions";
+// import "yet-another-react-lightbox/styles.css";
+// import "yet-another-react-lightbox/plugins/counter.css";
+// import "yet-another-react-lightbox/plugins/captions.css";
+
+import { Swiper, SwiperSlide, Navigation } from "swiper/react";
+import "swiper/css";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const [open, setOpen] = React.useState(false);
+  const [index, setIndex] = React.useState(0);
+
+  const toggleOpen = (state: boolean) => () => setOpen(state);
+
+  const updateIndex = ({ index: current }: { index: number }) =>
+    setIndex(current);
+
   return (
     <main className="bg-gray-900">
       <div className="flex flex-col max-w-xl mx-auto py-16 px-4 gap-16">
@@ -60,6 +80,169 @@ export default function Home() {
             </Link>
           </div>
         </div>
+
+        <div className="flex flex-col gap-4">
+          <p className="text-gray-50 text-lg px-3">Selected work</p>
+          <div className="px-3">
+            {/* <Lightbox
+              index={index}
+              slides={[
+                {
+                  ...slides[0],
+                  description: "Veliki zali, Dubravica, Croatia",
+                },
+                {
+                  ...slides[1],
+                  description: "Pedro Lastra ey West, Florida, United States",
+                },
+                {
+                  ...slides[2],
+                  description:
+                    "Sean Oulashin North Shore, Waialua, Hawaii, United States",
+                },
+                {
+                  ...slides[3],
+                  description:
+                    "Sean Oulashin North Shore, Waialua, Hawaii, United States",
+                },
+                {
+                  ...slides[4],
+                  description:
+                    "Sean Oulashin North Shore, Waialua, Hawaii, United States",
+                },
+              ]}
+              plugins={[Inline, Counter, Captions]}
+              counter={{
+                container: {
+                  style: {
+                    top: "unset",
+                    bottom: "0",
+                    right: "0",
+                    left: "unset",
+                    margin: "0",
+                    padding: "0",
+                  },
+                },
+              }}
+              on={{
+                view: updateIndex,
+                click: toggleOpen(true),
+              }}
+              carousel={{
+                padding: 0,
+                spacing: 0,
+                imageFit: "contain",
+              }}
+              inline={{
+                style: {
+                  width: "100%",
+                  maxWidth: "900px",
+                  aspectRatio: "3 / 2",
+                  padding: "2rem",
+                },
+              }}
+              render={
+                {
+                  // iconPrev: () => <AccessAlarm />,
+                  // iconNext: () => <MyNextIcon />,
+                  // iconClose: () => <MyCloseIcon />,
+                }
+              }
+            />
+
+            <Lightbox
+              open={open}
+              close={toggleOpen(false)}
+              index={index}
+              slides={slides}
+              on={{ view: updateIndex }}
+              animation={{ fade: 0 }}
+              controller={{ closeOnPullDown: true, closeOnBackdropClick: true }}
+            /> */}
+
+            <Swiper
+              loop={true}
+              slidesPerView={"auto"}
+              centeredSlides={true}
+              spaceBetween={30}
+              pagination={{
+                clickable: true,
+              }}
+              modules={[Navigation]}
+              className="mySwiper"
+            >
+              <SwiperSlide className="swiper-slide">
+                <div className="h-96 flex p-12">
+                  <div className="flex flex-1 relative">
+                    <Image
+                      src="/selected-work/duffel-search.png"
+                      alt=""
+                      fill={true}
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide className="swiper-slide">
+                <div className="h-96 flex p-12">
+                  <div className="flex flex-1 relative">
+                    <Image
+                      src="/selected-work/duffel-guides.png"
+                      alt=""
+                      fill={true}
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide className="swiper-slide">
+                <div className="h-96 flex p-12">
+                  <div className="flex flex-1 relative">
+                    <a href="#img1">
+                      <Image
+                        src="/selected-work/alba-mint-page.png"
+                        alt=""
+                        fill={true}
+                        className="object-contain"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide className="swiper-slide">
+                <div className="h-96 flex p-12">
+                  <div className="flex flex-1 relative">
+                    <Image
+                      src="/selected-work/duffel-links.png"
+                      alt=""
+                      fill={true}
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide className="swiper-slide">
+                <div className="h-96 flex p-12">
+                  <div className="flex flex-1 relative">
+                    <Image
+                      src="/selected-work/incident-logo.png"
+                      alt=""
+                      fill={true}
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
+              </SwiperSlide>
+
+              <div className="flex flex-row items-center justify-end gap-2 mt-4">
+                <div className="swiper-button-prev">&larr;</div>
+                {/* <div className="swiper-pagination"></div> */}
+                <div className="swiper-button-next">&rarr;</div>
+              </div>
+            </Swiper>
+          </div>
+        </div>
+
         <div className="flex flex-col gap-2">
           <p className="text-gray-50 text-lg px-3">Projects</p>
           <Link
@@ -116,6 +299,7 @@ export default function Home() {
             </div>
           </Link>
         </div>
+
         <div className="flex flex-col gap-2">
           <p className="text-gray-50 text-lg px-3">Full-time roles</p>
           <Link
@@ -226,6 +410,7 @@ export default function Home() {
             </div>
           </Link>
         </div>
+
         <div className="flex flex-col gap-2">
           <p className="text-gray-50 text-lg px-3">Branding</p>
           <Link
@@ -282,6 +467,7 @@ export default function Home() {
             </div>
           </Link>
         </div>
+
         <div className="flex flex-col gap-2">
           <p className="text-gray-50 text-lg mb-2">Events</p>
           <Link

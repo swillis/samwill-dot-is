@@ -23,3 +23,13 @@ body {
 ::-moz-selection {
   background: #737373; /* Gecko Browsers */
 }
+
+.yarl__button.yarl__navigation_next,
+.yarl__button.yarl__navigation_prev {
+  bottom: 0;
+  top: unset;
+}
+
+.swiper.swiper-backface-hidden {
+  overflow: visible;
+}
