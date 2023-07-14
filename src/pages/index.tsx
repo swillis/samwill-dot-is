@@ -1,12 +1,51 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import Link from "next/link";
+import React from "react";
+import { Icon } from "../components/Icon";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
     <main className="bg-gray-950">
+      <div className="fixed bg-gray-900 bottom-10 left-2/4 flex flex-row gap-1 p-1 rounded-full items-center -translate-x-2/4 z-20 border border-gray-800">
+        <Link
+          href="mailto:hey@samwill.is"
+          target="_blank"
+          className="h-8 w-8 flex items-center justify-center rounded-full hover:bg-gray-800"
+        >
+          <Icon name="email" className="fill-gray-500" size={16} />
+        </Link>
+        <Link
+          href="https://twitter.com/thesamwillis"
+          target="_blank"
+          className="h-8 w-8 flex items-center justify-center rounded-full hover:bg-gray-800"
+        >
+          <Icon name="twitter" className="fill-gray-500" size={16} />
+        </Link>
+        <Link
+          href="https://linkedin.com/in/samjwillis"
+          target="_blank"
+          className="h-8 w-8 flex items-center justify-center rounded-full hover:bg-gray-800"
+        >
+          <Icon name="linkedin" className="fill-gray-500" size={16} />
+        </Link>
+        <Link
+          href="https://dribbble.com/sjwillis"
+          target="_blank"
+          className="h-8 w-8 flex items-center justify-center rounded-full hover:bg-gray-800"
+        >
+          <Icon name="dribbble" className="fill-gray-500" size={16} />
+        </Link>
+        <Link
+          href="https://threads.net/@samwill.is"
+          target="_blank"
+          className="h-8 w-8 flex items-center justify-center rounded-full hover:bg-gray-800"
+        >
+          <Icon name="threads" className="fill-gray-500" size={16} />
+        </Link>
+      </div>
       <div className="flex flex-col max-w-xl mx-auto py-16 px-4 gap-16">
         <div className="flex flex-row gap-4 px-3">
           <Image
@@ -18,14 +57,14 @@ export default function Home() {
           />
           <div>
             <p className="text-sm text-gray-50">Sam Willis</p>
-            <p className="text-sm text-gray-400">Product designer</p>
+            <p className="text-sm text-gray-500">Product designer</p>
           </div>
         </div>
         <div className="flex flex-col px-3 items-start">
           <p className="text-gray-50 text-base mb-2">
             Hey, I&apos;m Sam—a product designer based in London, UK.
           </p>
-          <p className="text-gray-400 text-base mb-8">
+          <p className="text-gray-500 text-base mb-8">
             I&apos;ve spent the past 10 years helping startups translate vision
             to reality, and design into a competitive advantage.
           </p>
@@ -51,13 +90,13 @@ export default function Home() {
             </div>
             <div className="flex flex-col">
               <p className="text-sm text-gray-50">Alba</p>
-              <p className="text-sm text-gray-400 group-hover:text-gray-50 transition-all ease-in-out duration-300">
+              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
                 Designer/founder
               </p>
             </div>
             <div className="border-b border-solid border-gray-900 flex grow mb-1 group-hover:border-gray-300 transition-all ease-in-out duration-300"></div>
             <div className="flex items-end">
-              <p className="text-sm text-gray-400 group-hover:text-gray-50 transition-all ease-in-out duration-300">
+              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
                 2023-present
               </p>
             </div>
@@ -78,13 +117,13 @@ export default function Home() {
             </div>
             <div className="flex flex-col">
               <p className="text-sm text-gray-50">gm.studio</p>
-              <p className="text-sm text-gray-400 group-hover:text-gray-50 transition-all ease-in-out duration-300">
+              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
                 Product design
               </p>
             </div>
             <div className="border-b border-solid border-gray-900 flex grow mb-1 group-hover:border-gray-300 transition-all ease-in-out duration-300"></div>
             <div className="flex items-end">
-              <p className="text-sm text-gray-400 group-hover:text-gray-50 transition-all ease-in-out duration-300">
+              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
                 2023
               </p>
             </div>
@@ -107,13 +146,13 @@ export default function Home() {
             </div>
             <div className="flex flex-col">
               <p className="text-sm text-gray-50">Duffel</p>
-              <p className="text-sm text-gray-400 group-hover:text-gray-50 transition-all ease-in-out duration-300">
+              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
                 Product design lead
               </p>
             </div>
             <div className="border-b border-solid border-gray-900 flex grow mb-1 group-hover:border-gray-300 transition-all ease-in-out duration-300"></div>
             <div className="flex items-end">
-              <p className="text-sm text-gray-400 group-hover:text-gray-50 transition-all ease-in-out duration-300">
+              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
                 2020-present
               </p>
             </div>
@@ -134,13 +173,13 @@ export default function Home() {
             </div>
             <div className="flex flex-col">
               <p className="text-sm text-gray-50">Memrise</p>
-              <p className="text-sm text-gray-400 group-hover:text-gray-50 transition-all ease-in-out duration-300">
+              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
                 Design manager
               </p>
             </div>
             <div className="border-b border-solid border-gray-900 flex grow mb-1 group-hover:border-gray-300 transition-all ease-in-out duration-300"></div>
             <div className="flex items-end">
-              <p className="text-sm text-gray-400 group-hover:text-gray-50 transition-all ease-in-out duration-300">
+              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
                 2019-2020
               </p>
             </div>
@@ -161,13 +200,13 @@ export default function Home() {
             </div>
             <div className="flex flex-col">
               <p className="text-sm text-gray-50">Fat Llama</p>
-              <p className="text-sm text-gray-400 group-hover:text-gray-50 transition-all ease-in-out duration-300">
+              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
                 Product design lead
               </p>
             </div>
             <div className="border-b border-solid border-gray-900 flex grow mb-1 group-hover:border-gray-300 transition-all ease-in-out duration-300"></div>
             <div className="flex items-end">
-              <p className="text-sm text-gray-400 group-hover:text-gray-50 transition-all ease-in-out duration-300">
+              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
                 2018-2019
               </p>
             </div>
@@ -188,13 +227,13 @@ export default function Home() {
             </div>
             <div className="flex flex-col">
               <p className="text-sm text-gray-50">GoCardless</p>
-              <p className="text-sm text-gray-400 group-hover:text-gray-50 transition-all ease-in-out duration-300">
+              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
                 Senior product designer
               </p>
             </div>
             <div className="border-b border-solid border-gray-900 flex grow mb-1 group-hover:border-gray-300 transition-all ease-in-out duration-300"></div>
             <div className="flex items-end">
-              <p className="text-sm text-gray-400 group-hover:text-gray-50 transition-all ease-in-out duration-300">
+              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
                 2015-2018
               </p>
             </div>
@@ -217,13 +256,13 @@ export default function Home() {
             </div>
             <div className="flex flex-col">
               <p className="text-sm text-gray-50">Incident.io</p>
-              <p className="text-sm text-gray-400 group-hover:text-gray-50 transition-all ease-in-out duration-300">
+              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
                 Logo design
               </p>
             </div>
             <div className="border-b border-solid border-gray-900 flex grow mb-1 group-hover:border-gray-300 transition-all ease-in-out duration-300"></div>
             <div className="flex items-end">
-              <p className="text-sm text-gray-400 group-hover:text-gray-50 transition-all ease-in-out duration-300">
+              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
                 2021
               </p>
             </div>
@@ -244,19 +283,19 @@ export default function Home() {
             </div>
             <div className="flex flex-col">
               <p className="text-sm text-gray-50">Dependabot</p>
-              <p className="text-sm text-gray-400 group-hover:text-gray-50 transition-all ease-in-out duration-300">
+              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
                 Logo, brand & web design
               </p>
             </div>
             <div className="border-b border-solid border-gray-900 flex grow mb-1 group-hover:border-gray-300 transition-all ease-in-out duration-300"></div>
             <div className="flex items-end">
-              <p className="text-sm text-gray-400 group-hover:text-gray-50 transition-all ease-in-out duration-300">
+              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
                 2018
               </p>
             </div>
           </Link>
         </div>
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 mb-10">
           <p className="text-gray-50 text-base mb-2">Events</p>
           <Link
             href="https://designclub.io"
@@ -273,13 +312,13 @@ export default function Home() {
             </div>
             <div className="flex flex-col">
               <p className="text-sm text-gray-50">Design Club</p>
-              <p className="text-sm text-gray-400 group-hover:text-gray-50 transition-all ease-in-out duration-300">
+              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
                 Co-organiser
               </p>
             </div>
             <div className="border-b border-solid border-gray-900 flex grow mb-1 group-hover:border-gray-300 transition-all ease-in-out duration-300"></div>
             <div className="flex items-end">
-              <p className="text-sm text-gray-400 group-hover:text-gray-50 transition-all ease-in-out duration-300">
+              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
                 2016-present
               </p>
             </div>
@@ -300,50 +339,17 @@ export default function Home() {
             </div>
             <div className="flex flex-col">
               <p className="text-sm text-gray-50">Design+Banter</p>
-              <p className="text-sm text-gray-400 group-hover:text-gray-50 transition-all ease-in-out duration-300">
+              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
                 Co-organiser
               </p>
             </div>
             <div className="border-b border-solid border-gray-900 flex grow mb-1 group-hover:border-gray-300 transition-all ease-in-out duration-300"></div>
             <div className="flex items-end">
-              <p className="text-sm text-gray-400 group-hover:text-gray-50 transition-all ease-in-out duration-300">
+              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
                 2013-2015
               </p>
             </div>
           </Link>
-        </div>
-        <div className="flex flex-col gap-2">
-          <p className="text-gray-50 text-base px-3">Get in touch</p>
-          <div className="flex items-center gap-2">
-            <Link
-              href="mailto:hey@samwill.is"
-              target="_blank"
-              className="px-6 font-medium py-3 bg-gray-200 text-gray-900 rounded-md text-sm shadow-test hover:shadow-test-hover transition-all ease-in-out duration-300"
-            >
-              Request portfolio
-            </Link>
-            <Link
-              href="https://linkedin.com/in/samjwillis"
-              target="_blank"
-              className="p-3 rounded-md hover:shadow-test-hover transition-all ease-in-out duration-300 ml-2"
-            >
-              <Image src="/logos/linkedin.svg" alt="" width={20} height={20} />
-            </Link>
-            <Link
-              href="https://twitter.com/thesamwillis"
-              target="_blank"
-              className="p-3 rounded-md hover:shadow-test-hover transition-all ease-in-out duration-300"
-            >
-              <Image src="/logos/twitter.svg" alt="" width={20} height={20} />
-            </Link>
-            <Link
-              href="https://dribbble.com/sjwillis"
-              target="_blank"
-              className="p-3 rounded-md hover:shadow-test-hover transition-all ease-in-out duration-300"
-            >
-              <Image src="/logos/dribbble.svg" alt="" width={20} height={20} />
-            </Link>
-          </div>
         </div>
       </div>
     </main>
