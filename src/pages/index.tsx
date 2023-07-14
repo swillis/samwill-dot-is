@@ -296,7 +296,7 @@ export default function Home() {
           </Link>
         </div>
         <div className="flex flex-col gap-2 mb-10">
-          <p className="text-gray-50 text-base mb-2">Events</p>
+          <p className="text-gray-50 text-base px-3 mb-2">Events</p>
           <Link
             href="https://designclub.io"
             target="_blank"
