@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
   return (
     <main className="bg-gray-950">
-      <div className="fixed bg-gray-900 bottom-10 left-2/4 flex flex-row gap-1 p-1 rounded-full items-center -translate-x-2/4 z-20 border border-gray-800">
+      <div className="fixed bg-gray-800/50 bottom-10 left-2/4 flex flex-row gap-1 p-1 rounded-full items-center -translate-x-2/4 z-20 border border-gray-800 backdrop-blur-md">
         <Link
           href="mailto:hey@samwill.is"
           target="_blank"
