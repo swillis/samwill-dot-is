@@ -54,3 +54,7 @@ body {
 .swiper-button-next {
   @apply hover:text-white cursor-pointer;
 }
+
+.title {
+  @apply text-gray-50 text-base px-3 font-medium;
+}

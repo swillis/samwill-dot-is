@@ -64,7 +64,7 @@ export default function Home() {
             height={40}
           />
           <div>
-            <p className="text-sm text-gray-50">Sam Willis</p>
+            <p className="text-sm text-gray-50 font-medium">Sam Willis</p>
             <p className="text-sm text-gray-500">Product designer</p>
           </div>
         </div>
@@ -72,9 +72,29 @@ export default function Home() {
           <p className="text-gray-50 text-base mb-2">
             Hey, I&apos;m Sam—a product designer based in London, UK.
           </p>
+          <p className="text-gray-500 text-base mb-2">
+            I&apos;ve spent the past 10+ years helping companies translate
+            vision into reality, and design into competitive advantage.
+          </p>
           <p className="text-gray-500 text-base mb-8">
-            I&apos;ve spent the past 10 years helping startups translate vision
-            to reality, and design into a competitive advantage.
+            I&apos;m currently working at{" "}
+            <Link
+              href="https://duffel.com"
+              target="_blank"
+              className="hover:text-white underline"
+            >
+              Duffel
+            </Link>
+            , where we&apos;re building the future of travel, and on the side
+            making{" "}
+            <Link
+              href="https://alba.art"
+              target="_blank"
+              className="hover:text-white underline"
+            >
+              Alba
+            </Link>
+            , an open platform for launching generative art on Ethereum.
           </p>
           <div className="border rounded-full border-gray-900 px-4 py-2 text-sm text-gray-500 flex flex-row gap-3 items-center">
             <span className="h-2 w-2 bg-red-700 rounded-full"></span>
@@ -82,7 +102,7 @@ export default function Home() {
           </div>
         </div>
         <div className="flex flex-col gap-2">
-          <p className="text-gray-50 text-base px-3 mb-2">Selected work</p>
+          <p className="title mb-2">Selected work</p>
           <div className="px-3">
             <Swiper
               loop={true}
@@ -175,7 +195,7 @@ export default function Home() {
           </div>
         </div>
         <div className="flex flex-col gap-2">
-          <p className="text-gray-50 text-base px-3">Projects</p>
+          <p className="title">Projects</p>
           <Link
             href="https://alba.art"
             target="_blank"
@@ -231,7 +251,7 @@ export default function Home() {
           </Link>
         </div>
         <div className="flex flex-col gap-2">
-          <p className="text-gray-50 text-base px-3">Full-time roles</p>
+          <p className="title">Full-time roles</p>
           <Link
             href="https://duffel.com"
             target="_blank"
@@ -341,7 +361,7 @@ export default function Home() {
           </Link>
         </div>
         <div className="flex flex-col gap-2">
-          <p className="text-gray-50 text-base px-3">Branding</p>
+          <p className="title">Branding</p>
           <Link
             href="https://incident.io"
             target="_blank"
@@ -397,7 +417,7 @@ export default function Home() {
           </Link>
         </div>
         <div className="flex flex-col gap-2 mb-10">
-          <p className="text-gray-50 text-base px-3 mb-2">Events</p>
+          <p className="title mb-2">Events</p>
           <Link
             href="https://designclub.io"
             target="_blank"
