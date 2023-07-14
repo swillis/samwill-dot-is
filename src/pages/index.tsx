@@ -3,6 +3,14 @@ import { Inter } from "next/font/google";
 import Link from "next/link";
 import React from "react";
 import { Icon } from "../components/Icon";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectFade, Pagination, Navigation } from "swiper/modules";
+
+import "swiper/css/zoom";
+import "swiper/css/effect-fade";
+import "swiper/css/effect-cards";
+
+import "swiper/css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -70,7 +78,100 @@ export default function Home() {
           </p>
           <div className="border rounded-full border-gray-900 px-4 py-2 text-sm text-gray-500 flex flex-row gap-3 items-center">
             <span className="h-2 w-2 bg-red-700 rounded-full"></span>
-            <span>Currently unavailable for new projects</span>
+            <span>Unavailable for new projects</span>
+          </div>
+        </div>
+        <div className="flex flex-col gap-2">
+          <p className="text-gray-50 text-base px-3 mb-2">Selected work</p>
+          <div className="px-3">
+            <Swiper
+              loop={true}
+              modules={[EffectFade, Navigation, Pagination]}
+              pagination={{
+                el: ".swiper-pagination",
+                type: "fraction",
+              }}
+              navigation={{
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+              }}
+              slidesPerView={1}
+              centeredSlides={true}
+              spaceBetween={24}
+              effect={"fade"}
+              className="mySwiper relative"
+            >
+              <SwiperSlide>
+                <div className="bg-gray-900 rounded-xl mb-4">
+                  <Image
+                    src="/selected-work/alba-project-page.png"
+                    alt=""
+                    width={600}
+                    height={400}
+                  />
+                </div>
+                <p className="text-sm text-gray-500 bg-gray-950">
+                  Alba — project page
+                </p>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="bg-gray-900 rounded-xl mb-4">
+                  <Image
+                    src="/selected-work/duffel-stays.png"
+                    alt=""
+                    width={600}
+                    height={400}
+                  />
+                </div>
+                <p className="text-sm text-gray-500 bg-gray-950">
+                  Duffel — stays search in dashboard
+                </p>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="bg-gray-900 rounded-xl mb-4">
+                  <Image
+                    src="/selected-work/duffel-links-mob.png"
+                    alt=""
+                    width={600}
+                    height={400}
+                  />
+                </div>
+                <p className="text-sm text-gray-500 bg-gray-950">
+                  Duffel — white-label booking flow
+                </p>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="bg-gray-900 rounded-xl mb-4">
+                  <Image
+                    src="/selected-work/duffel-insights.png"
+                    alt=""
+                    width={600}
+                    height={400}
+                  />
+                </div>
+                <p className="text-sm text-gray-500 bg-gray-950">
+                  Duffel — merchant insights
+                </p>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="bg-gray-900 rounded-xl mb-4">
+                  <Image
+                    src="/selected-work/incident-logo.png"
+                    alt=""
+                    width={600}
+                    height={400}
+                  />
+                </div>
+                <p className="text-sm text-gray-500 bg-gray-950">
+                  Incident — logo design
+                </p>
+              </SwiperSlide>
+              <div className="flex flex-row gap-2 absolute bottom-0 right-0">
+                <div className="swiper-button-prev">&larr;</div>
+                <div className="swiper-pagination"></div>
+                <div className="swiper-button-next">&rarr;</div>
+              </div>
+            </Swiper>
           </div>
         </div>
         <div className="flex flex-col gap-2">

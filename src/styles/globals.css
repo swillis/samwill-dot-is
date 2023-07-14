@@ -23,3 +23,34 @@ body {
 ::-moz-selection {
   background: #737373; /* Gecko Browsers */
 }
+
+/* swiper */
+
+.swiper.swiper-cards {
+  overflow: visible;
+}
+
+.swiper-slide {
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper-button-prev,
+.swiper-button-next,
+.swiper-pagination {
+  @apply text-gray-500 text-sm z-20;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  @apply hover:text-white cursor-pointer;
+}
