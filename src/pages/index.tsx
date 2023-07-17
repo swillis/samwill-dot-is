@@ -26,7 +26,7 @@ export default function Home() {
           <Icon name="email" className="fill-gray-500" size={16} />
         </Link>
         <Link
-          href="https://twitter.com/thesamwillis"
+          href="https://twitter.com/samwill_is"
           target="_blank"
           className="h-8 w-8 flex items-center justify-center rounded-full hover:bg-gray-800"
         >
