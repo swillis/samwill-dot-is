@@ -54,7 +54,7 @@ export default function Home() {
           <Icon name="threads" className="fill-gray-500" size={16} />
         </Link>
       </div>
-      <div className="flex flex-col max-w-xl mx-auto py-16 px-4 gap-16">
+      <div className="flex flex-col max-w-2xl mx-auto py-16 px-4 gap-16">
         <div className="flex flex-row gap-4 px-3">
           <Image
             className="rounded-full"
