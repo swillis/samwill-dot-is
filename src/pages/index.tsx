@@ -25,7 +25,9 @@ export default function Home() {
 
       div.appendChild(gradientElem);
 
-      div.addEventListener("pointermove", (e) => {
+      div.addEventListener("pointermove", (event) => {
+        const e = event as MouseEvent;
+
         const rect = div.getBoundingClientRect();
 
         const x = e.clientX - rect.left;
@@ -34,7 +36,6 @@ export default function Home() {
         gsap.to(div, {
           "--pointer-x": `${x}px`,
           "--pointer-y": `${y}px`,
-          duration: 0.6,
         });
 
         gsap.to(div, {
@@ -49,11 +50,11 @@ export default function Home() {
               x / rect.width
             )
             .hex(),
-          duration: 0.2,
+          // duration: 0.2,
         });
       });
     });
-  }, []);
+  });
 
   return (
     <main className="bg-gray-950">
