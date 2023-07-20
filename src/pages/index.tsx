@@ -2,6 +2,9 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import Link from "next/link";
 import React from "react";
+import gsap from "gsap";
+import chroma from "chroma-js";
+
 import { Icon } from "../components/Icon";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Pagination, Navigation } from "swiper/modules";
@@ -15,9 +18,108 @@ import "swiper/css";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  React.useEffect(() => {
+    document.querySelectorAll(".glow-button").forEach((div) => {
+      const gradientElem = document.createElement("div");
+      gradientElem.classList.add("gradient");
+
+      div.appendChild(gradientElem);
+
+      div.addEventListener("pointermove", (e) => {
+        const rect = div.getBoundingClientRect();
+
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        gsap.to(div, {
+          "--pointer-x": `${x}px`,
+          "--pointer-y": `${y}px`,
+          duration: 0.6,
+        });
+
+        gsap.to(div, {
+          "--button-glow": chroma
+            .mix(
+              getComputedStyle(div)
+                .getPropertyValue("--button-glow-start")
+                .trim(),
+              getComputedStyle(div)
+                .getPropertyValue("--button-glow-end")
+                .trim(),
+              x / rect.width
+            )
+            .hex(),
+          duration: 0.2,
+        });
+      });
+    });
+  }, []);
+
   return (
     <main className="bg-gray-950">
-      <div className="fixed bg-gray-800/50 bottom-10 left-2/4 flex flex-row gap-1 p-1 rounded-full items-center -translate-x-2/4 z-20 border border-gray-800 backdrop-blur-md">
+      <div className="fixed bottom-10 left-2/4 -translate-x-2/4 z-20">
+        <button className="glow-button flex">
+          <span className="flex flex-row justify-center items-center">
+            <Link
+              href="mailto:hey@samwill.is"
+              target="_blank"
+              className="h-8 w-8 flex items-center justify-center rounded-full z-10 group"
+            >
+              <Icon
+                name="email"
+                className="fill-gray-500 group-hover:fill-white"
+                size={16}
+              />
+            </Link>
+            <Link
+              href="https://twitter.com/samwill_is"
+              target="_blank"
+              className="h-8 w-8 flex items-center justify-center rounded-full z-10 group"
+            >
+              <Icon
+                name="twitter"
+                className="fill-gray-500 group-hover:fill-white"
+                size={16}
+              />
+            </Link>
+            <Link
+              href="https://linkedin.com/in/samjwillis"
+              target="_blank"
+              className="h-8 w-8 flex items-center justify-center rounded-full z-10 group"
+            >
+              <Icon
+                name="linkedin"
+                className="fill-gray-500 group-hover:fill-white"
+                size={16}
+              />
+            </Link>
+            <Link
+              href="https://dribbble.com/sjwillis"
+              target="_blank"
+              className="h-8 w-8 flex items-center justify-center rounded-full z-10 group"
+            >
+              <Icon
+                name="dribbble"
+                className="fill-gray-500 group-hover:fill-white"
+                size={16}
+              />
+            </Link>
+            <Link
+              href="https://threads.net/@samwill.is"
+              target="_blank"
+              className="h-8 w-8 flex items-center justify-center rounded-full z-10 group"
+            >
+              <Icon
+                name="threads"
+                className="fill-gray-500 group-hover:fill-white"
+                size={16}
+              />
+            </Link>
+          </span>
+        </button>
+      </div>
+
+      {/* <div className="fixed bg-gray-800/50 bottom-10 left-2/4 flex flex-row gap-1 p-1 rounded-full items-center -translate-x-2/4 z-20 border border-gray-800 backdrop-blur-md">
         <Link
           href="mailto:hey@samwill.is"
           target="_blank"
@@ -53,7 +155,7 @@ export default function Home() {
         >
           <Icon name="threads" className="fill-gray-500" size={16} />
         </Link>
-      </div>
+      </div> */}
       <div className="flex flex-col max-w-2xl mx-auto py-16 px-4 gap-16">
         <div className="flex flex-row gap-4 px-3">
           <Image
