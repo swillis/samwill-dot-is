@@ -50,7 +50,7 @@ export default function Home() {
               x / rect.width
             )
             .hex(),
-          // duration: 0.2,
+          duration: 0.1,
         });
       });
     });
@@ -206,10 +206,10 @@ export default function Home() {
         </div>
         <div className="flex flex-col gap-2">
           <p className="title mb-2">Selected work</p>
-          <div className="px-3">
+          <div className="px-3 swiper-width">
             <Swiper
               loop={true}
-              modules={[EffectFade, Navigation, Pagination]}
+              modules={[Navigation, Pagination]}
               pagination={{
                 el: ".swiper-pagination",
                 type: "fraction",
@@ -218,7 +218,7 @@ export default function Home() {
                 nextEl: ".swiper-button-next",
                 prevEl: ".swiper-button-prev",
               }}
-              slidesPerView={1}
+              slidesPerView={3}
               centeredSlides={true}
               spaceBetween={24}
               effect={"fade"}
@@ -289,12 +289,12 @@ export default function Home() {
                   Incident — logo design
                 </p>
               </SwiperSlide>
-              <div className="flex flex-row gap-2 absolute bottom-0 right-0">
-                <div className="swiper-button-prev">&larr;</div>
-                <div className="swiper-pagination"></div>
-                <div className="swiper-button-next">&rarr;</div>
-              </div>
             </Swiper>
+            <div className="flex flex-row gap-2">
+              <div className="swiper-button-prev">&larr;</div>
+              <div className="swiper-pagination"></div>
+              <div className="swiper-button-next">&rarr;</div>
+            </div>
           </div>
         </div>
         <div className="flex flex-col gap-2">
