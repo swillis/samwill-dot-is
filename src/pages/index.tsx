@@ -2,14 +2,9 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import Link from "next/link";
 import React from "react";
+import ReactTyped from "react-typed";
 
 import { Icon } from "../components/Icon";
-
-import "swiper/css/zoom";
-import "swiper/css/effect-fade";
-import "swiper/css/effect-cards";
-
-import "swiper/css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -149,7 +144,16 @@ export default function Home() {
           <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-3 max-w-3xl">
               <p className="text-gray-50 text-xl font-medium">
-                I design digital products.
+                I{" "}
+                <ReactTyped
+                  strings={["design digital products."]}
+                  typeSpeed={30}
+                  loop
+                  backDelay={2000}
+                  backSpeed={10}
+                  // cursorChar=">"
+                  showCursor={true}
+                />
               </p>
               <p className="text-gray-500 text-xl">
                 Hey, I'm Sam — a london-based product designer who&apos;s spent
