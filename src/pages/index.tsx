@@ -106,7 +106,7 @@ export default function Home() {
         {/* Social bar */}
         <div className="fixed bottom-5 left-2/4 -translate-x-2/4 z-20">
           <SectionOne>
-            <div className="flex flex-row justify-center items-center dark:bg-gray-950/50 bg-gray-50/50 backdrop-blur-md rounded-full p-1">
+            <div className="flex flex-row justify-center items-center dark:bg-gray-800/50 bg-gray-200/50 backdrop-blur-md rounded-full p-1 border border-gray-800">
               <Link
                 href="mailto:hey@samwill.is"
                 target="_blank"
@@ -322,10 +322,10 @@ export default function Home() {
 
           {/* CV */}
           <div className="mx-auto max-w-2xl w-full">
-            <div className="flex flex-col gap-16">
+            <div className="flex flex-col gap-12">
               {/* Projects */}
               <SectionOne>
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-4">
                   <p className="title">Projects</p>
                   <Link
                     href="https://alba.art"
@@ -383,7 +383,7 @@ export default function Home() {
 
               {/* Full-time roles */}
               <SectionOne>
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-4">
                   <p className="title">Full-time roles</p>
                   <Link
                     href="https://duffel.com"
@@ -493,7 +493,7 @@ export default function Home() {
 
               {/* Branding */}
               <SectionOne>
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-4">
                   <p className="title">Branding</p>
                   <Link
                     href="https://incident.io"
@@ -551,7 +551,7 @@ export default function Home() {
 
               {/* Events */}
               <SectionOne>
-                <div className="flex flex-col gap-2 mb-10">
+                <div className="flex flex-col gap-4 mb-10">
                   <p className="title mb-2">Events</p>
                   <Link
                     href="https://designclub.io"
@@ -611,7 +611,7 @@ export default function Home() {
 
           {/* Footer */}
           <SectionOne>
-            <div className="flex flex-col lg:flex-row justify-center items center text-center lg:text-left gap-4 pb-16 lg:pb-2 lg:pt-6 lg:justify-between border-t dark:border-gray-900 border-gray-200">
+            <div className="flex flex-col lg:flex-row justify-center items center text-center lg:text-left gap-4 pb-16 lg:pb-2 lg:pt-6 lg:justify-between">
               <p className="text-sm dark:text-gray-400 text-gray-500">
                 © 2023, Sam Willis Design.
               </p>

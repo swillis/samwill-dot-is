@@ -27,7 +27,7 @@ body {
 
 
 .title {
-  @apply text-gray-50 text-base px-3 font-medium;
+  @apply text-gray-50 text-base font-medium;
 }
 
 .responsive-grid {
