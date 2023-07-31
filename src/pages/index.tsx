@@ -6,16 +6,7 @@ import { useInView } from "framer-motion";
 
 import { Icon } from "../components/Icon";
 
-// // Whenever the user explicitly chooses light mode
-// localStorage.theme = "light";
-
-// // Whenever the user explicitly chooses dark mode
-// localStorage.theme = "dark";
-
-// // Whenever the user explicitly chooses to respect the OS preference
-// localStorage.removeItem("theme");
-
-const projects = [
+const selectedWork = [
   {
     title: "Gen art minting page",
     company: "Alba",
@@ -66,7 +57,86 @@ const projects = [
   },
 ];
 
-function SectionOne({ children }: any) {
+const projects = [
+  {
+    company: "Alba",
+    role: "Designer/founder",
+    date: "2023-present",
+    link: "https://alba.art",
+    icon: "alba",
+  },
+  {
+    company: "gm.studio",
+    role: "Product design",
+    date: "2023",
+    link: "https://gmstudio.art",
+    icon: "gm_studio",
+  },
+  {
+    company: "Incident.io",
+    role: "Logo design",
+    date: "2021",
+    link: "https://incident.io",
+    icon: "incident",
+  },
+  {
+    company: "Dependabot",
+    role: "Logo, brand & web design",
+    date: "2017",
+    link: "https://dependabot.com",
+    icon: "dependabot",
+  },
+];
+
+const roles = [
+  {
+    company: "Duffel",
+    role: "Product design lead",
+    date: "2020-present",
+    link: "https://duffel.com",
+    icon: "duffel",
+  },
+  {
+    company: "Memrise",
+    role: "Design manager",
+    date: "2019-2020",
+    link: "https://memrise.com",
+    icon: "memrise",
+  },
+  {
+    company: "Fat Llama",
+    role: "Product design lead",
+    date: "2018-2019",
+    link: "https://fatllama.com",
+    icon: "fat_llama",
+  },
+  {
+    company: "GoCardless",
+    role: "Senior product designer",
+    date: "2015-2018",
+    link: "https://gocardless.com",
+    icon: "gocardless",
+  },
+];
+
+const events = [
+  {
+    company: "Design Club",
+    role: "Organiser",
+    date: "2016-present",
+    link: "https://designclub.io",
+    icon: "design_club",
+  },
+  {
+    company: "Design+Banter",
+    role: "Organiser",
+    date: "2013-2015",
+    link: "https://twitter.com/designandbanter",
+    icon: "design_and_banter",
+  },
+];
+
+function AppearIn({ children }: any) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
@@ -76,7 +146,7 @@ function SectionOne({ children }: any) {
         style={{
           transform: isInView ? "none" : "translateY(16px)",
           opacity: isInView ? 1 : 0,
-          transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.3s",
+          transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.6s",
         }}
       >
         {children}
@@ -104,71 +174,49 @@ export default function Home() {
     <main className={`${theme}`}>
       <div className="dark:bg-gray-950 bg-gray-50 transition-colors">
         {/* Social bar */}
-        <div className="fixed bottom-5 left-2/4 -translate-x-2/4 z-20">
-          <SectionOne>
-            <div className="flex flex-row justify-center items-center dark:bg-gray-800/50 bg-gray-200/50 backdrop-blur-md rounded-full p-1 border border-gray-800">
-              <Link
-                href="mailto:hey@samwill.is"
-                target="_blank"
-                className="h-8 w-8 flex items-center justify-center rounded-full z-10 group"
-              >
-                <Icon
-                  name="email"
-                  className="dark:fill-gray-500 fill-gray-600 dark:group-hover:fill-white group-hover:fill-gray-900"
-                  size={16}
-                />
-              </Link>
-              <Link
-                href="https://twitter.com/samwill_is"
-                target="_blank"
-                className="h-8 w-8 flex items-center justify-center rounded-full z-10 group"
-              >
-                <Icon
-                  name="twitter"
-                  className="dark:fill-gray-500 fill-gray-600 dark:group-hover:fill-white group-hover:fill-gray-900"
-                  size={16}
-                />
-              </Link>
-              <Link
-                href="https://linkedin.com/in/samjwillis"
-                target="_blank"
-                className="h-8 w-8 flex items-center justify-center rounded-full z-10 group"
-              >
-                <Icon
-                  name="linkedin"
-                  className="dark:fill-gray-500 fill-gray-600 dark:group-hover:fill-white group-hover:fill-gray-900"
-                  size={16}
-                />
-              </Link>
-              <Link
-                href="https://dribbble.com/sjwillis"
-                target="_blank"
-                className="h-8 w-8 flex items-center justify-center rounded-full z-10 group"
-              >
-                <Icon
-                  name="dribbble"
-                  className="dark:fill-gray-500 fill-gray-600 dark:group-hover:fill-white group-hover:fill-gray-900"
-                  size={16}
-                />
-              </Link>
-              <Link
-                href="https://threads.net/@samwill.is"
-                target="_blank"
-                className="h-8 w-8 flex items-center justify-center rounded-full z-10 group"
-              >
-                <Icon
-                  name="threads"
-                  className="dark:fill-gray-500 fill-gray-600 dark:group-hover:fill-white group-hover:fill-gray-900"
-                  size={16}
-                />
-              </Link>
-            </div>
-          </SectionOne>
+        <div className="fixed bottom-10 left-2/4 -translate-x-2/4 z-20">
+          <div className="flex flex-row justify-center items-center dark:bg-gray-800/50 bg-gray-100/50 backdrop-blur-md rounded-full p-1 border dark:border-gray-800/50 border-gray-200/50 animate-third">
+            <Link
+              href="mailto:hey@samwill.is"
+              target="_blank"
+              className="h-8 w-8 flex items-center justify-center rounded-full z-10 group"
+            >
+              <Icon name="email" className="social-icon" size={16} />
+            </Link>
+            <Link
+              href="https://twitter.com/samwill_is"
+              target="_blank"
+              className="h-8 w-8 flex items-center justify-center rounded-full z-10 group"
+            >
+              <Icon name="twitter" className="social-icon" size={16} />
+            </Link>
+            <Link
+              href="https://linkedin.com/in/samjwillis"
+              target="_blank"
+              className="h-8 w-8 flex items-center justify-center rounded-full z-10 group"
+            >
+              <Icon name="linkedin" className="social-icon" size={16} />
+            </Link>
+            <Link
+              href="https://dribbble.com/sjwillis"
+              target="_blank"
+              className="h-8 w-8 flex items-center justify-center rounded-full z-10 group"
+            >
+              <Icon name="dribbble" className="social-icon" size={16} />
+            </Link>
+            <Link
+              href="https://threads.net/@samwill.is"
+              target="_blank"
+              className="h-8 w-8 flex items-center justify-center rounded-full z-10 group"
+            >
+              <Icon name="threads" className="social-icon" size={16} />
+            </Link>
+          </div>
         </div>
 
         <div className="flex flex-col py-6 px-6 gap-32">
           {/* Header */}
-          <div className="flex flex-row justify-between">
+          <div className="animate-first flex flex-row justify-between">
             <div className="flex flex-row gap-4">
               <Image
                 className="rounded-full"
@@ -227,7 +275,7 @@ export default function Home() {
           </div>
 
           {/* Hero */}
-          <div className="mx-auto max-w-2xl w-full text-center">
+          <div className="mx-auto max-w-2xl w-full text-center animate-second">
             <div className="flex flex-col gap-6 items-center">
               <div className="flex flex-col gap-3 max-w-2xl">
                 <p className="dark:text-gray-50 text-gray-900 text-xl font-medium">
@@ -289,8 +337,8 @@ export default function Home() {
           {/* Selected work */}
 
           <div className="grid responsive-grid gap-6">
-            {projects.map((project) => (
-              <SectionOne key={project.title}>
+            {selectedWork.map((project) => (
+              <AppearIn key={project.title}>
                 <div className="aspect-square dark:bg-gray-900 bg-gray-100 rounded-lg relative flex justify-center items-center">
                   <Image
                     src={project.image}
@@ -316,7 +364,7 @@ export default function Home() {
                     </Link>
                   </div>
                 </div>
-              </SectionOne>
+              </AppearIn>
             ))}
           </div>
 
@@ -324,293 +372,129 @@ export default function Home() {
           <div className="mx-auto max-w-2xl w-full">
             <div className="flex flex-col gap-12">
               {/* Projects */}
-              <SectionOne>
+              <AppearIn>
                 <div className="flex flex-col gap-4">
                   <p className="title">Projects</p>
-                  <Link
-                    href="https://alba.art"
-                    target="_blank"
-                    className="flex flex-row gap-4 align-baseline group transition-all ease-in-out duration-300"
-                  >
-                    <div className="p-1">
-                      <Icon
-                        name="alba"
-                        className="dark:fill-gray-50 fill-gray-900 dark:group-hover:fill-white group-hover:fill-gray-900"
-                        size={32}
-                      />
-                    </div>
-                    <div className="flex flex-col">
-                      <p className="text-sm dark:text-gray-50">Alba</p>
-                      <p className="text-sm dark:text-gray-500 text-gray-600 dark:group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                        Designer/founder
-                      </p>
-                    </div>
-                    <div className="border-b border-solid dark:border-gray-900 border-gray-200 flex grow mb-1 dark:group-hover:border-gray-300 group-hover:border-gray-500 transition-all ease-in-out duration-300"></div>
-                    <div className="flex items-end">
-                      <p className="text-sm dark:text-gray-500 text-gray-600 dark:group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                        2023-present
-                      </p>
-                    </div>
-                  </Link>
-
-                  <Link
-                    href="https://gmstudio.art"
-                    target="_blank"
-                    className="flex flex-row gap-4 align-baseline group transition-all ease-in-out duration-300"
-                  >
-                    <div className="p-1">
-                      <Icon
-                        name="gm_studio"
-                        className="dark:fill-gray-50 fill-gray-900 dark:group-hover:fill-white group-hover:fill-gray-900"
-                        size={32}
-                      />
-                    </div>
-                    <div className="flex flex-col">
-                      <p className="text-sm dark:text-gray-50">gm.studio</p>
-                      <p className="text-sm dark:text-gray-500 text-gray-600 dark:group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                        Product design
-                      </p>
-                    </div>
-                    <div className="border-b border-solid dark:border-gray-900 border-gray-200 flex grow mb-1 dark:group-hover:border-gray-300 group-hover:border-gray-500 transition-all ease-in-out duration-300"></div>
-                    <div className="flex items-end">
-                      <p className="text-sm dark:text-gray-500 text-gray-600 dark:group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                        2023
-                      </p>
-                    </div>
-                  </Link>
+                  {projects.map((item) => (
+                    <Link
+                      href={item.link}
+                      target="_blank"
+                      className="flex flex-row gap-4 align-baseline group transition-all ease-in-out duration-300"
+                    >
+                      <div className="p-1">
+                        <Icon
+                          name={item.icon}
+                          className="cv-item_icon"
+                          size={32}
+                        />
+                      </div>
+                      <div className="flex flex-col">
+                        <p className="cv-item_primary">{item.company}</p>
+                        <p className="cv-item_secondary">{item.role}</p>
+                      </div>
+                      <div className="cv-item_border"></div>
+                      <div className="flex items-end">
+                        <p className="cv-item_secondary block group-hover:hidden transition-all">
+                          {item.date}
+                        </p>
+                        <div className="hidden group-hover:flex flex-row items-center gap-1 transition-all">
+                          <p className="cv-item_secondary">Visit</p>
+                          <Icon
+                            name="arrow_right"
+                            className="cv-item_arrow"
+                            size={12}
+                          />
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
                 </div>
-              </SectionOne>
+              </AppearIn>
 
               {/* Full-time roles */}
-              <SectionOne>
+              <AppearIn>
                 <div className="flex flex-col gap-4">
                   <p className="title">Full-time roles</p>
-                  <Link
-                    href="https://duffel.com"
-                    target="_blank"
-                    className="flex flex-row gap-4 align-baseline group transition-all ease-in-out duration-300"
-                  >
-                    <div className="p-1">
-                      <Icon
-                        name="duffel"
-                        className="dark:fill-gray-50 fill-gray-900 dark:group-hover:fill-white group-hover:fill-gray-900"
-                        size={32}
-                      />
-                    </div>
-                    <div className="flex flex-col">
-                      <p className="text-sm dark:text-gray-50">Duffel</p>
-                      <p className="text-sm dark:text-gray-500 text-gray-600 dark:group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                        Product design lead
-                      </p>
-                    </div>
-                    <div className="border-b border-solid dark:border-gray-900 border-gray-200 flex grow mb-1 dark:group-hover:border-gray-300 group-hover:border-gray-500 transition-all ease-in-out duration-300"></div>
-                    <div className="flex items-end">
-                      <p className="text-sm dark:text-gray-500 text-gray-600 dark:group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                        2020-present
-                      </p>
-                    </div>
-                  </Link>
-
-                  <Link
-                    href="https://memrise.com"
-                    target="_blank"
-                    className="flex flex-row gap-4 align-baseline group transition-all ease-in-out duration-300"
-                  >
-                    <div className="p-1">
-                      <Icon
-                        name="memrise"
-                        className="dark:fill-gray-50 fill-gray-900 dark:group-hover:fill-white group-hover:fill-gray-900"
-                        size={32}
-                      />
-                    </div>
-                    <div className="flex flex-col">
-                      <p className="text-sm dark:text-gray-50">Memrise</p>
-                      <p className="text-sm dark:text-gray-500 text-gray-600 dark:group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                        Design manager
-                      </p>
-                    </div>
-                    <div className="border-b border-solid dark:border-gray-900 border-gray-200 flex grow mb-1 dark:group-hover:border-gray-300 group-hover:border-gray-500 transition-all ease-in-out duration-300"></div>
-                    <div className="flex items-end">
-                      <p className="text-sm dark:text-gray-500 text-gray-600 dark:group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                        2019-2020
-                      </p>
-                    </div>
-                  </Link>
-
-                  <Link
-                    href="https://fatllama.com"
-                    target="_blank"
-                    className="flex flex-row gap-4 align-baseline group transition-all ease-in-out duration-300"
-                  >
-                    <div className="p-1">
-                      <Icon
-                        name="fat_llama"
-                        className="dark:fill-gray-50 fill-gray-900 dark:group-hover:fill-white group-hover:fill-gray-900"
-                        size={32}
-                      />
-                    </div>
-                    <div className="flex flex-col">
-                      <p className="text-sm dark:text-gray-50">Fat Llama</p>
-                      <p className="text-sm dark:text-gray-500 text-gray-600 dark:group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                        Product design lead
-                      </p>
-                    </div>
-                    <div className="border-b border-solid dark:border-gray-900 border-gray-200 flex grow mb-1 dark:group-hover:border-gray-300 group-hover:border-gray-500 transition-all ease-in-out duration-300"></div>
-                    <div className="flex items-end">
-                      <p className="text-sm dark:text-gray-500 text-gray-600 dark:group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                        2018-2019
-                      </p>
-                    </div>
-                  </Link>
-
-                  <Link
-                    href="https://gocardless.com"
-                    target="_blank"
-                    className="flex flex-row gap-4 align-baseline group transition-all ease-in-out duration-300"
-                  >
-                    <div className="p-1">
-                      <Icon
-                        name="gocardless"
-                        className="dark:fill-gray-50 fill-gray-900 dark:group-hover:fill-white group-hover:fill-gray-900"
-                        size={32}
-                      />
-                    </div>
-                    <div className="flex flex-col">
-                      <p className="text-sm dark:text-gray-50">GoCardless</p>
-                      <p className="text-sm dark:text-gray-500 text-gray-600 dark:group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                        Senior product designer
-                      </p>
-                    </div>
-                    <div className="border-b border-solid dark:border-gray-900 border-gray-200 flex grow mb-1 dark:group-hover:border-gray-300 group-hover:border-gray-500 transition-all ease-in-out duration-300"></div>
-                    <div className="flex items-end">
-                      <p className="text-sm dark:text-gray-500 text-gray-600 dark:group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                        2015-2018
-                      </p>
-                    </div>
-                  </Link>
+                  {roles.map((item) => (
+                    <Link
+                      href={item.link}
+                      target="_blank"
+                      className="flex flex-row gap-4 align-baseline group"
+                    >
+                      <div className="p-1">
+                        <Icon
+                          name={item.icon}
+                          className="cv-item_icon"
+                          size={32}
+                        />
+                      </div>
+                      <div className="flex flex-col">
+                        <p className="cv-item_primary">{item.company}</p>
+                        <p className="cv-item_secondary">{item.role}</p>
+                      </div>
+                      <div className="cv-item_border"></div>
+                      <div className="flex items-end">
+                        <p className="cv-item_secondary block group-hover:hidden transition-all">
+                          {item.date}
+                        </p>
+                        <div className="hidden group-hover:flex flex-row items-center gap-1 transition-all">
+                          <p className="cv-item_secondary">Visit</p>
+                          <Icon
+                            name="arrow_right"
+                            className="cv-item_arrow"
+                            size={12}
+                          />
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
                 </div>
-              </SectionOne>
-
-              {/* Branding */}
-              <SectionOne>
-                <div className="flex flex-col gap-4">
-                  <p className="title">Branding</p>
-                  <Link
-                    href="https://incident.io"
-                    target="_blank"
-                    className="flex flex-row gap-4 align-baseline group transition-all ease-in-out duration-300"
-                  >
-                    <div className="p-1">
-                      <Icon
-                        name="incident"
-                        className="dark:fill-gray-50 fill-gray-900 dark:group-hover:fill-white group-hover:fill-gray-900"
-                        size={32}
-                      />
-                    </div>
-                    <div className="flex flex-col">
-                      <p className="text-sm dark:text-gray-50">Incident.io</p>
-                      <p className="text-sm dark:text-gray-500 text-gray-600 dark:group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                        Logo design
-                      </p>
-                    </div>
-                    <div className="border-b border-solid dark:border-gray-900 border-gray-200 flex grow mb-1 dark:group-hover:border-gray-300 group-hover:border-gray-500 transition-all ease-in-out duration-300"></div>
-                    <div className="flex items-end">
-                      <p className="text-sm dark:text-gray-500 text-gray-600 dark:group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                        2021
-                      </p>
-                    </div>
-                  </Link>
-
-                  <Link
-                    href="https://dependabot.com"
-                    target="_blank"
-                    className="flex flex-row gap-4 align-baseline group transition-all ease-in-out duration-300"
-                  >
-                    <div className="p-1">
-                      <Icon
-                        name="dependabot"
-                        className="dark:fill-gray-50 fill-gray-900 dark:group-hover:fill-white group-hover:fill-gray-900"
-                        size={32}
-                      />
-                    </div>
-                    <div className="flex flex-col">
-                      <p className="text-sm dark:text-gray-50">Dependabot</p>
-                      <p className="text-sm dark:text-gray-500 text-gray-600 dark:group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                        Logo, brand & web design
-                      </p>
-                    </div>
-                    <div className="border-b border-solid dark:border-gray-900 border-gray-200 flex grow mb-1 dark:group-hover:border-gray-300 group-hover:border-gray-500 transition-all ease-in-out duration-300"></div>
-                    <div className="flex items-end">
-                      <p className="text-sm dark:text-gray-500 text-gray-600 dark:group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                        2018
-                      </p>
-                    </div>
-                  </Link>
-                </div>
-              </SectionOne>
+              </AppearIn>
 
               {/* Events */}
-              <SectionOne>
+              <AppearIn>
                 <div className="flex flex-col gap-4 mb-10">
                   <p className="title mb-2">Events</p>
-                  <Link
-                    href="https://designclub.io"
-                    target="_blank"
-                    className="flex flex-row gap-4 align-baseline group transition-all ease-in-out duration-300"
-                  >
-                    <div className="p-1">
-                      <Icon
-                        name="design_club"
-                        className="dark:fill-gray-50 fill-gray-900 dark:group-hover:fill-white group-hover:fill-gray-900"
-                        size={32}
-                      />
-                    </div>
-                    <div className="flex flex-col">
-                      <p className="text-sm dark:text-gray-50">Design Club</p>
-                      <p className="text-sm dark:text-gray-500 text-gray-600 dark:group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                        Co-organiser
-                      </p>
-                    </div>
-                    <div className="border-b border-solid dark:border-gray-900 border-gray-200 flex grow mb-1 dark:group-hover:border-gray-300 group-hover:border-gray-500 transition-all ease-in-out duration-300"></div>
-                    <div className="flex items-end">
-                      <p className="text-sm dark:text-gray-500 text-gray-600 dark:group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                        2016-present
-                      </p>
-                    </div>
-                  </Link>
-
-                  <Link
-                    href="https://twitter.com/designandbanter"
-                    target="_blank"
-                    className="flex flex-row gap-4 align-baseline group transition-all ease-in-out duration-300"
-                  >
-                    <div className="p-1">
-                      <Icon
-                        name="design_and_banter"
-                        className="dark:fill-gray-50 fill-gray-900 dark:group-hover:fill-white group-hover:fill-gray-900"
-                        size={32}
-                      />
-                    </div>
-                    <div className="flex flex-col">
-                      <p className="text-sm dark:text-gray-50">Design+Banter</p>
-                      <p className="text-sm dark:text-gray-500 text-gray-600 dark:group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                        Co-organiser
-                      </p>
-                    </div>
-                    <div className="border-b border-solid dark:border-gray-900 border-gray-200 flex grow mb-1 dark:group-hover:border-gray-300 group-hover:border-gray-500 transition-all ease-in-out duration-300"></div>
-                    <div className="flex items-end">
-                      <p className="text-sm dark:text-gray-500 text-gray-600 dark:group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                        2013-2015
-                      </p>
-                    </div>
-                  </Link>
+                  {events.map((item) => (
+                    <Link
+                      href={item.link}
+                      target="_blank"
+                      className="flex flex-row gap-4 align-baseline group"
+                    >
+                      <div className="p-1 transition-colors ease-in-out duration-300">
+                        <Icon
+                          name={item.icon}
+                          className="cv-item_icon"
+                          size={32}
+                        />
+                      </div>
+                      <div className="flex flex-col">
+                        <p className="cv-item_primary">{item.company}</p>
+                        <p className="cv-item_secondary">{item.role}</p>
+                      </div>
+                      <div className="cv-item_border"></div>
+                      <div className="flex items-end">
+                        <p className="cv-item_secondary block group-hover:hidden transition-all">
+                          {item.date}
+                        </p>
+                        <div className="hidden group-hover:flex flex-row items-center gap-1 transition-all">
+                          <p className="cv-item_secondary">Visit</p>
+                          <Icon
+                            name="arrow_right"
+                            className="cv-item_arrow"
+                            size={12}
+                          />
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
                 </div>
-              </SectionOne>
+              </AppearIn>
             </div>
           </div>
 
           {/* Footer */}
-          <SectionOne>
+          <AppearIn>
             <div className="flex flex-col lg:flex-row justify-center items center text-center lg:text-left gap-4 pb-16 lg:pb-2 lg:pt-6 lg:justify-between">
               <p className="text-sm dark:text-gray-400 text-gray-500">
                 © 2023, Sam Willis Design.
@@ -619,7 +503,7 @@ export default function Home() {
                 Built with ❤ (also Tailwind, Vercel & NextJS) by me.
               </p>
             </div>
-          </SectionOne>
+          </AppearIn>
         </div>
       </div>
     </main>
