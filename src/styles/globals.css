@@ -18,11 +18,11 @@ body {
 }
 
 ::selection {
-  background: red; /* WebKit/Blink Browsers */
+  @apply dark:bg-gray-800 bg-gray-900;
 }
 
 ::-moz-selection {
-  background: red; /* Gecko Browsers */
+  @apply dark:bg-gray-800 bg-gray-900;
 }
 
 .social-icon {
