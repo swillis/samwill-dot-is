@@ -14,7 +14,7 @@ module.exports = {
 
     fontFamily: {
       sans: [
-        "Inter, sans-serif",
+        "Inter, system, sans-serif",
         // {
         //   fontFeatureSettings: '"cv11", "ss01"',
         //   fontVariationSettings: '"opsz" 32'

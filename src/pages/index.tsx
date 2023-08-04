@@ -14,10 +14,10 @@ const selectedWork = [
     image: "/selected-work/project-page.jpg",
   },
   {
-    title: "White-label booking flow for flights + stays",
+    title: "White-label search & book flow",
     company: "Duffel",
     link: "https://duffel.com/links",
-    image: "/selected-work/links.jpg",
+    image: "/selected-work/duffel-links.jpg",
   },
   {
     title: "Logo design",
@@ -76,7 +76,7 @@ const selectedWork = [
   {
     title: "White-label confirmation email",
     company: "Duffel",
-    link: "https://duffel.com/links",
+    link: "https://duffel.com",
     image: "/selected-work/confirmation-email.jpg",
   },
 ];
@@ -212,7 +212,7 @@ export default function Home() {
                 <p className="text-sm dark:text-gray-50 text-gray-900 font-medium">
                   Sam Willis
                 </p>
-                <p className="text-sm dark:text-gray-500 text-gray-600">
+                <p className="text-sm dark:text-gray-500 text-gray-600 font-medium">
                   Product designer
                 </p>
               </div>
@@ -317,7 +317,7 @@ export default function Home() {
           </div>
 
           {/* Selected work */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 min-[1800px]:grid-cols-4 gap-6">
             {selectedWork.map((project) => (
               <AppearIn key={project.title} className="test">
                 <div className="aspect-square dark:bg-gray-900 bg-gray-100 rounded-xl relative flex flex-col justify-center items-center">
@@ -462,39 +462,39 @@ export default function Home() {
 
           {/* Social bar */}
           <div className="fixed bottom-10 left-2/4 -translate-x-2/4 z-20">
-            <div className="flex flex-row justify-center items-center dark:bg-gray-950/80 bg-white/50 backdrop-blur-md rounded-full p-1 border dark:border-gray-700/40 border-gray-200/50 animate-third">
+            <div className="flex flex-row justify-center items-center dark:bg-gray-950 bg-white backdrop-blur-md rounded-full p-1 border dark:border-gray-800 border-gray-200/50 animate-third">
               <Link
                 href="mailto:hey@samwill.is"
                 target="_blank"
-                className="h-8 w-8 flex items-center justify-center rounded-full z-10 group"
+                className="h-9 w-9 flex items-center justify-center rounded-full z-10 group hover:bg-gray-100 dark:hover:bg-gray-900"
               >
                 <Icon name="email" className="social-icon" size={16} />
               </Link>
               <Link
                 href="https://twitter.com/samwill_is"
                 target="_blank"
-                className="h-8 w-8 flex items-center justify-center rounded-full z-10 group"
+                className="h-9 w-9 flex items-center justify-center rounded-full z-10 group hover:bg-gray-100 dark:hover:bg-gray-900"
               >
                 <Icon name="twitter" className="social-icon" size={16} />
               </Link>
               <Link
                 href="https://linkedin.com/in/samjwillis"
                 target="_blank"
-                className="h-8 w-8 flex items-center justify-center rounded-full z-10 group"
+                className="h-9 w-9 flex items-center justify-center rounded-full z-10 group hover:bg-gray-100 dark:hover:bg-gray-900"
               >
                 <Icon name="linkedin" className="social-icon" size={16} />
               </Link>
               <Link
                 href="https://dribbble.com/sjwillis"
                 target="_blank"
-                className="h-8 w-8 flex items-center justify-center rounded-full z-10 group"
+                className="h-9 w-9 flex items-center justify-center rounded-full z-10 group hover:bg-gray-100 dark:hover:bg-gray-900"
               >
                 <Icon name="dribbble" className="social-icon" size={16} />
               </Link>
               <Link
                 href="https://threads.net/@samwill.is"
                 target="_blank"
-                className="h-8 w-8 flex items-center justify-center rounded-full z-10 group"
+                className="h-9 w-9 flex items-center justify-center rounded-full z-10 group hover:bg-gray-100 dark:hover:bg-gray-900"
               >
                 <Icon name="threads" className="social-icon" size={16} />
               </Link>
