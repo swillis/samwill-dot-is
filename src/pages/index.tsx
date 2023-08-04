@@ -11,49 +11,73 @@ const selectedWork = [
     title: "Gen art minting page",
     company: "Alba",
     link: "https://alba.art",
-    image: "/selected-work/project-page.png",
+    image: "/selected-work/project-page.jpg",
   },
   {
     title: "White-label booking flow for flights + stays",
     company: "Duffel",
     link: "https://duffel.com/links",
-    image: "/selected-work/links.png",
+    image: "/selected-work/links.jpg",
   },
   {
     title: "Logo design",
     company: "Incident.io",
     link: "https://incident.io",
-    image: "/selected-work/incident-dark-mode.png",
+    image: "/selected-work/incident.jpg",
   },
   {
     title: "Merchant insights dashboard",
     company: "Duffel",
     link: "https://duffel.com",
-    image: "/selected-work/merchant-insights.png",
+    image: "/selected-work/merchant-insights.jpg",
   },
   {
     title: "Homepage for gen art studio",
     company: "gm.studio",
     link: "https://gmstudio.art",
-    image: "/selected-work/gm-studio.png",
+    image: "/selected-work/gmstudio.jpg",
   },
   {
     title: "Stays search results with map",
     company: "June 20",
     link: "https://duffel.com",
-    image: "/selected-work/stays-search.png",
+    image: "/selected-work/stays-search.jpg",
   },
   {
     title: "Integration guides + API reference",
     company: "Duffel",
     link: "https://duffel.com/docs",
-    image: "/selected-work/docs.png",
+    image: "/selected-work/api-docs.jpg",
+  },
+  {
+    title: "Alba home page",
+    company: "Alba",
+    link: "https://alba.art",
+    image: "/selected-work/alba-homepage.jpg",
   },
   {
     title: "Logo + brand design",
     company: "Dependabot",
     link: "https://dependabot.com",
-    image: "/selected-work/dependabot-dark-mode.png",
+    image: "/selected-work/dependabot.jpg",
+  },
+  {
+    title: "Staking UI",
+    company: "Mantle",
+    link: "https://duffel.com/docs",
+    image: "/selected-work/staking-ui.jpg",
+  },
+  {
+    title: "Project launch flow",
+    company: "Alba",
+    link: "https://alba.art",
+    image: "/selected-work/project-launch.jpg",
+  },
+  {
+    title: "White-label confirmation email",
+    company: "Duffel",
+    link: "https://duffel.com/links",
+    image: "/selected-work/confirmation-email.jpg",
   },
 ];
 
@@ -173,47 +197,6 @@ export default function Home() {
   return (
     <main className={`${theme}`}>
       <div className="dark:bg-gray-950 bg-gray-50 transition-colors">
-        {/* Social bar */}
-        <div className="fixed bottom-10 left-2/4 -translate-x-2/4 z-20">
-          <div className="flex flex-row justify-center items-center dark:bg-gray-800/50 bg-gray-100/50 backdrop-blur-md rounded-full p-1 border dark:border-gray-800/50 border-gray-200/50 animate-third">
-            <Link
-              href="mailto:hey@samwill.is"
-              target="_blank"
-              className="h-8 w-8 flex items-center justify-center rounded-full z-10 group"
-            >
-              <Icon name="email" className="social-icon" size={16} />
-            </Link>
-            <Link
-              href="https://twitter.com/samwill_is"
-              target="_blank"
-              className="h-8 w-8 flex items-center justify-center rounded-full z-10 group"
-            >
-              <Icon name="twitter" className="social-icon" size={16} />
-            </Link>
-            <Link
-              href="https://linkedin.com/in/samjwillis"
-              target="_blank"
-              className="h-8 w-8 flex items-center justify-center rounded-full z-10 group"
-            >
-              <Icon name="linkedin" className="social-icon" size={16} />
-            </Link>
-            <Link
-              href="https://dribbble.com/sjwillis"
-              target="_blank"
-              className="h-8 w-8 flex items-center justify-center rounded-full z-10 group"
-            >
-              <Icon name="dribbble" className="social-icon" size={16} />
-            </Link>
-            <Link
-              href="https://threads.net/@samwill.is"
-              target="_blank"
-              className="h-8 w-8 flex items-center justify-center rounded-full z-10 group"
-            >
-              <Icon name="threads" className="social-icon" size={16} />
-            </Link>
-          </div>
-        </div>
-
         <div className="flex flex-col py-6 px-6 gap-32">
           {/* Header */}
           <div className="animate-first flex flex-row justify-between">
@@ -305,7 +288,7 @@ export default function Home() {
                 <p className="dark:text-gray-500 text-gray-600 text-xl">
                   I&apos;ve spent the past 10+ years helping companies translate
                   vision into reality, and design into competitive advantage.
-                  I&apos;m currently working at{" "}
+                  I&apos;m currently building the future of travel at{" "}
                   <Link
                     href="https://duffel.com"
                     target="_blank"
@@ -313,16 +296,15 @@ export default function Home() {
                   >
                     Duffel
                   </Link>
-                  &nbsp;— where we&apos;re building the future of travel — and
-                  on the side I'm building{" "}
+                  , and on the side I&apos;m building{" "}
                   <Link
                     href="https://alba.art"
                     target="_blank"
                     className="dark:text-gray-400 text-gray-800 hover:underline"
                   >
                     Alba
-                  </Link>
-                  — an open platform for gen art on Ethereum.
+                  </Link>{" "}
+                  — an open platform for generative art on Ethereum.
                 </p>
               </div>
               <div className="flex shrink grow basis-auto">
@@ -335,18 +317,21 @@ export default function Home() {
           </div>
 
           {/* Selected work */}
-
-          <div className="grid responsive-grid gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6">
             {selectedWork.map((project) => (
-              <AppearIn key={project.title}>
-                <div className="aspect-square dark:bg-gray-900 bg-gray-100 rounded-lg relative flex justify-center items-center">
-                  <Image
-                    src={project.image}
-                    alt="Picture of the author"
-                    width={720}
-                    height={540}
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 flex flex-row justify-between px-6 pb-5">
+              <AppearIn key={project.title} className="test">
+                <div className="aspect-square dark:bg-gray-900 bg-gray-100 rounded-xl relative flex flex-col justify-center items-center">
+                  <div className="flex flex-1 pt-6 pb-5 px-6 w-full">
+                    <div className="relative w-full h-full rounded-md overflow-clip">
+                      <Image
+                        src={project.image}
+                        alt={`Picture of ${project.title}`}
+                        fill={true}
+                        style={{ objectFit: "cover" }}
+                      />
+                    </div>
+                  </div>
+                  <div className="flex flex-row w-full justify-between px-6 pb-5">
                     <p className="dark:text-gray-400 text-gray-500 text-sm">
                       {project.title}
                     </p>
@@ -356,11 +341,6 @@ export default function Home() {
                       className="dark:text-gray-500 text-gray-400 flex flex-row items-center gap-1 justify-center text-sm group dark:hover:text-gray-50 hover:text-gray-900"
                     >
                       {project.company}
-                      <Icon
-                        name="arrow_right"
-                        className="dark:fill-gray-500 fill-gray-400 dark:group-hover:fill-gray-50 group-hover:fill-gray-900"
-                        size={12}
-                      />
                     </Link>
                   </div>
                 </div>
@@ -369,7 +349,7 @@ export default function Home() {
           </div>
 
           {/* CV */}
-          <div className="mx-auto max-w-2xl w-full">
+          <div className="mx-auto max-w-2xl w-full mb-16">
             <div className="flex flex-col gap-12">
               {/* Projects */}
               <AppearIn>
@@ -380,6 +360,7 @@ export default function Home() {
                       href={item.link}
                       target="_blank"
                       className="flex flex-row gap-4 align-baseline group transition-all ease-in-out duration-300"
+                      key={item.company}
                     >
                       <div className="p-1">
                         <Icon
@@ -420,6 +401,7 @@ export default function Home() {
                       href={item.link}
                       target="_blank"
                       className="flex flex-row gap-4 align-baseline group"
+                      key={item.company}
                     >
                       <div className="p-1">
                         <Icon
@@ -460,6 +442,7 @@ export default function Home() {
                       href={item.link}
                       target="_blank"
                       className="flex flex-row gap-4 align-baseline group"
+                      key={item.company}
                     >
                       <div className="p-1 transition-colors ease-in-out duration-300">
                         <Icon
@@ -493,17 +476,46 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Footer */}
-          <AppearIn>
-            <div className="flex flex-col lg:flex-row justify-center items center text-center lg:text-left gap-4 pb-16 lg:pb-2 lg:pt-6 lg:justify-between">
-              <p className="text-sm dark:text-gray-400 text-gray-500">
-                © 2023, Sam Willis Design.
-              </p>
-              <p className="text-sm dark:text-gray-400 text-gray-500">
-                Built with ❤ (also Tailwind, Vercel & NextJS) by me.
-              </p>
+          {/* Social bar */}
+          <div className="fixed bottom-10 left-2/4 -translate-x-2/4 z-20">
+            <div className="flex flex-row justify-center items-center dark:bg-gray-950/80 bg-white/50 backdrop-blur-md rounded-full p-1 border dark:border-gray-700/40 border-gray-200/50 animate-third">
+              <Link
+                href="mailto:hey@samwill.is"
+                target="_blank"
+                className="h-8 w-8 flex items-center justify-center rounded-full z-10 group"
+              >
+                <Icon name="email" className="social-icon" size={16} />
+              </Link>
+              <Link
+                href="https://twitter.com/samwill_is"
+                target="_blank"
+                className="h-8 w-8 flex items-center justify-center rounded-full z-10 group"
+              >
+                <Icon name="twitter" className="social-icon" size={16} />
+              </Link>
+              <Link
+                href="https://linkedin.com/in/samjwillis"
+                target="_blank"
+                className="h-8 w-8 flex items-center justify-center rounded-full z-10 group"
+              >
+                <Icon name="linkedin" className="social-icon" size={16} />
+              </Link>
+              <Link
+                href="https://dribbble.com/sjwillis"
+                target="_blank"
+                className="h-8 w-8 flex items-center justify-center rounded-full z-10 group"
+              >
+                <Icon name="dribbble" className="social-icon" size={16} />
+              </Link>
+              <Link
+                href="https://threads.net/@samwill.is"
+                target="_blank"
+                className="h-8 w-8 flex items-center justify-center rounded-full z-10 group"
+              >
+                <Icon name="threads" className="social-icon" size={16} />
+              </Link>
             </div>
-          </AppearIn>
+          </div>
         </div>
       </div>
     </main>
