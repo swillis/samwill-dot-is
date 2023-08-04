@@ -87,28 +87,28 @@ const projects = [
     role: "Designer/founder",
     date: "2023-present",
     link: "https://alba.art",
-    icon: "alba",
+    icon: <Icon name="alba" className="cv-item_icon" size={32} />,
   },
   {
     company: "gm.studio",
     role: "Product design",
     date: "2023",
     link: "https://gmstudio.art",
-    icon: "gm_studio",
+    icon: <Icon name="gm_studio" className="cv-item_icon" size={32} />,
   },
   {
     company: "Incident.io",
     role: "Logo design",
     date: "2021",
     link: "https://incident.io",
-    icon: "incident",
+    icon: <Icon name="incident" className="cv-item_icon" size={32} />,
   },
   {
     company: "Dependabot",
     role: "Logo, brand & web design",
     date: "2017",
     link: "https://dependabot.com",
-    icon: "dependabot",
+    icon: <Icon name="dependabot" className="cv-item_icon" size={32} />,
   },
 ];
 
@@ -118,28 +118,28 @@ const roles = [
     role: "Product design lead",
     date: "2020-present",
     link: "https://duffel.com",
-    icon: "duffel",
+    icon: <Icon name="duffel" className="cv-item_icon" size={32} />,
   },
   {
     company: "Memrise",
     role: "Design manager",
     date: "2019-2020",
     link: "https://memrise.com",
-    icon: "memrise",
+    icon: <Icon name="memrise" className="cv-item_icon" size={32} />,
   },
   {
     company: "Fat Llama",
     role: "Product design lead",
     date: "2018-2019",
     link: "https://fatllama.com",
-    icon: "fat_llama",
+    icon: <Icon name="fat_llama" className="cv-item_icon" size={32} />,
   },
   {
     company: "GoCardless",
     role: "Senior product designer",
     date: "2015-2018",
     link: "https://gocardless.com",
-    icon: "gocardless",
+    icon: <Icon name="gocardless" className="cv-item_icon" size={32} />,
   },
 ];
 
@@ -149,14 +149,14 @@ const events = [
     role: "Organiser",
     date: "2016-present",
     link: "https://designclub.io",
-    icon: "design_club",
+    icon: <Icon name="design_club" className="cv-item_icon" size={32} />,
   },
   {
     company: "Design+Banter",
     role: "Organiser",
     date: "2013-2015",
     link: "https://twitter.com/designandbanter",
-    icon: "design_and_banter",
+    icon: <Icon name="design_and_banter" className="cv-item_icon" size={32} />,
   },
 ];
 
@@ -362,13 +362,7 @@ export default function Home() {
                       className="flex flex-row gap-4 align-baseline group transition-all ease-in-out duration-300"
                       key={item.company}
                     >
-                      <div className="p-1">
-                        <Icon
-                          name={item.icon}
-                          className="cv-item_icon"
-                          size={32}
-                        />
-                      </div>
+                      <div className="p-1">{item.icon}</div>
                       <div className="flex flex-col">
                         <p className="cv-item_primary">{item.company}</p>
                         <p className="cv-item_secondary">{item.role}</p>
@@ -403,13 +397,7 @@ export default function Home() {
                       className="flex flex-row gap-4 align-baseline group"
                       key={item.company}
                     >
-                      <div className="p-1">
-                        <Icon
-                          name={item.icon}
-                          className="cv-item_icon"
-                          size={32}
-                        />
-                      </div>
+                      <div className="p-1">{item.icon}</div>
                       <div className="flex flex-col">
                         <p className="cv-item_primary">{item.company}</p>
                         <p className="cv-item_secondary">{item.role}</p>
@@ -445,11 +433,7 @@ export default function Home() {
                       key={item.company}
                     >
                       <div className="p-1 transition-colors ease-in-out duration-300">
-                        <Icon
-                          name={item.icon}
-                          className="cv-item_icon"
-                          size={32}
-                        />
+                        {item.icon}
                       </div>
                       <div className="flex flex-col">
                         <p className="cv-item_primary">{item.company}</p>
