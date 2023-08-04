@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Head from "next/head";
 import Link from "next/link";
 import React, { useRef, useEffect, useState, use } from "react";
 import ReactTyped from "react-typed";
@@ -196,6 +197,39 @@ export default function Home() {
 
   return (
     <main className={`${theme}`}>
+      <Head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <title>Sam Willis is a product designer in London.</title>
+        <meta
+          name="description"
+          content="I've spent the past 10+ years helping companies translate vision into reality, and design into competitive advantage. I'm currently building the future of travel at Duffel, and on the side I'm building Alba — an open platform for generative art on Ethereum."
+        />
+        <meta property="og:url" content="https://samwill.is" />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:title"
+          content="Sam Willis is a product designer in London."
+        />
+        <meta
+          property="og:description"
+          content="I've spent the past 10+ years helping companies translate vision into reality, and design into competitive advantage. I'm currently building the future of travel at Duffel, and on the side I'm building Alba — an open platform for generative art on Ethereum."
+        />
+        <meta property="og:image" content="" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content="samwill.is" />
+        <meta property="twitter:url" content="https://samwill.is" />
+        <meta
+          name="twitter:title"
+          content="Sam Willis is a product designer in London."
+        />
+        <meta
+          name="twitter:description"
+          content="I've spent the past 10+ years helping companies translate vision into reality, and design into competitive advantage. I'm currently building the future of travel at Duffel, and on the side I'm building Alba — an open platform for generative art on Ethereum."
+        />
+        <meta name="twitter:image" content="" />
+      </Head>
+
       <div className="dark:bg-gray-950 bg-gray-50 transition-colors">
         <div className="flex flex-col py-6 px-6 gap-32">
           {/* Header */}
