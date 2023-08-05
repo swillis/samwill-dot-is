@@ -62,24 +62,24 @@ const selectedWork = [
     link: "https://dependabot.com",
     image: "/selected-work/dependabot.jpg",
   },
-  {
-    title: "Staking UI",
-    company: "Mantle",
-    link: "https://duffel.com/docs",
-    image: "/selected-work/staking-ui.jpg",
-  },
-  {
-    title: "Project launch flow",
-    company: "Alba",
-    link: "https://alba.art",
-    image: "/selected-work/project-launch.jpg",
-  },
-  {
-    title: "White-label confirmation email",
-    company: "Duffel",
-    link: "https://duffel.com",
-    image: "/selected-work/confirmation-email.jpg",
-  },
+  // {
+  //   title: "Staking UI",
+  //   company: "Mantle",
+  //   link: "https://duffel.com/docs",
+  //   image: "/selected-work/staking-ui.jpg",
+  // },
+  // {
+  //   title: "Project launch flow",
+  //   company: "Alba",
+  //   link: "https://alba.art",
+  //   image: "/selected-work/project-launch.jpg",
+  // },
+  // {
+  //   title: "White-label confirmation email",
+  //   company: "Duffel",
+  //   link: "https://duffel.com",
+  //   image: "/selected-work/confirmation-email.jpg",
+  // },
 ];
 
 const projects = [
