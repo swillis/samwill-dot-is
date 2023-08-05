@@ -9,10 +9,16 @@ import { Icon } from "../components/Icon";
 
 const selectedWork = [
   {
-    title: "Project page",
+    title: "Alba home page",
     company: "Alba",
     link: "https://alba.art",
-    image: "/selected-work/project-page.jpg",
+    image: "/selected-work/alba-homepage.jpg",
+  },
+  {
+    title: "Insights dashboard",
+    company: "Duffel",
+    link: "https://duffel.com",
+    image: "/selected-work/merchant-insights.jpg",
   },
   {
     title: "White-label search & book flow",
@@ -27,10 +33,10 @@ const selectedWork = [
     image: "/selected-work/incident.jpg",
   },
   {
-    title: "Insights dashboard",
-    company: "Duffel",
-    link: "https://duffel.com",
-    image: "/selected-work/merchant-insights.jpg",
+    title: "Project page",
+    company: "Alba",
+    link: "https://alba.art",
+    image: "/selected-work/project-page.jpg",
   },
   {
     title: "Home page",
@@ -39,28 +45,22 @@ const selectedWork = [
     image: "/selected-work/gmstudio.jpg",
   },
   {
-    title: "Stays search with map",
-    company: "Duffel",
-    link: "https://duffel.com/stays",
-    image: "/selected-work/stays-search.jpg",
-  },
-  {
     title: "Integration guides + API reference",
     company: "Duffel",
     link: "https://duffel.com/docs",
     image: "/selected-work/api-docs.jpg",
   },
   {
-    title: "Alba home page",
-    company: "Alba",
-    link: "https://alba.art",
-    image: "/selected-work/alba-homepage.jpg",
-  },
-  {
     title: "Logo + brand design",
     company: "Dependabot",
     link: "https://dependabot.com",
     image: "/selected-work/dependabot.jpg",
+  },
+  {
+    title: "Stays search with map",
+    company: "Duffel",
+    link: "https://duffel.com/stays",
+    image: "/selected-work/stays-search.jpg",
   },
   // {
   //   title: "Staking UI",
