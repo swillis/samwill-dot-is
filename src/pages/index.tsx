@@ -9,7 +9,7 @@ import { Icon } from "../components/Icon";
 
 const selectedWork = [
   {
-    title: "Gen art minting page",
+    title: "Project page",
     company: "Alba",
     link: "https://alba.art",
     image: "/selected-work/project-page.jpg",
@@ -27,21 +27,21 @@ const selectedWork = [
     image: "/selected-work/incident.jpg",
   },
   {
-    title: "Merchant insights dashboard",
+    title: "Insights dashboard",
     company: "Duffel",
     link: "https://duffel.com",
     image: "/selected-work/merchant-insights.jpg",
   },
   {
-    title: "Homepage for gen art studio",
+    title: "Home page",
     company: "gm.studio",
     link: "https://gmstudio.art",
     image: "/selected-work/gmstudio.jpg",
   },
   {
-    title: "Stays search results with map",
-    company: "June 20",
-    link: "https://duffel.com",
+    title: "Stays search with map",
+    company: "Duffel",
+    link: "https://duffel.com/stays",
     image: "/selected-work/stays-search.jpg",
   },
   {
@@ -496,7 +496,7 @@ export default function Home() {
 
           {/* Social bar */}
           <div className="fixed bottom-10 left-2/4 -translate-x-2/4 z-20">
-            <div className="flex flex-row justify-center items-center dark:bg-gray-950 bg-white backdrop-blur-md rounded-full p-1 border dark:border-gray-800 border-gray-200/50 animate-third">
+            <div className="flex flex-row justify-center items-center dark:bg-gray-950/80 bg-white/80 backdrop-blur-md rounded-full p-1 border dark:border-gray-800 border-gray-200/50 animate-third">
               <Link
                 href="mailto:hey@samwill.is"
                 target="_blank"
