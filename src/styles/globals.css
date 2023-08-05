@@ -63,7 +63,7 @@ section span {
   opacity: 0;
   animation-name: slidein;
   animation-duration: 0.6s;
-  animation-delay: 0.2s;
+  animation-delay: 0.4s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   animation-timing-function: cubic-bezier(0.17, 0.55, 0.55, 1);
@@ -73,7 +73,7 @@ section span {
   opacity: 0;
   animation-name: slidein;
   animation-duration: 0.6s;
-  animation-delay: 0.4s;
+  animation-delay: 0.6s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   animation-timing-function: cubic-bezier(0.17, 0.55, 0.55, 1);
@@ -83,7 +83,7 @@ section span {
   opacity: 0;
   animation-name: slidein;
   animation-duration: 0.6s;
-  animation-delay: 1s;
+  animation-delay: 1.4s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   animation-timing-function: cubic-bezier(0.17, 0.55, 0.55, 1);
