@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 23, 23, 23;
+  --foreground-rgb: 249, 250, 251;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    /* --foreground-rgb: 17, 24, 39; */
+    --foreground-rgb: 3, 7, 18;
   }
 }
 
@@ -18,230 +18,97 @@ body {
 }
 
 ::selection {
-  background: #737373; /* WebKit/Blink Browsers */
+  @apply dark:bg-gray-800 bg-gray-900;
 }
+
 ::-moz-selection {
-  background: #737373; /* Gecko Browsers */
+  @apply dark:bg-gray-800 bg-gray-900;
 }
 
-/* swiper */
-
-.swiper.swiper-cards {
-  overflow: visible;
-}
-
-.swiper-slide {
-  /* Center slide text vertically */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.swiper-button-prev,
-.swiper-button-next,
-.swiper-pagination {
-  @apply text-gray-500 text-sm z-20;
-}
-
-.swiper-button-prev,
-.swiper-button-next {
-  @apply hover:text-white cursor-pointer;
+.social-icon {
+  @apply dark:fill-gray-100 fill-gray-700 dark:group-hover:fill-gray-50 group-hover:fill-gray-900;
 }
 
 .title {
-  @apply text-gray-50 text-base px-3 font-medium;
+  @apply text-gray-900 dark:text-gray-50 text-base font-medium;
 }
 
-/* Glow button */
-
-/* .glow-button {
-  --button-background: #09041e;
-  --button-color: #fff;
-  --button-shadow: rgba(33, 4, 104, 0.2);
-  --button-shine-left: rgba(120, 0, 245, 0.5);
-  --button-shine-right: rgba(200, 148, 255, 0.65);
-  --button-glow-start: #B000E8;
-  --button-glow-end: #009FFD;
-
-  appearance: none;
-  outline: none;
-  border: none;
-  font-family: inherit;
-  font-size: 16px;
-  font-weight: 500;
-  border-radius: 11px;
-  position: relative;
-  line-height: 24px;
-  cursor: pointer;
-  color: var(--button-color);
-  padding: 0;
-  margin: 0;
-  background: none;
-  z-index: 1;
-  box-shadow: 0 8px 20px var(--button-shadow);
-
-  .gradient {
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    overflow: hidden;
-    -webkit-mask-image: -webkit-radial-gradient(white, black);
-    transform: scaleY(1.02) scaleX(1.005) rotate(-.35deg);
-
-    &:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      transform: scale(1.05) translateY(-44px) rotate(0deg) translateZ(0);
-      padding-bottom: 100%;
-      border-radius: 50%;
-      background: linear-gradient(90deg, var(--button-shine-left), var(--button-shine-right));
-      animation: rotate linear 2s infinite;
-    }
-  }
-
-  span {
-    z-index: 1;
-    position: relative;
-    display: block;
-    padding: 10px 0;
-    width: 132px;
-    border-radius: inherit;
-    background-color: var(--button-background);
-    overflow: hidden;
-    -webkit-mask-image: -webkit-radial-gradient(white, black);
-
-    &:before {
-      content: '';
-      position: absolute;
-      left: -16px;
-      top: -16px;
-      transform: translate(var(--pointer-x, 0px), var(--pointer-y, 0px)) translateZ(0);
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background-color: var(--button-glow, transparent);
-      opacity: var(--button-glow-opacity, 0);
-      transition: opacity var(--button-glow-duration, .5s);
-      filter: blur(20px);
-    }
-  }
-
-  &:hover {
-    --button-glow-opacity: 1;
-    --button-glow-duration: .25s;
-  }
+.cv-item_border {
+  @apply border-b border-solid dark:border-gray-900 border-gray-200 flex grow mb-1 dark:group-hover:border-gray-500 group-hover:border-gray-400;
 }
 
-@keyframes rotate {
+.cv-item_icon {
+  @apply dark:fill-gray-300 fill-gray-800 dark:group-hover:fill-white group-hover:fill-gray-900;
+}
+
+.cv-item_arrow {
+  @apply dark:fill-gray-500 fill-gray-400 group-hover:fill-gray-600 dark:group-hover:fill-gray-400;
+}
+
+.cv-item_primary {
+  @apply text-sm text-gray-600 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-gray-50;
+}
+
+.cv-item_secondary {
+  @apply text-sm dark:text-gray-500 text-gray-500 group-hover:text-gray-600 dark:group-hover:text-gray-400;
+}
+
+section span {
+  display: block;
+  transform: translateY(-8px);
+  opacity: 0;
+}
+
+.animate-first {
+  opacity: 0;
+  animation-name: slidein;
+  animation-duration: 0.6s;
+  animation-delay: 0.2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.17, 0.55, 0.55, 1);
+}
+
+.animate-second {
+  opacity: 0;
+  animation-name: slidein;
+  animation-duration: 0.6s;
+  animation-delay: 0.4s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.17, 0.55, 0.55, 1);
+}
+
+.animate-third {
+  opacity: 0;
+  animation-name: slidein;
+  animation-duration: 0.6s;
+  animation-delay: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.17, 0.55, 0.55, 1);
+}
+
+@keyframes slidein {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
   to {
-    transform: scale(1.05) translateY(-44px) rotate(360deg) translateZ(0);
+    opacity: 1;
+    transform: translateY(0px);
   }
-} */
-
-.glow-button {
-  --button-background: #111827;
-  --button-color: #fff;
-  --button-shine-left: rgba(109, 40, 217, 0.5);
-  --button-shine-right: rgba(196, 181, 253, 0.5);
-  --button-glow-start: #8B5CF6;
-  --button-glow-end: #3B82F6;
-
-  appearance: none;
-  outline: none;
-  border: none;
-  font-family: inherit;
-  font-size: 16px;
-  font-weight: 500;
-  border-radius: 999px;
-  position: relative;
-  line-height: 24px;
-  cursor: pointer;
-  color: var(--button-color);
-  padding: 0;
-  margin: 0;
-  background: none;
-  z-index: 1;
 }
 
-.glow-button .gradient {
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  overflow: hidden;
-  -webkit-mask-image: -webkit-radial-gradient(white, black);
-  transform: scaleY(1.02) scaleX(1.005) rotate(-.35deg);
-}
-
-.glow-button .gradient:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  transform: scale(1.05) translateY(-44px) rotate(0deg) translateZ(0);
-  padding-bottom: 100%;
-  border-radius: 50%;
-  background: linear-gradient(90deg, var(--button-shine-left), var(--button-shine-right));
-  animation: rotate linear 2s infinite;
-}
-
-.glow-button span {
-  z-index: 1;
-  position: relative;
-  /* display: block; */
-  padding: 4px 4px;
-  /* width: 186px; */
-  border-radius: inherit;
-  background-color: var(--button-background);
-  overflow: hidden;
-  -webkit-mask-image: -webkit-radial-gradient(white, black);
-}
-
-.glow-button span:before {
-  content: '';
-  position: absolute;
-  left: -16px;
-  top: -16px;
-  transform: translate(var(--pointer-x, 0px), var(--pointer-y, 0px)) translateZ(0);
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background-color: var(--button-glow, transparent);
-  opacity: var(--button-glow-opacity, 0);
-  transition: opacity var(--button-glow-duration, .5s);
-  filter: blur(20px);
-}
-
-.glow-button span:hover {
-    --button-glow-opacity: 1;
-    --button-glow-duration: .25s;
+@keyframes slideleft {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
   }
 
-@keyframes rotate {
   to {
-    transform: scale(1.05) translateY(-44px) rotate(360deg) translateZ(0);
+    opacity: 1;
+    transform: translateX(0px);
   }
 }
-
-/* html {
-  box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-}
-
-* {
-  box-sizing: inherit;
-  &:before,
-  &:after {
-    box-sizing: inherit;
-  }
-} */

@@ -1,578 +1,539 @@
 import Image from "next/image";
-import { Inter } from "next/font/google";
+import Head from "next/head";
 import Link from "next/link";
-import React from "react";
-import gsap from "gsap";
-import chroma from "chroma-js";
+import React, { useRef, useEffect, useState, use } from "react";
+import ReactTyped from "react-typed";
+import { useInView } from "framer-motion";
 
 import { Icon } from "../components/Icon";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectFade, Pagination, Navigation } from "swiper/modules";
 
-import "swiper/css/zoom";
-import "swiper/css/effect-fade";
-import "swiper/css/effect-cards";
+const selectedWork = [
+  {
+    title: "Gen art minting page",
+    company: "Alba",
+    link: "https://alba.art",
+    image: "/selected-work/project-page.jpg",
+  },
+  {
+    title: "White-label search & book flow",
+    company: "Duffel",
+    link: "https://duffel.com/links",
+    image: "/selected-work/duffel-links.jpg",
+  },
+  {
+    title: "Logo design",
+    company: "Incident.io",
+    link: "https://incident.io",
+    image: "/selected-work/incident.jpg",
+  },
+  {
+    title: "Merchant insights dashboard",
+    company: "Duffel",
+    link: "https://duffel.com",
+    image: "/selected-work/merchant-insights.jpg",
+  },
+  {
+    title: "Homepage for gen art studio",
+    company: "gm.studio",
+    link: "https://gmstudio.art",
+    image: "/selected-work/gmstudio.jpg",
+  },
+  {
+    title: "Stays search results with map",
+    company: "June 20",
+    link: "https://duffel.com",
+    image: "/selected-work/stays-search.jpg",
+  },
+  {
+    title: "Integration guides + API reference",
+    company: "Duffel",
+    link: "https://duffel.com/docs",
+    image: "/selected-work/api-docs.jpg",
+  },
+  {
+    title: "Alba home page",
+    company: "Alba",
+    link: "https://alba.art",
+    image: "/selected-work/alba-homepage.jpg",
+  },
+  {
+    title: "Logo + brand design",
+    company: "Dependabot",
+    link: "https://dependabot.com",
+    image: "/selected-work/dependabot.jpg",
+  },
+  {
+    title: "Staking UI",
+    company: "Mantle",
+    link: "https://duffel.com/docs",
+    image: "/selected-work/staking-ui.jpg",
+  },
+  {
+    title: "Project launch flow",
+    company: "Alba",
+    link: "https://alba.art",
+    image: "/selected-work/project-launch.jpg",
+  },
+  {
+    title: "White-label confirmation email",
+    company: "Duffel",
+    link: "https://duffel.com",
+    image: "/selected-work/confirmation-email.jpg",
+  },
+];
 
-import "swiper/css";
+const projects = [
+  {
+    company: "Alba",
+    role: "Designer/founder",
+    date: "2023-present",
+    link: "https://alba.art",
+    icon: <Icon name="alba" className="cv-item_icon" size={32} />,
+  },
+  {
+    company: "gm.studio",
+    role: "Product design",
+    date: "2023",
+    link: "https://gmstudio.art",
+    icon: <Icon name="gm_studio" className="cv-item_icon" size={32} />,
+  },
+  {
+    company: "Incident.io",
+    role: "Logo design",
+    date: "2021",
+    link: "https://incident.io",
+    icon: <Icon name="incident" className="cv-item_icon" size={32} />,
+  },
+  {
+    company: "Dependabot",
+    role: "Logo, brand & web design",
+    date: "2017",
+    link: "https://dependabot.com",
+    icon: <Icon name="dependabot" className="cv-item_icon" size={32} />,
+  },
+];
 
-const inter = Inter({ subsets: ["latin"] });
+const roles = [
+  {
+    company: "Duffel",
+    role: "Product design lead",
+    date: "2020-present",
+    link: "https://duffel.com",
+    icon: <Icon name="duffel" className="cv-item_icon" size={32} />,
+  },
+  {
+    company: "Memrise",
+    role: "Design manager",
+    date: "2019-2020",
+    link: "https://memrise.com",
+    icon: <Icon name="memrise" className="cv-item_icon" size={32} />,
+  },
+  {
+    company: "Fat Llama",
+    role: "Product design lead",
+    date: "2018-2019",
+    link: "https://fatllama.com",
+    icon: <Icon name="fat_llama" className="cv-item_icon" size={32} />,
+  },
+  {
+    company: "GoCardless",
+    role: "Senior product designer",
+    date: "2015-2018",
+    link: "https://gocardless.com",
+    icon: <Icon name="gocardless" className="cv-item_icon" size={32} />,
+  },
+];
+
+const events = [
+  {
+    company: "Design Club",
+    role: "Organiser",
+    date: "2016-present",
+    link: "https://designclub.io",
+    icon: <Icon name="design_club" className="cv-item_icon" size={32} />,
+  },
+  {
+    company: "Design+Banter",
+    role: "Organiser",
+    date: "2013-2015",
+    link: "https://twitter.com/designandbanter",
+    icon: <Icon name="design_and_banter" className="cv-item_icon" size={32} />,
+  },
+];
+
+function AppearIn({ children }: any) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  return (
+    <section ref={ref}>
+      <span
+        style={{
+          transform: isInView ? "none" : "translateY(16px)",
+          opacity: isInView ? 1 : 0,
+          transition: "all 0.6s cubic-bezier(0.17, 0.55, 0.55, 1) 0.6s",
+        }}
+      >
+        {children}
+      </span>
+    </section>
+  );
+}
 
 export default function Home() {
-  React.useEffect(() => {
-    document.querySelectorAll(".glow-button").forEach((div) => {
-      const gradientElem = document.createElement("div");
-      gradientElem.classList.add("gradient");
+  let [theme, setTheme] = useState("");
 
-      div.appendChild(gradientElem);
-
-      div.addEventListener("pointermove", (e) => {
-        const rect = div.getBoundingClientRect();
-
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        gsap.to(div, {
-          "--pointer-x": `${x}px`,
-          "--pointer-y": `${y}px`,
-          duration: 0.6,
-        });
-
-        gsap.to(div, {
-          "--button-glow": chroma
-            .mix(
-              getComputedStyle(div)
-                .getPropertyValue("--button-glow-start")
-                .trim(),
-              getComputedStyle(div)
-                .getPropertyValue("--button-glow-end")
-                .trim(),
-              x / rect.width
-            )
-            .hex(),
-          duration: 0.2,
-        });
-      });
-    });
+  useEffect(() => {
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
   }, []);
 
   return (
-    <main className="bg-gray-950">
-      <div className="fixed bottom-10 left-2/4 -translate-x-2/4 z-20">
-        <button className="glow-button flex">
-          <span className="flex flex-row justify-center items-center">
-            <Link
-              href="mailto:hey@samwill.is"
-              target="_blank"
-              className="h-8 w-8 flex items-center justify-center rounded-full z-10 group"
-            >
-              <Icon
-                name="email"
-                className="fill-gray-500 group-hover:fill-white"
-                size={16}
-              />
-            </Link>
-            <Link
-              href="https://twitter.com/samwill_is"
-              target="_blank"
-              className="h-8 w-8 flex items-center justify-center rounded-full z-10 group"
-            >
-              <Icon
-                name="twitter"
-                className="fill-gray-500 group-hover:fill-white"
-                size={16}
-              />
-            </Link>
-            <Link
-              href="https://linkedin.com/in/samjwillis"
-              target="_blank"
-              className="h-8 w-8 flex items-center justify-center rounded-full z-10 group"
-            >
-              <Icon
-                name="linkedin"
-                className="fill-gray-500 group-hover:fill-white"
-                size={16}
-              />
-            </Link>
-            <Link
-              href="https://dribbble.com/sjwillis"
-              target="_blank"
-              className="h-8 w-8 flex items-center justify-center rounded-full z-10 group"
-            >
-              <Icon
-                name="dribbble"
-                className="fill-gray-500 group-hover:fill-white"
-                size={16}
-              />
-            </Link>
-            <Link
-              href="https://threads.net/@samwill.is"
-              target="_blank"
-              className="h-8 w-8 flex items-center justify-center rounded-full z-10 group"
-            >
-              <Icon
-                name="threads"
-                className="fill-gray-500 group-hover:fill-white"
-                size={16}
-              />
-            </Link>
-          </span>
-        </button>
-      </div>
+    <main className={`${theme}`}>
+      <Head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <title>Sam Willis is a product designer in London.</title>
+        <meta
+          name="description"
+          content="I've spent the past 10+ years helping companies translate vision into reality, and design into competitive advantage. I'm currently building the future of travel at Duffel, and on the side I'm building Alba — an open platform for generative art on Ethereum."
+        />
+        <meta property="og:url" content="https://samwill.is" />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:title"
+          content="Sam Willis is a product designer in London."
+        />
+        <meta
+          property="og:description"
+          content="I've spent the past 10+ years helping companies translate vision into reality, and design into competitive advantage. I'm currently building the future of travel at Duffel, and on the side I'm building Alba — an open platform for generative art on Ethereum."
+        />
+        <meta property="og:image" content="" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content="samwill.is" />
+        <meta property="twitter:url" content="https://samwill.is" />
+        <meta
+          name="twitter:title"
+          content="Sam Willis is a product designer in London."
+        />
+        <meta
+          name="twitter:description"
+          content="I've spent the past 10+ years helping companies translate vision into reality, and design into competitive advantage. I'm currently building the future of travel at Duffel, and on the side I'm building Alba — an open platform for generative art on Ethereum."
+        />
+        <meta name="twitter:image" content="" />
+      </Head>
 
-      {/* <div className="fixed bg-gray-800/50 bottom-10 left-2/4 flex flex-row gap-1 p-1 rounded-full items-center -translate-x-2/4 z-20 border border-gray-800 backdrop-blur-md">
-        <Link
-          href="mailto:hey@samwill.is"
-          target="_blank"
-          className="h-8 w-8 flex items-center justify-center rounded-full hover:bg-gray-800"
-        >
-          <Icon name="email" className="fill-gray-500" size={16} />
-        </Link>
-        <Link
-          href="https://twitter.com/samwill_is"
-          target="_blank"
-          className="h-8 w-8 flex items-center justify-center rounded-full hover:bg-gray-800"
-        >
-          <Icon name="twitter" className="fill-gray-500" size={16} />
-        </Link>
-        <Link
-          href="https://linkedin.com/in/samjwillis"
-          target="_blank"
-          className="h-8 w-8 flex items-center justify-center rounded-full hover:bg-gray-800"
-        >
-          <Icon name="linkedin" className="fill-gray-500" size={16} />
-        </Link>
-        <Link
-          href="https://dribbble.com/sjwillis"
-          target="_blank"
-          className="h-8 w-8 flex items-center justify-center rounded-full hover:bg-gray-800"
-        >
-          <Icon name="dribbble" className="fill-gray-500" size={16} />
-        </Link>
-        <Link
-          href="https://threads.net/@samwill.is"
-          target="_blank"
-          className="h-8 w-8 flex items-center justify-center rounded-full hover:bg-gray-800"
-        >
-          <Icon name="threads" className="fill-gray-500" size={16} />
-        </Link>
-      </div> */}
-      <div className="flex flex-col max-w-2xl mx-auto py-16 px-4 gap-16">
-        <div className="flex flex-row gap-4 px-3">
-          <Image
-            className="rounded-full"
-            src="/me.png"
-            alt="Picture of the author"
-            width={40}
-            height={40}
-          />
-          <div>
-            <p className="text-sm text-gray-50 font-medium">Sam Willis</p>
-            <p className="text-sm text-gray-500">Product designer</p>
-          </div>
-        </div>
-        <div className="flex flex-col px-3 items-start">
-          <p className="text-gray-50 text-base mb-2">
-            Hey, I&apos;m Sam—a product designer based in London, UK.
-          </p>
-          <p className="text-gray-500 text-base mb-2">
-            I&apos;ve spent the past 10+ years helping companies translate
-            vision into reality, and design into competitive advantage.
-          </p>
-          <p className="text-gray-500 text-base mb-8">
-            I&apos;m currently working at{" "}
-            <Link
-              href="https://duffel.com"
-              target="_blank"
-              className="hover:text-white underline"
-            >
-              Duffel
-            </Link>
-            , where we&apos;re building the future of travel, and on the side
-            making{" "}
-            <Link
-              href="https://alba.art"
-              target="_blank"
-              className="hover:text-white underline"
-            >
-              Alba
-            </Link>
-            , an open platform for launching generative art on Ethereum.
-          </p>
-          <div className="border rounded-full border-gray-900 px-4 py-2 text-sm text-gray-500 flex flex-row gap-3 items-center">
-            <span className="h-2 w-2 bg-red-700 rounded-full"></span>
-            <span>Unavailable for new projects</span>
-          </div>
-        </div>
-        <div className="flex flex-col gap-2">
-          <p className="title mb-2">Selected work</p>
-          <div className="px-3">
-            <Swiper
-              loop={true}
-              modules={[EffectFade, Navigation, Pagination]}
-              pagination={{
-                el: ".swiper-pagination",
-                type: "fraction",
-              }}
-              navigation={{
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-              }}
-              slidesPerView={1}
-              centeredSlides={true}
-              spaceBetween={24}
-              effect={"fade"}
-              className="mySwiper relative"
-            >
-              <SwiperSlide>
-                <div className="bg-gray-900 rounded-xl mb-4">
-                  <Image
-                    src="/selected-work/alba-project-page.png"
-                    alt=""
-                    width={600}
-                    height={400}
-                  />
-                </div>
-                <p className="text-sm text-gray-500 bg-gray-950">
-                  Alba — project page
+      <div className="dark:bg-gray-950 bg-gray-50 transition-colors">
+        <div className="flex flex-col py-6 px-6 gap-32">
+          {/* Header */}
+          <div className="animate-first flex flex-row justify-between">
+            <div className="flex flex-row gap-4">
+              <Image
+                className="rounded-full"
+                src="/me.png"
+                alt="Picture of the author"
+                width={40}
+                height={40}
+              />
+              <div>
+                <p className="text-sm dark:text-gray-50 text-gray-900 font-medium">
+                  Sam Willis
                 </p>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="bg-gray-900 rounded-xl mb-4">
-                  <Image
-                    src="/selected-work/duffel-stays.png"
-                    alt=""
-                    width={600}
-                    height={400}
-                  />
-                </div>
-                <p className="text-sm text-gray-500 bg-gray-950">
-                  Duffel — stays search in dashboard
+                <p className="text-sm dark:text-gray-500 text-gray-600 font-medium">
+                  Product designer
                 </p>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="bg-gray-900 rounded-xl mb-4">
-                  <Image
-                    src="/selected-work/duffel-links-mob.png"
-                    alt=""
-                    width={600}
-                    height={400}
-                  />
-                </div>
-                <p className="text-sm text-gray-500 bg-gray-950">
-                  Duffel — white-label booking flow
-                </p>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="bg-gray-900 rounded-xl mb-4">
-                  <Image
-                    src="/selected-work/duffel-insights.png"
-                    alt=""
-                    width={600}
-                    height={400}
-                  />
-                </div>
-                <p className="text-sm text-gray-500 bg-gray-950">
-                  Duffel — merchant insights
-                </p>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="bg-gray-900 rounded-xl mb-4">
-                  <Image
-                    src="/selected-work/incident-logo.png"
-                    alt=""
-                    width={600}
-                    height={400}
-                  />
-                </div>
-                <p className="text-sm text-gray-500 bg-gray-950">
-                  Incident — logo design
-                </p>
-              </SwiperSlide>
-              <div className="flex flex-row gap-2 absolute bottom-0 right-0">
-                <div className="swiper-button-prev">&larr;</div>
-                <div className="swiper-pagination"></div>
-                <div className="swiper-button-next">&rarr;</div>
               </div>
-            </Swiper>
+            </div>
+
+            <button
+              id="theme-toggle"
+              type="button"
+              className="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 h-10 w-10 rounded-full border border-gray-200 dark:border-gray-800 flex justify-center items-center"
+              onClick={() => {
+                if (theme === "light") {
+                  setTheme("dark");
+                  localStorage.theme = "dark";
+                } else {
+                  setTheme("light");
+                  localStorage.theme = "light";
+                }
+              }}
+            >
+              <svg
+                id="theme-toggle-dark-icon"
+                className={`w-5 h-5 ${theme === "dark" ? null : "hidden"}`}
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+              </svg>
+              <svg
+                id="theme-toggle-light-icon"
+                className={`w-5 h-5 ${theme === "light" ? null : "hidden"}`}
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                ></path>
+              </svg>
+            </button>
           </div>
-        </div>
-        <div className="flex flex-col gap-2">
-          <p className="title">Projects</p>
-          <Link
-            href="https://alba.art"
-            target="_blank"
-            className="flex flex-row gap-4 rounded-lg grow align-baseline group bg-gray-950 p-3 hover:shadow-test z-10 hover:-z-0 transition-all ease-in-out duration-300"
-          >
-            <div className="p-1">
-              <Image
-                src="/logos/alba.svg"
-                alt="Picture of the author"
-                width={32}
-                height={32}
-              />
-            </div>
-            <div className="flex flex-col">
-              <p className="text-sm text-gray-50">Alba</p>
-              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                Designer/founder
-              </p>
-            </div>
-            <div className="border-b border-solid border-gray-900 flex grow mb-1 group-hover:border-gray-300 transition-all ease-in-out duration-300"></div>
-            <div className="flex items-end">
-              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                2023-present
-              </p>
-            </div>
-          </Link>
 
-          <Link
-            href="https://gmstudio.art"
-            target="_blank"
-            className="flex flex-row gap-4 rounded-lg grow align-baseline group bg-gray-950 p-3 hover:shadow-test z-10 hover:-z-0 transition-all ease-in-out duration-300"
-          >
-            <div className="p-1">
-              <Image
-                src="/logos/gmstudio.svg"
-                alt="Picture of the author"
-                width={32}
-                height={32}
-              />
+          {/* Hero */}
+          <div className="mx-auto max-w-2xl w-full text-center animate-second">
+            <div className="flex flex-col gap-6 items-center">
+              <div className="flex flex-col gap-3 max-w-2xl">
+                <p className="dark:text-gray-50 text-gray-900 text-xl font-medium">
+                  I{" "}
+                  <ReactTyped
+                    strings={[
+                      "design digital products.",
+                      "build design teams.",
+                      "create brand identities.",
+                      "craft user experiences.",
+                      "increase conversion.",
+                      "improve retention.",
+                      "design for scale.",
+                      "design for accessibility.",
+                      "design for inclusion.",
+                      "design for impact.",
+                      "design for the future.",
+                    ]}
+                    typeSpeed={30}
+                    loop
+                    backDelay={2000}
+                    backSpeed={10}
+                    // cursorChar=">"
+                    showCursor={true}
+                  />
+                </p>
+                <p className="dark:text-gray-500 text-gray-600 text-xl">
+                  I&apos;ve spent the past 10+ years helping companies translate
+                  vision into reality, and design into competitive advantage.
+                  I&apos;m currently building the future of travel at{" "}
+                  <Link
+                    href="https://duffel.com"
+                    target="_blank"
+                    className="dark:text-gray-400 text-gray-800 hover:underline"
+                  >
+                    Duffel
+                  </Link>
+                  , and on the side I&apos;m building{" "}
+                  <Link
+                    href="https://alba.art"
+                    target="_blank"
+                    className="dark:text-gray-400 text-gray-800 hover:underline"
+                  >
+                    Alba
+                  </Link>{" "}
+                  — an open platform for generative art on Ethereum.
+                </p>
+              </div>
+              <div className="flex shrink grow basis-auto">
+                <span className="border rounded-full dark:border-gray-900 border-gray-200 px-4 py-2 text-sm dark:text-gray-500 text-gray-600 flex flex-row items-center justify-start gap-3">
+                  <span className="h-2 w-2 dark:bg-red-700 bg-red-500 rounded-full" />
+                  <span>Unavailable for new projects</span>
+                </span>
+              </div>
             </div>
-            <div className="flex flex-col">
-              <p className="text-sm text-gray-50">gm.studio</p>
-              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                Product design
-              </p>
-            </div>
-            <div className="border-b border-solid border-gray-900 flex grow mb-1 group-hover:border-gray-300 transition-all ease-in-out duration-300"></div>
-            <div className="flex items-end">
-              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                2023
-              </p>
-            </div>
-          </Link>
-        </div>
-        <div className="flex flex-col gap-2">
-          <p className="title">Full-time roles</p>
-          <Link
-            href="https://duffel.com"
-            target="_blank"
-            className="flex flex-row gap-4 rounded-lg grow align-baseline group bg-gray-950 p-3 hover:shadow-test z-10 hover:-z-0 transition-all ease-in-out duration-300"
-          >
-            <div className="p-1">
-              <Image
-                src="/logos/duffel.svg"
-                alt="Picture of the author"
-                width={32}
-                height={32}
-              />
-            </div>
-            <div className="flex flex-col">
-              <p className="text-sm text-gray-50">Duffel</p>
-              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                Product design lead
-              </p>
-            </div>
-            <div className="border-b border-solid border-gray-900 flex grow mb-1 group-hover:border-gray-300 transition-all ease-in-out duration-300"></div>
-            <div className="flex items-end">
-              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                2020-present
-              </p>
-            </div>
-          </Link>
+          </div>
 
-          <Link
-            href="https://memrise.com"
-            target="_blank"
-            className="flex flex-row gap-4 rounded-lg grow align-baseline group bg-gray-950 p-3 hover:shadow-test z-10 hover:-z-0 transition-all ease-in-out duration-300"
-          >
-            <div className="p-1">
-              <Image
-                src="/logos/memrise.svg"
-                alt="Picture of the author"
-                width={32}
-                height={32}
-              />
-            </div>
-            <div className="flex flex-col">
-              <p className="text-sm text-gray-50">Memrise</p>
-              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                Design manager
-              </p>
-            </div>
-            <div className="border-b border-solid border-gray-900 flex grow mb-1 group-hover:border-gray-300 transition-all ease-in-out duration-300"></div>
-            <div className="flex items-end">
-              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                2019-2020
-              </p>
-            </div>
-          </Link>
+          {/* Selected work */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 min-[1800px]:grid-cols-4 gap-6">
+            {selectedWork.map((project) => (
+              <AppearIn key={project.title} className="test">
+                <div className="aspect-square dark:bg-gray-900 bg-gray-100 rounded-xl relative flex flex-col justify-center items-center">
+                  <div className="flex flex-1 pt-6 pb-5 px-6 w-full">
+                    <div className="relative w-full h-full rounded-md overflow-clip">
+                      <Image
+                        src={project.image}
+                        alt={`Picture of ${project.title}`}
+                        fill={true}
+                        style={{ objectFit: "cover" }}
+                      />
+                    </div>
+                  </div>
+                  <div className="flex flex-row w-full justify-between px-6 pb-5">
+                    <p className="dark:text-gray-400 text-gray-500 text-sm">
+                      {project.title}
+                    </p>
+                    <Link
+                      href={project.link}
+                      target="_blank"
+                      className="dark:text-gray-500 text-gray-400 flex flex-row items-center gap-1 justify-center text-sm group dark:hover:text-gray-50 hover:text-gray-900"
+                    >
+                      {project.company}
+                    </Link>
+                  </div>
+                </div>
+              </AppearIn>
+            ))}
+          </div>
 
-          <Link
-            href="https://fatllama.com"
-            target="_blank"
-            className="flex flex-row gap-4 rounded-lg grow align-baseline group bg-gray-950 p-3 hover:shadow-test z-10 hover:-z-0 transition-all ease-in-out duration-300"
-          >
-            <div className="p-1">
-              <Image
-                src="/logos/fat-llama.svg"
-                alt="Picture of the author"
-                width={32}
-                height={32}
-              />
-            </div>
-            <div className="flex flex-col">
-              <p className="text-sm text-gray-50">Fat Llama</p>
-              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                Product design lead
-              </p>
-            </div>
-            <div className="border-b border-solid border-gray-900 flex grow mb-1 group-hover:border-gray-300 transition-all ease-in-out duration-300"></div>
-            <div className="flex items-end">
-              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                2018-2019
-              </p>
-            </div>
-          </Link>
+          {/* CV */}
+          <div className="mx-auto max-w-2xl w-full mb-16">
+            <div className="flex flex-col gap-12">
+              {/* Projects */}
+              <AppearIn>
+                <div className="flex flex-col gap-4">
+                  <p className="title">Projects</p>
+                  {projects.map((item) => (
+                    <Link
+                      href={item.link}
+                      target="_blank"
+                      className="flex flex-row gap-4 align-baseline group transition-all ease-in-out duration-300"
+                      key={item.company}
+                    >
+                      <div className="p-1">{item.icon}</div>
+                      <div className="flex flex-col">
+                        <p className="cv-item_primary">{item.company}</p>
+                        <p className="cv-item_secondary">{item.role}</p>
+                      </div>
+                      <div className="cv-item_border"></div>
+                      <div className="flex items-end">
+                        <p className="cv-item_secondary block group-hover:hidden transition-all">
+                          {item.date}
+                        </p>
+                        <div className="hidden group-hover:flex flex-row items-center gap-1 transition-all">
+                          <p className="cv-item_secondary">Visit</p>
+                          <Icon
+                            name="arrow_right"
+                            className="cv-item_arrow"
+                            size={12}
+                          />
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </AppearIn>
 
-          <Link
-            href="https://gocardless.com"
-            target="_blank"
-            className="flex flex-row gap-4 rounded-lg grow align-baseline group bg-gray-950 p-3 hover:shadow-test z-10 hover:-z-0 transition-all ease-in-out duration-300"
-          >
-            <div className="p-1">
-              <Image
-                src="/logos/gocardless.svg"
-                alt="Picture of the author"
-                width={32}
-                height={32}
-              />
-            </div>
-            <div className="flex flex-col">
-              <p className="text-sm text-gray-50">GoCardless</p>
-              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                Senior product designer
-              </p>
-            </div>
-            <div className="border-b border-solid border-gray-900 flex grow mb-1 group-hover:border-gray-300 transition-all ease-in-out duration-300"></div>
-            <div className="flex items-end">
-              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                2015-2018
-              </p>
-            </div>
-          </Link>
-        </div>
-        <div className="flex flex-col gap-2">
-          <p className="title">Branding</p>
-          <Link
-            href="https://incident.io"
-            target="_blank"
-            className="flex flex-row gap-4 rounded-lg grow align-baseline group bg-gray-950 p-3 hover:shadow-test z-10 hover:-z-0 transition-all ease-in-out duration-300"
-          >
-            <div className="p-1">
-              <Image
-                src="/logos/incidentio.svg"
-                alt="Picture of the author"
-                width={32}
-                height={32}
-              />
-            </div>
-            <div className="flex flex-col">
-              <p className="text-sm text-gray-50">Incident.io</p>
-              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                Logo design
-              </p>
-            </div>
-            <div className="border-b border-solid border-gray-900 flex grow mb-1 group-hover:border-gray-300 transition-all ease-in-out duration-300"></div>
-            <div className="flex items-end">
-              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                2021
-              </p>
-            </div>
-          </Link>
+              {/* Full-time roles */}
+              <AppearIn>
+                <div className="flex flex-col gap-4">
+                  <p className="title">Full-time roles</p>
+                  {roles.map((item) => (
+                    <Link
+                      href={item.link}
+                      target="_blank"
+                      className="flex flex-row gap-4 align-baseline group"
+                      key={item.company}
+                    >
+                      <div className="p-1">{item.icon}</div>
+                      <div className="flex flex-col">
+                        <p className="cv-item_primary">{item.company}</p>
+                        <p className="cv-item_secondary">{item.role}</p>
+                      </div>
+                      <div className="cv-item_border"></div>
+                      <div className="flex items-end">
+                        <p className="cv-item_secondary block group-hover:hidden transition-all">
+                          {item.date}
+                        </p>
+                        <div className="hidden group-hover:flex flex-row items-center gap-1 transition-all">
+                          <p className="cv-item_secondary">Visit</p>
+                          <Icon
+                            name="arrow_right"
+                            className="cv-item_arrow"
+                            size={12}
+                          />
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </AppearIn>
 
-          <Link
-            href="https://dependabot.com"
-            target="_blank"
-            className="flex flex-row gap-4 rounded-lg grow align-baseline group bg-gray-950 p-3 hover:shadow-test z-10 hover:-z-0 transition-all ease-in-out duration-300"
-          >
-            <div className="p-1">
-              <Image
-                src="/logos/dependabot.svg"
-                alt="Picture of the author"
-                width={32}
-                height={32}
-              />
+              {/* Events */}
+              <AppearIn>
+                <div className="flex flex-col gap-4 mb-10">
+                  <p className="title mb-2">Events</p>
+                  {events.map((item) => (
+                    <Link
+                      href={item.link}
+                      target="_blank"
+                      className="flex flex-row gap-4 align-baseline group"
+                      key={item.company}
+                    >
+                      <div className="p-1 transition-colors ease-in-out duration-300">
+                        {item.icon}
+                      </div>
+                      <div className="flex flex-col">
+                        <p className="cv-item_primary">{item.company}</p>
+                        <p className="cv-item_secondary">{item.role}</p>
+                      </div>
+                      <div className="cv-item_border"></div>
+                      <div className="flex items-end">
+                        <p className="cv-item_secondary block group-hover:hidden transition-all">
+                          {item.date}
+                        </p>
+                        <div className="hidden group-hover:flex flex-row items-center gap-1 transition-all">
+                          <p className="cv-item_secondary">Visit</p>
+                          <Icon
+                            name="arrow_right"
+                            className="cv-item_arrow"
+                            size={12}
+                          />
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </AppearIn>
             </div>
-            <div className="flex flex-col">
-              <p className="text-sm text-gray-50">Dependabot</p>
-              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                Logo, brand & web design
-              </p>
-            </div>
-            <div className="border-b border-solid border-gray-900 flex grow mb-1 group-hover:border-gray-300 transition-all ease-in-out duration-300"></div>
-            <div className="flex items-end">
-              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                2018
-              </p>
-            </div>
-          </Link>
-        </div>
-        <div className="flex flex-col gap-2 mb-10">
-          <p className="title mb-2">Events</p>
-          <Link
-            href="https://designclub.io"
-            target="_blank"
-            className="flex flex-row gap-4 rounded-lg grow align-baseline group bg-gray-950 p-3 hover:shadow-test z-10 hover:-z-0 transition-all ease-in-out duration-300"
-          >
-            <div className="p-1">
-              <Image
-                src="/logos/dc.svg"
-                alt="Picture of the author"
-                width={32}
-                height={32}
-              />
-            </div>
-            <div className="flex flex-col">
-              <p className="text-sm text-gray-50">Design Club</p>
-              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                Co-organiser
-              </p>
-            </div>
-            <div className="border-b border-solid border-gray-900 flex grow mb-1 group-hover:border-gray-300 transition-all ease-in-out duration-300"></div>
-            <div className="flex items-end">
-              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                2016-present
-              </p>
-            </div>
-          </Link>
+          </div>
 
-          <Link
-            href="https://twitter.com/designandbanter"
-            target="_blank"
-            className="flex flex-row gap-4 rounded-lg grow align-baseline group bg-gray-950 p-3 hover:shadow-test z-10 hover:-z-0 transition-all ease-in-out duration-300"
-          >
-            <div className="p-1">
-              <Image
-                src="/logos/designandbanter.svg"
-                alt="Picture of the author"
-                width={32}
-                height={32}
-              />
+          {/* Social bar */}
+          <div className="fixed bottom-10 left-2/4 -translate-x-2/4 z-20">
+            <div className="flex flex-row justify-center items-center dark:bg-gray-950 bg-white backdrop-blur-md rounded-full p-1 border dark:border-gray-800 border-gray-200/50 animate-third">
+              <Link
+                href="mailto:hey@samwill.is"
+                target="_blank"
+                className="h-9 w-9 flex items-center justify-center rounded-full z-10 group hover:bg-gray-100 dark:hover:bg-gray-900"
+              >
+                <Icon name="email" className="social-icon" size={16} />
+              </Link>
+              <Link
+                href="https://twitter.com/samwill_is"
+                target="_blank"
+                className="h-9 w-9 flex items-center justify-center rounded-full z-10 group hover:bg-gray-100 dark:hover:bg-gray-900"
+              >
+                <Icon name="twitter" className="social-icon" size={16} />
+              </Link>
+              <Link
+                href="https://linkedin.com/in/samjwillis"
+                target="_blank"
+                className="h-9 w-9 flex items-center justify-center rounded-full z-10 group hover:bg-gray-100 dark:hover:bg-gray-900"
+              >
+                <Icon name="linkedin" className="social-icon" size={16} />
+              </Link>
+              <Link
+                href="https://dribbble.com/sjwillis"
+                target="_blank"
+                className="h-9 w-9 flex items-center justify-center rounded-full z-10 group hover:bg-gray-100 dark:hover:bg-gray-900"
+              >
+                <Icon name="dribbble" className="social-icon" size={16} />
+              </Link>
+              <Link
+                href="https://threads.net/@samwill.is"
+                target="_blank"
+                className="h-9 w-9 flex items-center justify-center rounded-full z-10 group hover:bg-gray-100 dark:hover:bg-gray-900"
+              >
+                <Icon name="threads" className="social-icon" size={16} />
+              </Link>
             </div>
-            <div className="flex flex-col">
-              <p className="text-sm text-gray-50">Design+Banter</p>
-              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                Co-organiser
-              </p>
-            </div>
-            <div className="border-b border-solid border-gray-900 flex grow mb-1 group-hover:border-gray-300 transition-all ease-in-out duration-300"></div>
-            <div className="flex items-end">
-              <p className="text-sm text-gray-500 group-hover:text-gray-50 transition-all ease-in-out duration-300">
-                2013-2015
-              </p>
-            </div>
-          </Link>
+          </div>
         </div>
       </div>
     </main>
