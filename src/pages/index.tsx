@@ -255,7 +255,7 @@ export default function Home() {
             <button
               id="theme-toggle"
               type="button"
-              className="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 h-10 w-10 rounded-full border border-gray-200 dark:border-gray-800 flex justify-center items-center"
+              className="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 h-10 w-10 rounded-full border border-gray-200 dark:border-gray-800 flex justify-center items-center"
               onClick={() => {
                 if (theme === "light") {
                   setTheme("dark");
