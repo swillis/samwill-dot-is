@@ -377,12 +377,11 @@ export default function Home() {
               </p>
             </div>
             {cv.map((item) => (
-              <AppearIn>
+              <AppearIn key={item.company}>
                 <Link
                   href={item.link}
                   target="_blank"
                   className="flex flex-row gap-6 align-baseline group transition-all ease-in-out duration-300 py-6 border-b dark:border-gray-800 border-gray-200/50 group items-center"
-                  key={item.company}
                 >
                   <div className="flex flex-row flex-1 gap-3 items-center">
                     {item.icon}
