@@ -132,10 +132,10 @@ export const Icon: React.FunctionComponent<IconProps> = ({
   >
     {getIconPath(name)}
 
-    <style jsx>{`
+    {/* <style jsx>{`
       .ff-icon {
         display: block;
       }
-    `}</style>
+    `}</style> */}
   </svg>
 );

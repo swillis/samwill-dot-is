@@ -176,7 +176,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className={`${theme} max-w-[1920px] mx-auto`}>
+    <main className={`${theme}`}>
       <Head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -211,7 +211,7 @@ export default function Home() {
       </Head>
 
       <div className="dark:bg-gray-950 bg-gray-50 transition-colors">
-        <div className="flex flex-col py-6 px-6 gap-32">
+        <div className="flex flex-col py-6 px-6 gap-32 max-w-[1920px] mx-auto">
           {/* Header */}
           <div className="animate-first flex flex-row justify-between">
             <div className="flex flex-row gap-4">
@@ -272,8 +272,8 @@ export default function Home() {
           </div>
 
           {/* Hero */}
-          <div className="mx-auto max-w-2xl w-full text-center animate-second">
-            <div className="flex flex-col gap-6 items-center">
+          <div className="mx-auto max-w-2xl w-full text-left sm:text-center animate-second">
+            <div className="flex flex-col gap-6 items-start sm:items-center">
               <div className="flex flex-col gap-4 max-w-2xl">
                 <p className="dark:text-gray-50 text-gray-900 text-xl">
                   I{" "}
@@ -342,7 +342,7 @@ export default function Home() {
                         alt={`Picture of ${project.title}`}
                         fill={true}
                         style={{ objectFit: "cover" }}
-                        className="hover:scale-105 transition-all"
+                        className="hover:scale-105 transition-all duration-500"
                       />
                     </div>
                   </div>
@@ -369,7 +369,7 @@ export default function Home() {
               <p className="text-sm text-gray-400 dark:text-gray-500 flex-1">
                 Company
               </p>
-              <p className="text-sm text-gray-400 dark:text-gray-500 flex-1">
+              <p className="text-sm text-gray-400 dark:text-gray-500 flex-1 hidden sm:flex">
                 Role
               </p>
               <p className="text-sm text-gray-400 dark:text-gray-500 flex-1">
@@ -386,21 +386,21 @@ export default function Home() {
                 >
                   <div className="flex flex-row flex-1 gap-3 items-center">
                     {item.icon}
-                    <p className="text-sm dark:text-gray-400 dark:group-hover:text-gray-50 text-gray-500 group-hover:text-gray-900">
+                    <p className="text-sm dark:text-gray-400 dark:group-hover:text-gray-50 text-gray-500 group-hover:text-gray-900 transition-colors duration-500">
                       {item.company}
                     </p>
                   </div>
-                  <p className="text-sm dark:text-gray-400 dark:group-hover:text-gray-50 text-gray-500 group-hover:text-gray-900 flex-1">
+                  <p className="text-sm dark:text-gray-400 dark:group-hover:text-gray-50 text-gray-500 group-hover:text-gray-900 flex-1 hidden sm:flex transition-colors duration-500">
                     {item.role}
                   </p>
 
                   <div className="flex flex-row flex-1 justify-between items-center">
-                    <p className="text-sm dark:text-gray-400 dark:group-hover:text-gray-50 text-gray-500 group-hover:text-gray-900 flex-1">
+                    <p className="text-sm dark:text-gray-400 dark:group-hover:text-gray-50 text-gray-500 group-hover:text-gray-900 flex-1 transition-colors duration-500">
                       {item.date}
                     </p>
                     <Icon
                       name="arrow_right"
-                      className="dark:fill-gray-500 dark:group-hover:fill-gray-50 fill-gray-500 group-hover:fill-gray-900"
+                      className="dark:fill-gray-500 dark:group-hover:fill-gray-50 fill-gray-500 group-hover:fill-gray-900 transition-colors duration-500"
                       size={20}
                     />
                   </div>
