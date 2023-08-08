@@ -365,17 +365,19 @@ export default function Home() {
 
           {/* CV */}
           <div className="pb-[102px]">
-            <div className="flex flex-row gap-6 pb-6 border-b dark:border-gray-800 border-gray-200/50">
-              <p className="text-sm text-gray-400 dark:text-gray-500 flex-1">
-                Company
-              </p>
-              <p className="text-sm text-gray-400 dark:text-gray-500 flex-1 hidden sm:flex">
-                Role
-              </p>
-              <p className="text-sm text-gray-400 dark:text-gray-500 flex-1">
-                Date
-              </p>
-            </div>
+            <AppearIn>
+              <div className="flex flex-row gap-6 pb-6 border-b dark:border-gray-800 border-gray-200/50">
+                <p className="text-sm text-gray-400 dark:text-gray-500 flex-1">
+                  Company
+                </p>
+                <p className="text-sm text-gray-400 dark:text-gray-500 flex-1 hidden sm:flex">
+                  Role
+                </p>
+                <p className="text-sm text-gray-400 dark:text-gray-500 flex-1">
+                  Date
+                </p>
+              </div>
+            </AppearIn>
             {cv.map((item) => (
               <AppearIn key={item.company}>
                 <Link
