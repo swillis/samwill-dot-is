@@ -85,8 +85,8 @@ const selectedWork = [
 const cv = [
   {
     company: "Incident.io",
-    role: "Logo design",
-    date: "2021",
+    role: "Product designer",
+    date: "2023-present",
     link: "https://incident.io",
     icon: <Icon name="incident" className="cv-item_icon" size={20} />,
   },
@@ -100,7 +100,7 @@ const cv = [
   {
     company: "Duffel",
     role: "Product design lead",
-    date: "2020-present",
+    date: "2020-2023",
     link: "https://duffel.com",
     icon: <Icon name="duffel" className="cv-item_icon" size={20} />,
   },
