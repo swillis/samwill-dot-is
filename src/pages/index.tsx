@@ -105,6 +105,13 @@ const cv = [
     icon: <Icon name="duffel" className="cv-item_icon" size={20} />,
   },
   {
+    company: "Design Club",
+    role: "Organiser",
+    date: "2016-2023",
+    link: "https://designclub.io",
+    icon: <Icon name="design_club" className="cv-item_icon" size={20} />,
+  },
+  {
     company: "Memrise",
     role: "Design manager",
     date: "2019-2020",
@@ -117,13 +124,6 @@ const cv = [
     date: "2018-2019",
     link: "https://fatllama.com",
     icon: <Icon name="fat_llama" className="cv-item_icon" size={20} />,
-  },
-  {
-    company: "Design Club",
-    role: "Organiser",
-    date: "2016-present",
-    link: "https://designclub.io",
-    icon: <Icon name="design_club" className="cv-item_icon" size={20} />,
   },
   {
     company: "GoCardless",
