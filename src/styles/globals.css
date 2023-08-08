@@ -12,6 +12,11 @@
   }
 }
 
+@font-face {
+  font-family: "Favorit";
+  src: url("/fonts/ABCFavorit-regular.woff2"), url("/fonts/ABCFavorit-regular.woff");
+}
+
 body {
   background: rgb(var(--foreground-rgb));
   -webkit-font-smoothing: antialiased;
@@ -26,7 +31,7 @@ body {
 }
 
 .social-icon {
-  @apply dark:fill-gray-100 fill-gray-700 dark:group-hover:fill-gray-50 group-hover:fill-gray-900;
+  @apply dark:fill-gray-100 fill-gray-500 dark:group-hover:fill-gray-50 group-hover:fill-gray-900;
 }
 
 .title {
@@ -38,7 +43,7 @@ body {
 }
 
 .cv-item_icon {
-  @apply dark:fill-gray-300 fill-gray-800 dark:group-hover:fill-white group-hover:fill-gray-900;
+  @apply dark:fill-gray-500 dark:group-hover:fill-gray-50 fill-gray-500 group-hover:fill-gray-900;
 }
 
 .cv-item_arrow {

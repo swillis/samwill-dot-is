@@ -10,18 +10,19 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+
   theme: {
 
     fontFamily: {
       sans: [
-        "Inter, system, sans-serif",
+        "Favorit, serif",
+        // "Favorit, system, sans-serif",
         // {
         //   fontFeatureSettings: '"cv11", "ss01"',
         //   fontVariationSettings: '"opsz" 32'
         // },
       ],
     },
-
 
     extend: {
       backgroundImage: {

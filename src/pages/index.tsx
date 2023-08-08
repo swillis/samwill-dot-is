@@ -82,82 +82,62 @@ const selectedWork = [
   // },
 ];
 
-const projects = [
-  {
-    company: "Alba",
-    role: "Designer/founder",
-    date: "2023-present",
-    link: "https://alba.art",
-    icon: <Icon name="alba" className="cv-item_icon" size={32} />,
-  },
-  {
-    company: "gm.studio",
-    role: "Product design",
-    date: "2023",
-    link: "https://gmstudio.art",
-    icon: <Icon name="gm_studio" className="cv-item_icon" size={32} />,
-  },
+const cv = [
   {
     company: "Incident.io",
     role: "Logo design",
     date: "2021",
     link: "https://incident.io",
-    icon: <Icon name="incident" className="cv-item_icon" size={32} />,
+    icon: <Icon name="incident" className="cv-item_icon" size={20} />,
   },
   {
-    company: "Dependabot",
-    role: "Logo, brand & web design",
-    date: "2017",
-    link: "https://dependabot.com",
-    icon: <Icon name="dependabot" className="cv-item_icon" size={32} />,
+    company: "Alba",
+    role: "Designer/founder",
+    date: "2023-present",
+    link: "https://alba.art",
+    icon: <Icon name="alba" className="cv-item_icon" size={20} />,
   },
-];
-
-const roles = [
   {
     company: "Duffel",
     role: "Product design lead",
     date: "2020-present",
     link: "https://duffel.com",
-    icon: <Icon name="duffel" className="cv-item_icon" size={32} />,
+    icon: <Icon name="duffel" className="cv-item_icon" size={20} />,
   },
   {
     company: "Memrise",
     role: "Design manager",
     date: "2019-2020",
     link: "https://memrise.com",
-    icon: <Icon name="memrise" className="cv-item_icon" size={32} />,
+    icon: <Icon name="memrise" className="cv-item_icon" size={20} />,
   },
   {
     company: "Fat Llama",
     role: "Product design lead",
     date: "2018-2019",
     link: "https://fatllama.com",
-    icon: <Icon name="fat_llama" className="cv-item_icon" size={32} />,
+    icon: <Icon name="fat_llama" className="cv-item_icon" size={20} />,
+  },
+  {
+    company: "Design Club",
+    role: "Organiser",
+    date: "2016-present",
+    link: "https://designclub.io",
+    icon: <Icon name="design_club" className="cv-item_icon" size={20} />,
   },
   {
     company: "GoCardless",
     role: "Senior product designer",
     date: "2015-2018",
     link: "https://gocardless.com",
-    icon: <Icon name="gocardless" className="cv-item_icon" size={32} />,
-  },
-];
-
-const events = [
-  {
-    company: "Design Club",
-    role: "Organiser",
-    date: "2016-present",
-    link: "https://designclub.io",
-    icon: <Icon name="design_club" className="cv-item_icon" size={32} />,
+    icon: <Icon name="gocardless" className="cv-item_icon" size={20} />,
   },
   {
     company: "Design+Banter",
     role: "Organiser",
     date: "2013-2015",
     link: "https://twitter.com/designandbanter",
-    icon: <Icon name="design_and_banter" className="cv-item_icon" size={32} />,
+    icon: <Icon name="design_and_banter" className="cv-item_icon" size={20} />,
   },
 ];
 
@@ -196,7 +176,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className={`${theme}`}>
+    <main className={`${theme} max-w-[1920px] mx-auto`}>
       <Head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -243,10 +223,10 @@ export default function Home() {
                 height={40}
               />
               <div>
-                <p className="text-sm dark:text-gray-50 text-gray-900 font-medium">
+                <p className="text-sm dark:text-gray-50 text-gray-900">
                   Sam Willis
                 </p>
-                <p className="text-sm dark:text-gray-500 text-gray-600 font-medium">
+                <p className="text-sm dark:text-gray-500 text-gray-500">
                   Product designer
                 </p>
               </div>
@@ -294,8 +274,8 @@ export default function Home() {
           {/* Hero */}
           <div className="mx-auto max-w-2xl w-full text-center animate-second">
             <div className="flex flex-col gap-6 items-center">
-              <div className="flex flex-col gap-3 max-w-2xl">
-                <p className="dark:text-gray-50 text-gray-900 text-xl font-medium">
+              <div className="flex flex-col gap-4 max-w-2xl">
+                <p className="dark:text-gray-50 text-gray-900 text-xl">
                   I{" "}
                   <ReactTyped
                     strings={[
@@ -319,7 +299,7 @@ export default function Home() {
                     showCursor={true}
                   />
                 </p>
-                <p className="dark:text-gray-500 text-gray-600 text-xl">
+                <p className="dark:text-gray-500 text-gray-500 text-xl">
                   I&apos;ve spent the past 10+ years helping companies translate
                   vision into reality, and design into competitive advantage.
                   I&apos;m currently building the future of travel at{" "}
@@ -342,7 +322,7 @@ export default function Home() {
                 </p>
               </div>
               <div className="flex shrink grow basis-auto">
-                <span className="border rounded-full dark:border-gray-900 border-gray-200 px-4 py-2 text-sm dark:text-gray-500 text-gray-600 flex flex-row items-center justify-start gap-3">
+                <span className="border rounded-full dark:border-gray-900 border-gray-200 px-4 py-2 text-sm dark:text-gray-500 text-gray-500 flex flex-row items-center justify-start gap-3">
                   <span className="h-2 w-2 dark:bg-red-700 bg-red-500 rounded-full" />
                   <span>Unavailable for new projects</span>
                 </span>
@@ -351,9 +331,9 @@ export default function Home() {
           </div>
 
           {/* Selected work */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 min-[1800px]:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
             {selectedWork.map((project) => (
-              <AppearIn key={project.title} className="test">
+              <AppearIn key={project.title}>
                 <div className="aspect-square dark:bg-gray-900 bg-gray-100 rounded-xl relative flex flex-col justify-center items-center">
                   <div className="flex flex-1 pt-6 pb-5 px-6 w-full">
                     <div className="relative w-full h-full rounded-md overflow-clip">
@@ -362,6 +342,7 @@ export default function Home() {
                         alt={`Picture of ${project.title}`}
                         fill={true}
                         style={{ objectFit: "cover" }}
+                        className="hover:scale-105 transition-all"
                       />
                     </div>
                   </div>
@@ -383,115 +364,49 @@ export default function Home() {
           </div>
 
           {/* CV */}
-          <div className="mx-auto max-w-2xl w-full mb-16">
-            <div className="flex flex-col gap-12">
-              {/* Projects */}
-              <AppearIn>
-                <div className="flex flex-col gap-4">
-                  <p className="title">Projects</p>
-                  {projects.map((item) => (
-                    <Link
-                      href={item.link}
-                      target="_blank"
-                      className="flex flex-row gap-4 align-baseline group transition-all ease-in-out duration-300"
-                      key={item.company}
-                    >
-                      <div className="p-1">{item.icon}</div>
-                      <div className="flex flex-col">
-                        <p className="cv-item_primary">{item.company}</p>
-                        <p className="cv-item_secondary">{item.role}</p>
-                      </div>
-                      <div className="cv-item_border"></div>
-                      <div className="flex items-end">
-                        <p className="cv-item_secondary block group-hover:hidden transition-all">
-                          {item.date}
-                        </p>
-                        <div className="hidden group-hover:flex flex-row items-center gap-1 transition-all">
-                          <p className="cv-item_secondary">Visit</p>
-                          <Icon
-                            name="arrow_right"
-                            className="cv-item_arrow"
-                            size={12}
-                          />
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </AppearIn>
-
-              {/* Full-time roles */}
-              <AppearIn>
-                <div className="flex flex-col gap-4">
-                  <p className="title">Full-time roles</p>
-                  {roles.map((item) => (
-                    <Link
-                      href={item.link}
-                      target="_blank"
-                      className="flex flex-row gap-4 align-baseline group"
-                      key={item.company}
-                    >
-                      <div className="p-1">{item.icon}</div>
-                      <div className="flex flex-col">
-                        <p className="cv-item_primary">{item.company}</p>
-                        <p className="cv-item_secondary">{item.role}</p>
-                      </div>
-                      <div className="cv-item_border"></div>
-                      <div className="flex items-end">
-                        <p className="cv-item_secondary block group-hover:hidden transition-all">
-                          {item.date}
-                        </p>
-                        <div className="hidden group-hover:flex flex-row items-center gap-1 transition-all">
-                          <p className="cv-item_secondary">Visit</p>
-                          <Icon
-                            name="arrow_right"
-                            className="cv-item_arrow"
-                            size={12}
-                          />
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </AppearIn>
-
-              {/* Events */}
-              <AppearIn>
-                <div className="flex flex-col gap-4 mb-10">
-                  <p className="title mb-2">Events</p>
-                  {events.map((item) => (
-                    <Link
-                      href={item.link}
-                      target="_blank"
-                      className="flex flex-row gap-4 align-baseline group"
-                      key={item.company}
-                    >
-                      <div className="p-1 transition-colors ease-in-out duration-300">
-                        {item.icon}
-                      </div>
-                      <div className="flex flex-col">
-                        <p className="cv-item_primary">{item.company}</p>
-                        <p className="cv-item_secondary">{item.role}</p>
-                      </div>
-                      <div className="cv-item_border"></div>
-                      <div className="flex items-end">
-                        <p className="cv-item_secondary block group-hover:hidden transition-all">
-                          {item.date}
-                        </p>
-                        <div className="hidden group-hover:flex flex-row items-center gap-1 transition-all">
-                          <p className="cv-item_secondary">Visit</p>
-                          <Icon
-                            name="arrow_right"
-                            className="cv-item_arrow"
-                            size={12}
-                          />
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </AppearIn>
+          <div className="pb-[102px]">
+            <div className="flex flex-row gap-6 pb-6 border-b dark:border-gray-800 border-gray-200/50">
+              <p className="text-sm text-gray-400 dark:text-gray-500 flex-1">
+                Company
+              </p>
+              <p className="text-sm text-gray-400 dark:text-gray-500 flex-1">
+                Role
+              </p>
+              <p className="text-sm text-gray-400 dark:text-gray-500 flex-1">
+                Date
+              </p>
             </div>
+            {cv.map((item) => (
+              <AppearIn>
+                <Link
+                  href={item.link}
+                  target="_blank"
+                  className="flex flex-row gap-6 align-baseline group transition-all ease-in-out duration-300 py-6 border-b dark:border-gray-800 border-gray-200/50 group items-center"
+                  key={item.company}
+                >
+                  <div className="flex flex-row flex-1 gap-3 items-center">
+                    {item.icon}
+                    <p className="text-sm dark:text-gray-400 dark:group-hover:text-gray-50 text-gray-500 group-hover:text-gray-900">
+                      {item.company}
+                    </p>
+                  </div>
+                  <p className="text-sm dark:text-gray-400 dark:group-hover:text-gray-50 text-gray-500 group-hover:text-gray-900 flex-1">
+                    {item.role}
+                  </p>
+
+                  <div className="flex flex-row flex-1 justify-between items-center">
+                    <p className="text-sm dark:text-gray-400 dark:group-hover:text-gray-50 text-gray-500 group-hover:text-gray-900 flex-1">
+                      {item.date}
+                    </p>
+                    <Icon
+                      name="arrow_right"
+                      className="dark:fill-gray-500 dark:group-hover:fill-gray-50 fill-gray-500 group-hover:fill-gray-900"
+                      size={20}
+                    />
+                  </div>
+                </Link>
+              </AppearIn>
+            ))}
           </div>
 
           {/* Social bar */}
