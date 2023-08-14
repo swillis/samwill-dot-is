@@ -62,24 +62,24 @@ const selectedWork = [
     link: "https://duffel.com/stays",
     image: "/selected-work/stays-search.jpg",
   },
-  // {
-  //   title: "Staking UI",
-  //   company: "Mantle",
-  //   link: "https://duffel.com/docs",
-  //   image: "/selected-work/staking-ui.jpg",
-  // },
-  // {
-  //   title: "Project launch flow",
-  //   company: "Alba",
-  //   link: "https://alba.art",
-  //   image: "/selected-work/project-launch.jpg",
-  // },
-  // {
-  //   title: "White-label confirmation email",
-  //   company: "Duffel",
-  //   link: "https://duffel.com",
-  //   image: "/selected-work/confirmation-email.jpg",
-  // },
+  {
+    title: "Staking UI",
+    company: "Mantle",
+    link: "https://duffel.com/docs",
+    image: "/selected-work/staking-ui.jpg",
+  },
+  {
+    title: "Project launch flow",
+    company: "Alba",
+    link: "https://alba.art",
+    image: "/selected-work/project-launch.jpg",
+  },
+  {
+    title: "White-label confirmation email",
+    company: "Duffel",
+    link: "https://duffel.com",
+    image: "/selected-work/confirmation-email.jpg",
+  },
 ];
 
 const cv = [
