@@ -63,10 +63,10 @@ const selectedWork = [
     image: "/selected-work/stays-search.jpg",
   },
   {
-    title: "Staking UI",
-    company: "Mantle",
-    link: "https://duffel.com/docs",
-    image: "/selected-work/staking-ui.jpg",
+    title: "White-label confirmation email",
+    company: "Duffel",
+    link: "https://duffel.com",
+    image: "/selected-work/confirmation-email.jpg",
   },
   {
     title: "Project launch flow",
@@ -75,10 +75,10 @@ const selectedWork = [
     image: "/selected-work/project-launch.jpg",
   },
   {
-    title: "White-label confirmation email",
-    company: "Duffel",
-    link: "https://duffel.com",
-    image: "/selected-work/confirmation-email.jpg",
+    title: "Coming soon…",
+    company: "Mantle",
+    link: "https://mantle.xyz",
+    image: "/selected-work/staking-ui-preview.jpg",
   },
 ];
 
@@ -322,7 +322,7 @@ export default function Home() {
                 </p>
               </div>
               <div className="flex shrink grow basis-auto">
-                <span className="border rounded-full dark:border-gray-900 border-gray-200 px-4 py-2 text-sm dark:text-gray-500 text-gray-500 flex flex-row items-center justify-start gap-3">
+                <span className="border rounded-full dark:border-gray-900 border-gray-200 px-4 py-2 text-base dark:text-gray-600 text-gray-400 flex flex-row items-center justify-start gap-3">
                   <span className="h-2 w-2 dark:bg-red-700 bg-red-500 rounded-full" />
                   <span>Unavailable for new projects</span>
                 </span>
@@ -411,7 +411,7 @@ export default function Home() {
           </div>
 
           {/* Social bar */}
-          <div className="fixed bottom-10 left-2/4 -translate-x-2/4 z-20">
+          <div className="fixed bottom-6 left-2/4 -translate-x-2/4 z-20">
             <div className="flex flex-row justify-center items-center dark:bg-gray-950/80 bg-white/80 backdrop-blur-md rounded-full p-1 border dark:border-gray-800 border-gray-200/50 animate-third">
               <Link
                 href="mailto:hey@samwill.is"
