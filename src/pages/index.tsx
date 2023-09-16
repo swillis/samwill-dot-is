@@ -302,19 +302,19 @@ export default function Home() {
                 <p className="dark:text-gray-500 text-gray-500 text-xl">
                   I&apos;ve spent the past 10+ years helping companies translate
                   vision into reality, and design into competitive advantage.
-                  I&apos;m currently building the future of travel at{" "}
+                  I&apos;m currently helping{" "}
                   <Link
-                    href="https://duffel.com"
+                    href="https://incident.io"
                     target="_blank"
-                    className="dark:text-gray-400 text-gray-800 hover:underline"
+                    className="dark:text-gray-300 text-gray-800 hover:underline"
                   >
-                    Duffel
-                  </Link>
-                  , and on the side I&apos;m building{" "}
+                    incident.io
+                  </Link>{" "}
+                  bring calm to chaos, and on the side I&apos;m building{" "}
                   <Link
                     href="https://alba.art"
                     target="_blank"
-                    className="dark:text-gray-400 text-gray-800 hover:underline"
+                    className="dark:text-gray-300 text-gray-800 hover:underline"
                   >
                     Alba
                   </Link>{" "}
@@ -334,7 +334,7 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
             {selectedWork.map((project) => (
               <AppearIn key={project.title}>
-                <div className="aspect-square dark:bg-gray-900 bg-gray-100 rounded-xl relative flex flex-col justify-center items-center">
+                <div className="aspect-square dark:bg-gray-900 bg-gray-100 dark:hover:bg-gray-800 hover:bg-gray-200 transition-colors rounded-xl relative flex flex-col justify-center items-center">
                   <div className="flex flex-1 pt-6 pb-5 px-6 w-full">
                     <div className="relative w-full h-full rounded-md overflow-clip">
                       <Image
@@ -342,7 +342,7 @@ export default function Home() {
                         alt={`Picture of ${project.title}`}
                         fill={true}
                         style={{ objectFit: "cover" }}
-                        className="hover:scale-105 transition-all duration-500"
+                        className="hover:scale-105 transition-all duration-1000"
                       />
                     </div>
                   </div>
