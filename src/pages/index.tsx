@@ -334,7 +334,7 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
             {selectedWork.map((project) => (
               <AppearIn key={project.title}>
-                <div className="aspect-square dark:bg-gray-900 bg-gray-100 dark:hover:bg-gray-800 hover:bg-gray-200 transition-colors rounded-xl relative flex flex-col justify-center items-center">
+                <div className="aspect-square dark:bg-gray-900 bg-gray-100 dark:hover:bg-gray-800 hover:bg-gray-200 transition-colors duration-500 rounded-xl relative flex flex-col justify-center items-center">
                   <div className="flex flex-1 pt-6 pb-5 px-6 w-full">
                     <div className="relative w-full h-full rounded-md overflow-clip">
                       <Image
