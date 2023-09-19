@@ -275,7 +275,8 @@ export default function Home() {
           <div className="mx-auto max-w-2xl w-full text-left sm:text-center animate-second">
             <div className="flex flex-col gap-6 items-start sm:items-center">
               <div className="flex flex-col gap-4 max-w-2xl">
-                <p className="dark:text-gray-50 text-gray-900 text-xl">
+                <p className="text-2xl font-bold overflow-auto bg-gradient-to-r from-gray-950 to-gray-400 dark:from-gray-400 dark:to-gray-50 bg-clip-text text-transparent
+                ">
                   I{" "}
                   <ReactTyped
                     strings={[
@@ -367,13 +368,13 @@ export default function Home() {
           <div className="pb-[102px]">
             <AppearIn>
               <div className="flex flex-row gap-6 pb-6 border-b dark:border-gray-800 border-gray-200/50">
-                <p className="text-sm text-gray-400 dark:text-gray-500 flex-1">
+                <p className="text-sm text-gray-500 flex-1">
                   Company
                 </p>
-                <p className="text-sm text-gray-400 dark:text-gray-500 flex-1 hidden sm:flex">
+                <p className="text-sm text-gray-500 flex-1 hidden sm:flex">
                   Role
                 </p>
-                <p className="text-sm text-gray-400 dark:text-gray-500 flex-1">
+                <p className="text-sm text-gray-500 flex-1">
                   Date
                 </p>
               </div>
@@ -387,16 +388,16 @@ export default function Home() {
                 >
                   <div className="flex flex-row flex-1 gap-3 items-center">
                     {item.icon}
-                    <p className="text-sm dark:text-gray-400 dark:group-hover:text-gray-50 text-gray-500 group-hover:text-gray-900 transition-colors duration-500">
+                    <p className="text-sm dark:text-gray-400 dark:group-hover:text-gray-50 text-gray-600 group-hover:text-gray-900 transition-colors duration-500">
                       {item.company}
                     </p>
                   </div>
-                  <p className="text-sm dark:text-gray-400 dark:group-hover:text-gray-50 text-gray-500 group-hover:text-gray-900 flex-1 hidden sm:flex transition-colors duration-500">
+                  <p className="text-sm dark:text-gray-400 dark:group-hover:text-gray-50 text-gray-600 group-hover:text-gray-900 flex-1 hidden sm:flex transition-colors duration-500">
                     {item.role}
                   </p>
 
                   <div className="flex flex-row flex-1 justify-between items-center">
-                    <p className="text-sm dark:text-gray-400 dark:group-hover:text-gray-50 text-gray-500 group-hover:text-gray-900 flex-1 transition-colors duration-500">
+                    <p className="text-sm dark:text-gray-400 dark:group-hover:text-gray-50 text-gray-600 group-hover:text-gray-900 flex-1 transition-colors duration-500">
                       {item.date}
                     </p>
                     <Icon
