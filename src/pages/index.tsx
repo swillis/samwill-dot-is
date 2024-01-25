@@ -216,7 +216,7 @@ export default function Home() {
           <div className="animate-first flex flex-row justify-between">
             <div className="flex flex-row gap-4">
               <Image
-                className="rounded-full"
+                className="rounded-full dark:border-gray-800 border-gray-200 border p-1"
                 src="/me.png"
                 alt="Picture of the author"
                 width={40}
@@ -275,7 +275,7 @@ export default function Home() {
           <div className="mx-auto max-w-2xl w-full text-left sm:text-center animate-second">
             <div className="flex flex-col gap-6 items-start sm:items-center">
               <div className="flex flex-col gap-4 max-w-2xl">
-                <p className="text-2xl font-bold overflow-auto bg-gradient-to-r from-gray-950 to-gray-400 dark:from-gray-400 dark:to-gray-50 bg-clip-text text-transparent
+                <p className="text-xl font-bold overflow-auto bg-gradient-to-r from-gray-950 to-gray-400 dark:from-gray-400 dark:to-gray-50 bg-clip-text text-transparent
                 ">
                   I{" "}
                   <ReactTyped
@@ -417,38 +417,38 @@ export default function Home() {
               <Link
                 href="mailto:hey@samwill.is"
                 target="_blank"
-                className="h-9 w-9 flex items-center justify-center rounded-full z-10 group hover:bg-gray-100 dark:hover:bg-gray-900"
+                className="h-10 w-10 flex items-center justify-center rounded-full z-10 group hover:bg-gray-100 dark:hover:bg-gray-900"
               >
                 <Icon name="email" className="social-icon" size={16} />
               </Link>
               <Link
                 href="https://twitter.com/samwill_is"
                 target="_blank"
-                className="h-9 w-9 flex items-center justify-center rounded-full z-10 group hover:bg-gray-100 dark:hover:bg-gray-900"
+                className="h-10 w-10 flex items-center justify-center rounded-full z-10 group hover:bg-gray-100 dark:hover:bg-gray-900"
               >
                 <Icon name="twitter" className="social-icon" size={16} />
               </Link>
               <Link
                 href="https://linkedin.com/in/samjwillis"
                 target="_blank"
-                className="h-9 w-9 flex items-center justify-center rounded-full z-10 group hover:bg-gray-100 dark:hover:bg-gray-900"
+                className="h-10 w-10 flex items-center justify-center rounded-full z-10 group hover:bg-gray-100 dark:hover:bg-gray-900"
               >
                 <Icon name="linkedin" className="social-icon" size={16} />
               </Link>
               <Link
                 href="https://dribbble.com/sjwillis"
                 target="_blank"
-                className="h-9 w-9 flex items-center justify-center rounded-full z-10 group hover:bg-gray-100 dark:hover:bg-gray-900"
+                className="h-10 w-10 flex items-center justify-center rounded-full z-10 group hover:bg-gray-100 dark:hover:bg-gray-900"
               >
                 <Icon name="dribbble" className="social-icon" size={16} />
               </Link>
-              <Link
+              {/* <Link
                 href="https://threads.net/@samwill.is"
                 target="_blank"
-                className="h-9 w-9 flex items-center justify-center rounded-full z-10 group hover:bg-gray-100 dark:hover:bg-gray-900"
+                className="h-10 w-10 flex items-center justify-center rounded-full z-10 group hover:bg-gray-100 dark:hover:bg-gray-900"
               >
                 <Icon name="threads" className="social-icon" size={16} />
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
