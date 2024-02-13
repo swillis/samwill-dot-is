@@ -14,13 +14,22 @@
 
 @font-face {
   font-family: "Favorit";
-  src: url("/fonts/ABCFavorit-Regular.woff2"), url("/fonts/ABCFavorit-Regular.woff");
+  src: url("/fonts/ABCFavorit-Regular.woff2");
+}
+
+@font-face {
+  font-family: "Redaction";
+  src: url("/fonts/Redaction_100-regular.woff2")
 }
 
 body {
   background: rgb(var(--foreground-rgb));
   -webkit-font-smoothing: antialiased;
   @apply tracking-tight
+}
+
+.test-font {
+  font-family: "Redaction";
 }
 
 ::selection {
@@ -117,4 +126,20 @@ section span {
     opacity: 1;
     transform: translateX(0px);
   }
+}
+
+/* Swiper */
+
+.swiper {
+  width: 100%;
+}
+
+.swiper-slide {
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* border-radius: 18px; */
+  /* font-size: 22px; */
+  /* font-weight: bold; */
+  /* color: #fff; */
 }

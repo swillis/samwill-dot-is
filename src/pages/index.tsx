@@ -1,5 +1,9 @@
-import Image from "next/image";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/effect-cards';
+import { EffectCards } from 'swiper/modules';
 import Head from "next/head";
+import Image from "next/image";
 import Link from "next/link";
 import React, { useRef, useEffect, useState, use } from "react";
 import ReactTyped from "react-typed";
@@ -210,27 +214,13 @@ export default function Home() {
         <meta name="twitter:image" content="" />
       </Head>
 
-      <div className="dark:bg-gray-950 bg-gray-50 transition-colors">
-        <div className="flex flex-col py-6 px-6 gap-32 max-w-[1920px] mx-auto">
+      <div className="dark:bg-gray-900 bg-gray-50 transition-colors">
+        <div className="flex flex-col py-6 px-8 gap-32 max-w-xl mx-auto">
           {/* Header */}
           <div className="animate-first flex flex-row justify-between">
-            <div className="flex flex-row gap-4">
-              <Image
-                className="rounded-full dark:border-gray-800 border-gray-200 border p-1"
-                src="/me.png"
-                alt="Picture of the author"
-                width={40}
-                height={40}
-              />
-              <div>
-                <p className="text-sm dark:text-gray-50 text-gray-900">
-                  Sam Willis
-                </p>
-                <p className="text-sm dark:text-gray-500 text-gray-500">
-                  Product designer
-                </p>
-              </div>
-            </div>
+            <p className="text-base dark:text-gray-50 text-gray-900 test-font">
+              samwill.is
+            </p>
 
             <button
               id="theme-toggle"
@@ -296,7 +286,6 @@ export default function Home() {
                     loop
                     backDelay={2000}
                     backSpeed={10}
-                    // cursorChar=">"
                     showCursor={true}
                   />
                 </p>
@@ -331,8 +320,54 @@ export default function Home() {
             </div>
           </div>
 
+          <Swiper
+            effect={'cards'}
+            grabCursor={true}
+            modules={[EffectCards]}
+            className="mySwiper"
+          >
+            {selectedWork.map((project) => (
+              // <AppearIn key={project.title}>
+              <SwiperSlide key={project.title} className="aspect-square dark:bg-gray-900 bg-gray-100 dark:hover:bg-gray-800 hover:bg-gray-200 transition-colors duration-500 rounded-xl relative flex flex-col justify-center items-center">
+                <div className="flex flex-1 pt-6 pb-5 px-6 w-full">
+                  <div className="relative w-full h-full rounded-md overflow-clip">
+                    <Image
+                      src={project.image}
+                      alt={`Picture of ${project.title}`}
+                      fill={true}
+                      style={{ objectFit: "cover" }}
+                      className="hover:scale-105 transition-all duration-1000"
+                    />
+                  </div>
+                </div>
+                <div className="flex flex-row w-full justify-between px-6 pb-5">
+                  <p className="dark:text-gray-400 text-gray-500 text-sm">
+                    {project.title}
+                  </p>
+                  <Link
+                    href={project.link}
+                    target="_blank"
+                    className="dark:text-gray-500 text-gray-400 flex flex-row items-center gap-1 justify-center text-sm group dark:hover:text-gray-50 hover:text-gray-900"
+                  >
+                    {project.company}
+                  </Link>
+                </div>
+              </SwiperSlide>
+              // </AppearIn>
+            ))}
+            {/* <SwiperSlide>Slide 1</SwiperSlide>
+            <SwiperSlide>Slide 2</SwiperSlide>
+            <SwiperSlide>Slide 3</SwiperSlide>
+            <SwiperSlide>Slide 4</SwiperSlide>
+            <SwiperSlide>Slide 5</SwiperSlide>
+            <SwiperSlide>Slide 6</SwiperSlide>
+            <SwiperSlide>Slide 7</SwiperSlide>
+            <SwiperSlide>Slide 8</SwiperSlide>
+            <SwiperSlide>Slide 9</SwiperSlide> */}
+          </Swiper>
+
           {/* Selected work */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 gap-6">
             {selectedWork.map((project) => (
               <AppearIn key={project.title}>
                 <div className="aspect-square dark:bg-gray-900 bg-gray-100 dark:hover:bg-gray-800 hover:bg-gray-200 transition-colors duration-500 rounded-xl relative flex flex-col justify-center items-center">
@@ -365,7 +400,7 @@ export default function Home() {
           </div>
 
           {/* CV */}
-          <div className="pb-[102px]">
+          {/* <div className="pb-[102px]">
             <AppearIn>
               <div className="flex flex-row gap-6 pb-6 border-b dark:border-gray-800 border-gray-200/50">
                 <p className="text-sm text-gray-500 flex-1">
@@ -409,10 +444,10 @@ export default function Home() {
                 </Link>
               </AppearIn>
             ))}
-          </div>
+          </div> */}
 
           {/* Social bar */}
-          <div className="fixed bottom-6 left-2/4 -translate-x-2/4 z-20">
+          {/* <div className="fixed bottom-6 left-2/4 -translate-x-2/4 z-20">
             <div className="flex flex-row justify-center items-center dark:bg-gray-950/80 bg-white/80 backdrop-blur-md rounded-full p-1 border dark:border-gray-800 border-gray-200/50 animate-third">
               <Link
                 href="mailto:hey@samwill.is"
@@ -442,15 +477,8 @@ export default function Home() {
               >
                 <Icon name="dribbble" className="social-icon" size={16} />
               </Link>
-              {/* <Link
-                href="https://threads.net/@samwill.is"
-                target="_blank"
-                className="h-10 w-10 flex items-center justify-center rounded-full z-10 group hover:bg-gray-100 dark:hover:bg-gray-900"
-              >
-                <Icon name="threads" className="social-icon" size={16} />
-              </Link> */}
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </main>
