@@ -8,7 +8,7 @@ import Link from "next/link";
 import React, { useRef, useEffect, useState, use } from "react";
 import ReactTyped from "react-typed";
 
-import { ArrowLeftIcon, ArrowRightIcon, ChatBubbleLeftRightIcon, PlusIcon } from '@heroicons/react/16/solid'
+import { ArrowLeftIcon, ArrowRightIcon, ChatBubbleLeftRightIcon, PlusIcon, MinusIcon } from '@heroicons/react/16/solid'
 
 import { useInView } from "framer-motion";
 
@@ -172,25 +172,8 @@ export default function Home() {
     }
   }, []);
 
-  // var coll = document.getElementsByClassName("collapsible");
-  // var i;
-  
-  // for (i = 0; i < coll.length; i++) {
-  //   coll[i].addEventListener("click", function() {
-  //     this.classList.toggle("active");
-  //     var content = this.nextElementSibling;
-  //     if (content.style.maxHeight){
-  //       content.style.maxHeight = null;
-  //     } else {
-  //       content.style.maxHeight = content.scrollHeight + "px";
-  //     }
-  //   });
-  // }
-
-  // Step 1: Initialize state object for collapse states
   const [collapsedStates, setCollapsedStates] = useState({});
 
-  // Step 2: Modify the click handler to toggle the specific item's state
   const toggleCollapse = (company) => {
     setCollapsedStates(prevStates => ({
       ...prevStates,
@@ -285,26 +268,35 @@ export default function Home() {
           {/* Hero */}
           <div className="mx-auto w-fulltext-left animate-second">
             <div className="flex flex-col gap-6 items-start sm:items-center">
-              <div className="flex flex-col gap-4">
-                <p className="text-xl text-gray-500">
-                  <span className="text-gray-100">I&apos;m Sam, a <span className="digital-font relative glitch" title="digital">digital</span> product designer based in London.</span> I love designing intuitive and aesthetic interfaces.
-                </p>
-                <p className="dark:text-gray-500 text-gray-500 text-sm">
-                  I&apos;ve over 10 years experience helping companies turn vision to reality, and design to competitive advantage. I&apos;m currently building incident management software at{" "}
-                  <Link
-                    href="https://incident.io"
-                    target="_blank"
-                    className="underline hover:text-gray-100"
-                  >
-                    incident.io
-                  </Link>, and on the side I'm building <Link
-                    href="https://alba.art"
-                    target="_blank"
-                    className="underline hover:text-gray-100"
-                  >
-                    Alba
-                  </Link>, an open platform for generative art on ETH.
-                </p>
+              <div className="flex flex-col gap-8">
+                <div className="flex flex-col gap-4">
+                  <p className="text-xl text-gray-500">
+                    <span className="text-gray-100">I&apos;m Sam, a <span className="digital-font relative glitch" title="digital">digital</span> product designer based in London.</span> I love designing intuitive and aesthetic interfaces.
+                  </p>
+                  <p className="dark:text-gray-500 text-gray-500 text-sm">
+                    I&apos;ve over 10 years experience helping companies turn vision to reality, and design to competitive advantage. I&apos;m currently building incident management software at{" "}
+                    <Link
+                      href="https://incident.io"
+                      target="_blank"
+                      className="underline hover:text-gray-100"
+                    >
+                      incident.io
+                    </Link>, and on the side I'm building <Link
+                      href="https://alba.art"
+                      target="_blank"
+                      className="underline hover:text-gray-100"
+                    >
+                      Alba
+                    </Link>, an open platform for generative art on ETH.
+                  </p>
+                </div>
+                <Link
+                  href="mailto:hey@samwill.is"
+                  target="_blank"
+                  className="button flex flex-row items-center gap-2 grow-0 self-start"
+                >
+                  <ChatBubbleLeftRightIcon className="h-4 w-4" />{" "}
+                  Get in touch</Link>
               </div>
             </div>
           </div>
@@ -312,10 +304,10 @@ export default function Home() {
           {/* Selected work */}
           <div className="flex flex-col gap-5">
             <Swiper
-              initialSlide={0 }
+              initialSlide={0}
               // loop
               effect={'cards'}
-              grabCursor={true}
+              // grabCursor={true}
               modules={[EffectCards, Navigation]}
               className="mySwiper"
               cardsEffect={{
@@ -329,44 +321,46 @@ export default function Home() {
             >
               {selectedWork.map((project) => (
                 // <AppearIn key={project.title}>
-                <SwiperSlide key={project.title} className="rounded-2xl p-px bg-gradient-to-b from-gray-700 to-gray-900">
-                  <div className="dark:bg-gray-900 bg-gray-100 rounded-[15px] relative flex flex-col justify-center items-center">
-                    <div className="flex flex-1 pt-4 px-4 w-full max-h-full">
-                      <div className="relative aspect-square w-full h-full rounded-md overflow-clip">
-                        <Image
-                          src={project.image}
-                          alt={`Picture of ${project.title}`}
-                          fill={true}
-                          style={{ objectFit: "cover" }}
-                          sizes="(max-width: 768px) 100vw, 33vw"
-                        />
-                      </div>
+                <SwiperSlide key={project.title}>
+                  <div className="relative flex flex-col justify-center items-center">
+                    <div className="relative aspect-square w-full h-full rounded-xl overflow-clip">
+                      <Image
+                        src={project.image}
+                        alt={`Picture of ${project.title}`}
+                        fill={true}
+                        style={{ objectFit: "cover" }}
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                      />
+                      <div className="prev absolute top-0 bottom-0 left-0 right-1/2 cursor-w-resize"></div>
+                      <div className="next absolute top-0 bottom-0 left-1/2 right-0 cursor-e-resize"></div>
                     </div>
-                    <div className="flex flex-row w-full justify-between px-4 py-4">
-                      <p className="dark:text-gray-400 text-gray-500 text-sm">
+                    {/* <div className="px-5 py-4 absolute bottom-0 left-0 right-0 backdrop-blur-sm"> */}
+                    <div className="teststuff w-full flex flex-row justify-between pt-5">
+                      <p className="dark:text-gray-100 text-gray-500 text-sm">
                         {project.title}
                       </p>
                       <Link
                         href={project.link}
                         target="_blank"
-                        className="dark:text-gray-200 text-gray-400 flex flex-row items-center gap-1 justify-center text-sm group dark:hover:text-gray-50 hover:text-gray-900"
+                        className="dark:text-gray-100 text-gray-400 flex flex-row items-center gap-1 justify-center text-sm group dark:hover:text-gray-50 hover:text-gray-900"
                       >
                         {project.company}
                       </Link>
                     </div>
+                    {/* <div className="gradient-blur z-0">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                      </div> */}
+                    {/* </div> */}
                   </div>
                 </SwiperSlide>
                 // </AppearIn>
               ))}
             </Swiper>
-            <div className="flex flex-row gap-3 justify-center">
-              <div className="prev text-gray-300 hover:text-gray-50 flex h-8 w-8 items-center justify-center bg-gray-900 rounded-lg cursor-pointer hover:bg-gray-800 active:bg-gray-900">
-                <ArrowLeftIcon className="h-4 w-4" />
-              </div>
-              <div className="next text-gray-300 hover:text-gray-50 flex h-8 w-8 items-center justify-center bg-gray-900 rounded-lg cursor-pointer hover:bg-gray-800 active:bg-gray-900">
-                <ArrowRightIcon className="h-4 w-4" />
-              </div>
-            </div>
           </div>
 
           {/* CV */}
@@ -381,54 +375,27 @@ export default function Home() {
               </p>
             </div>
             <div className="border-t border-gray-900 flex flex-col">
-            
+
               {cv.map((item) => (
-                <div key={item.company} className="py-4 border-b border-gray-900 flex flex-col">
-                  <div className="items-center gap-4 flex flex-row justify-between">
+                <div key={item.company} className="border-b border-gray-900 flex flex-col cursor-pointer" onClick={() => toggleCollapse(item.company)}>
+                  <div className="items-center gap-4 flex flex-row justify-between py-4">
                     <div className="flex flex-row gap-4">
                       <div className="text-right text-neutral-500 text-sm font-normal font-['Inter'] leading-tight">{item.date}</div>
                       <div className="text-neutral-50 text-sm font-normal font-['Inter'] leading-tight">{item.company}</div>
                     </div>
                     <div className="flex flex-row justify-end gap-4">
                       <div className="text-right text-neutral-500 text-sm font-normal font-['Inter'] leading-tight">{item.role}</div>
-                      <PlusIcon className="h-4 w-4 fill-gray-500 hover:fill-gray-50 cursor-pointer" onClick={() => toggleCollapse(item.company)} />
+                      <PlusIcon className={`
+                        h-4 w-4 fill-gray-500 hover:fill-gray-50 transition-transform 
+                        ${!collapsedStates[item.company] ? 'rotate-0' : 'rotate-45'}
+                        `} />
                     </div>
                   </div>
-                  {/* Step 3: Adjust rendering logic to check the collapsed state for each item */}
-                  <div className={`test ${collapsedStates[item.company] ? 'hidden' : ''}`}>
-                    <p>{item.text}</p>
+                  <div className={`overflow-hidden transition-all ${!collapsedStates[item.company] ? 'max-h-0' : 'max-h-48'}`}>
+                    <p className="text-gray-500 pb-4">{item.text}</p>
                   </div>
                 </div>
-
-
-              // <Link
-              //   key={item.company}
-              //   href={item.link}
-              //   target="_blank"
-              //   className="flex flex-row gap-4 py-3 items-end"
-              // >
-              //   <div className="flex flex-row flex-1 gap-4 items-center">
-              //     <div className="h-10 w-10 flex justify-center items-center bg-gray-950 rounded-lg dark:group-hover:bg-gray-600 transition-colors">
-              //       {item.icon}
-              //     </div>
-              //     <div className="flex flex-col gap-0">
-              //       <p className="text-sm dark:text-gray-100 dark:group-hover:text-gray-50 text-gray-600 group-hover:text-gray-900 transition-colors duration-500">
-              //         {item.company}
-              //       </p>
-              //       <p className="text-sm dark:text-gray-500 dark:group-hover:text-gray-50 text-gray-600 group-hover:text-gray-900 flex-1 hidden sm:flex transition-colors duration-500">
-              //         {item.role}
-              //       </p>
-              //     </div>
-              //   </div>
-
-              //   <div className="flex flex-row flex-1 justify-between items-center">
-              //     <p className="text-sm dark:text-gray-500 dark:group-hover:text-gray-50 text-gray-600 group-hover:text-gray-900 flex-1 transition-colors duration-500 text-right">
-              //       {item.date}
-              //     </p>
-              //   </div>
-              // </Link>
-              // </AppearIn>
-            ))}
+              ))}
             </div>
           </div>
 
@@ -459,15 +426,15 @@ export default function Home() {
                 target="_blank"
                 className="button button-round"
               ><Icon name="linkedin" className="social-icon" size={14} /></Link>
-              <Link
+              {/* <Link
                 href="https://dribbble.com/sjwillis"
                 target="_blank"
                 className="button button-round"
-              ><Icon name="dribbble" className="social-icon" size={14} /></Link>
+              ><Icon name="dribbble" className="social-icon" size={14} /></Link> */}
             </div>
           </div>
           <div className="flex flex-col gap-10 mb-2">
-            
+
           </div>
         </div>
       </div>
