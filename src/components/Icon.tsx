@@ -116,7 +116,7 @@ const getIconPath = (name: IconName) => {
 interface IconProps {
   name: IconName;
   className?: string;
-  size?: 12 | 16 | 18 | 20 | 24 | 32;
+  size?: 12 | 14 | 16 | 18 | 20 | 24 | 32;
 }
 
 export const Icon: React.FunctionComponent<IconProps> = ({
