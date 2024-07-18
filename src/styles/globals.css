@@ -137,18 +137,17 @@ section span {
 }
 
 .swiper-slide {
-  filter: blur(4px);
-  animation: .3s unblur;
+  @apply shadow-2xl;
 }
 
 .swiper-slide .teststuff {
   display: none;
 }
 
-.swiper-slide-active {
+/* .swiper-slide-active {
   filter: blur(0px);
   animation: .4s blur;
-}
+} */
 
 .swiper-slide-active .teststuff {
   @apply flex;

@@ -90,7 +90,7 @@ const cv = [
   },
   {
     company: "Duffel",
-    role: "Product design lead",
+    role: "Head of product design",
     date: "2021",
     link: "https://duffel.com",
     icon: <Icon name="duffel" className="cv-item_icon" size={20} />,
@@ -271,23 +271,10 @@ export default function Home() {
               <div className="flex flex-col gap-8">
                 <div className="flex flex-col gap-4">
                   <p className="text-xl text-gray-500">
-                    <span className="text-gray-100">I&apos;m Sam, a <span className="digital-font relative glitch" title="digital">digital</span> product designer based in London.</span> I love designing intuitive and aesthetic interfaces.
+                    <span className="text-gray-100">I&apos;m Sam, a <span className="digital-font relative glitch" title="digital">digital</span> product designer based in London.</span> I love crafting intuitive interfaces that make people go “mmm, that&apos;s nice.”
                   </p>
                   <p className="dark:text-gray-500 text-gray-500 text-sm">
-                    I&apos;ve over 10 years experience helping companies turn vision to reality, and design to competitive advantage. I&apos;m currently building incident management software at{" "}
-                    <Link
-                      href="https://incident.io"
-                      target="_blank"
-                      className="underline hover:text-gray-100"
-                    >
-                      incident.io
-                    </Link>, and on the side I'm building <Link
-                      href="https://alba.art"
-                      target="_blank"
-                      className="underline hover:text-gray-100"
-                    >
-                      Alba
-                    </Link>, an open platform for generative art on ETH.
+                    I&apos;ve spent over 10 years helping companies turn vision to reality, and design to competitive advantage. Check out some selected work below, or get in touch if you&apos;d like to read case studies.
                   </p>
                 </div>
                 <Link
@@ -311,8 +298,7 @@ export default function Home() {
               modules={[EffectCards, Navigation]}
               className="mySwiper"
               cardsEffect={{
-                perSlideOffset: 16,
-                perSlideRotate: 0,
+                perSlideOffset: 8,
               }}
               navigation={{
                 prevEl: '.prev',
@@ -323,7 +309,7 @@ export default function Home() {
                 // <AppearIn key={project.title}>
                 <SwiperSlide key={project.title}>
                   <div className="relative flex flex-col justify-center items-center">
-                    <div className="relative aspect-square w-full h-full rounded-xl overflow-clip">
+                    <div className="relative aspect-square w-full h-full rounded-2xl overflow-clip">
                       <Image
                         src={project.image}
                         alt={`Picture of ${project.title}`}
@@ -368,16 +354,16 @@ export default function Home() {
           <div className="">
             <div className="flex flex-col gap-4 mb-12">
               <p className="text-xl text-gray-500">
-                <span className="text-gray-100">I'm a bit of a hybrid.</span> I&apos;ve spent most of my career operating as a product designer. But I enjoy exploring new things and have tried my hand at running events, designing logos and even dabbled with the M* word…
+                <span className="text-gray-100">I get around.</span> As well as helping startups with their products, I&apos;ve also organised design events, built a crypto startup, and designed some cool logos.
               </p>
               <p className="dark:text-gray-500 text-gray-500 text-sm">
-                …management! But to be honest, it wasn&apos;t really for me. While I enjoyed certain aspects (helping people grow, setting direction, strategy, etc) but I realised I can do this, and enjoy it more from an IC position.
+                I&apos;m a bit of a “yes man” and love trying new things. Especially if I get to try out a new visual style or work with a new technology. Below are some (most) of the things I&apos;ve worked on over the past decade.
               </p>
             </div>
             <div className="border-t border-gray-900 flex flex-col">
 
               {cv.map((item) => (
-                <div key={item.company} className="border-b border-gray-900 flex flex-col cursor-pointer" onClick={() => toggleCollapse(item.company)}>
+                <div key={item.company} className="border-b border-gray-900 flex flex-col cursor-pointer group" onClick={() => toggleCollapse(item.company)}>
                   <div className="items-center gap-4 flex flex-row justify-between py-4">
                     <div className="flex flex-row gap-4">
                       <div className="text-right text-neutral-500 text-sm font-normal font-['Inter'] leading-tight">{item.date}</div>
@@ -386,7 +372,7 @@ export default function Home() {
                     <div className="flex flex-row justify-end gap-4">
                       <div className="text-right text-neutral-500 text-sm font-normal font-['Inter'] leading-tight">{item.role}</div>
                       <PlusIcon className={`
-                        h-4 w-4 fill-gray-500 hover:fill-gray-50 transition-transform 
+                        h-4 w-4 fill-gray-500 group-hover:fill-gray-50 transition-all 
                         ${!collapsedStates[item.company] ? 'rotate-0' : 'rotate-45'}
                         `} />
                     </div>
@@ -402,7 +388,7 @@ export default function Home() {
           <div className="flex flex-col gap-10 mb-20">
             <div className="flex flex-col gap-5">
               <p className="text-xl text-gray-500">
-                <span className="text-gray-100">I&apos;m full-time at incident.io right now.</span> I&apos;m not taking on (big) projects at the moment. But if you think I can help with something* then I&apos;d love to hear from you.
+                <span className="text-gray-100">I&apos;m heads-down on incident.io right now.</span> I&apos;m not taking on new projects atm, but if you have something<span className="text-gray-100">*</span> you think I can help with, then I&apos;m always open to chat.
               </p>
               <p className="dark:text-gray-500 text-gray-500 text-sm">
                 *I find it very hard to turn down logo/brand design projects
