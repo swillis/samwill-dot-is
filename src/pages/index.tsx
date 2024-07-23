@@ -8,7 +8,7 @@ import Link from "next/link";
 import React, { useRef, useEffect, useState, use } from "react";
 import ReactTyped from "react-typed";
 
-import { ArrowLeftIcon, ArrowRightIcon, ChatBubbleLeftRightIcon, PlusIcon, MinusIcon } from '@heroicons/react/16/solid'
+import { ArrowRightIcon, ChatBubbleLeftRightIcon, PlusIcon } from '@heroicons/react/16/solid'
 
 import { useInView } from "framer-motion";
 
@@ -222,9 +222,14 @@ export default function Home() {
         <div className="flex flex-col py-6 px-8 gap-40 max-w-xl mx-auto">
           {/* Header */}
           <div className="animate-first flex flex-row justify-between items-center">
-            <p className="text-base dark:text-gray-50 text-gray-900 digital-font">
-              samwill.is
-            </p>
+
+
+            <ReactTyped
+              strings={["samwill.is"]}
+              typeSpeed={60}
+              showCursor={false}
+              className="text-base dark:text-gray-50 text-gray-900 digital-font"
+            />
 
             <button
               id="theme-toggle"
@@ -271,7 +276,7 @@ export default function Home() {
               <div className="flex flex-col gap-8">
                 <div className="flex flex-col gap-4">
                   <p className="text-xl text-gray-500">
-                    <span className="text-gray-100">I&apos;m Sam, a <span className="digital-font relative glitch" title="digital">digital</span> product designer based in London.</span> I love crafting intuitive interfaces that make people go “mmm, that&apos;s nice.”
+                    <span className="dark:text-gray-100 text-gray-900">I&apos;m Sam, a <span className="digital-font relative glitch" title="digital">digital</span> product designer based in London.</span> I love crafting intuitive interfaces that make people go “mmm, that&apos;s nice.”
                   </p>
                   <p className="dark:text-gray-500 text-gray-500 text-sm">
                     I&apos;ve spent over 10 years helping companies turn vision to reality, and design to competitive advantage. Check out some selected work below, or get in touch if you&apos;d like to read case studies.
@@ -289,7 +294,7 @@ export default function Home() {
           </div>
 
           {/* Selected work */}
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-5 animate-third">
             <Swiper
               initialSlide={0}
               // loop
@@ -298,7 +303,8 @@ export default function Home() {
               modules={[EffectCards, Navigation]}
               className="mySwiper"
               cardsEffect={{
-                perSlideOffset: 8,
+                slideShadows: false,
+                // perSlideOffset: 8,
               }}
               navigation={{
                 prevEl: '.prev',
@@ -306,127 +312,136 @@ export default function Home() {
               }}
             >
               {selectedWork.map((project) => (
-                // <AppearIn key={project.title}>
-                <SwiperSlide key={project.title}>
-                  <div className="relative flex flex-col justify-center items-center">
-                    <div className="relative aspect-square w-full h-full rounded-2xl overflow-clip">
-                      <Image
-                        src={project.image}
-                        alt={`Picture of ${project.title}`}
-                        fill={true}
-                        style={{ objectFit: "cover" }}
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                      />
-                      <div className="prev absolute top-0 bottom-0 left-0 right-1/2 cursor-w-resize"></div>
-                      <div className="next absolute top-0 bottom-0 left-1/2 right-0 cursor-e-resize"></div>
+                <AppearIn key={project.title}>
+                  <SwiperSlide>
+                    <div className="relative flex flex-col justify-center items-center">
+                      <div className="relative aspect-square w-full h-full rounded-2xl overflow-clip shadow-lg">
+                        <Image
+                          src={project.image}
+                          alt={`Picture of ${project.title}`}
+                          fill={true}
+                          style={{ objectFit: "cover" }}
+                          sizes="(max-width: 768px) 100vw, 33vw"
+                        />
+                        <div className="prev absolute top-0 bottom-0 left-0 right-1/2 cursor-w-resize"></div>
+                        <div className="next absolute top-0 bottom-0 left-1/2 right-0 cursor-e-resize"></div>
+                      </div>
+                      {/* <div className="px-5 py-4 absolute bottom-0 left-0 right-0 backdrop-blur-sm"> */}
+                      <div className="hide-details w-full flex flex-row justify-between pt-5 px-1">
+                        <p className="dark:text-gray-500 text-gray-500 text-sm">
+                          {project.title}
+                        </p>
+                        <Link
+                          href={project.link}
+                          target="_blank"
+                          className="dark:text-gray-300 text-gray-400 flex flex-row items-center gap-1 justify-center text-sm group dark:hover:text-gray-50 hover:text-gray-900"
+                        >
+                          {project.company}
+                        </Link>
+                      </div>
+                      {/* <div className="gradient-blur z-0">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div> */}
+                      {/* </div> */}
                     </div>
-                    {/* <div className="px-5 py-4 absolute bottom-0 left-0 right-0 backdrop-blur-sm"> */}
-                    <div className="teststuff w-full flex flex-row justify-between pt-5">
-                      <p className="dark:text-gray-100 text-gray-500 text-sm">
-                        {project.title}
-                      </p>
-                      <Link
-                        href={project.link}
-                        target="_blank"
-                        className="dark:text-gray-100 text-gray-400 flex flex-row items-center gap-1 justify-center text-sm group dark:hover:text-gray-50 hover:text-gray-900"
-                      >
-                        {project.company}
-                      </Link>
-                    </div>
-                    {/* <div className="gradient-blur z-0">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                      </div> */}
-                    {/* </div> */}
-                  </div>
-                </SwiperSlide>
-                // </AppearIn>
+                  </SwiperSlide>
+                </AppearIn>
               ))}
             </Swiper>
           </div>
 
           {/* CV */}
 
-          <div className="">
-            <div className="flex flex-col gap-4 mb-12">
-              <p className="text-xl text-gray-500">
-                <span className="text-gray-100">I get around.</span> As well as helping startups with their products, I&apos;ve also organised design events, built a crypto startup, and designed some cool logos.
-              </p>
-              <p className="dark:text-gray-500 text-gray-500 text-sm">
-                I&apos;m a bit of a “yes man” and love trying new things. Especially if I get to try out a new visual style or work with a new technology. Below are some (most) of the things I&apos;ve worked on over the past decade.
-              </p>
-            </div>
-            <div className="border-t border-gray-900 flex flex-col">
+          <div className="flex flex-col gap-20">
+
+            <AppearIn>
+              <div className="flex flex-col gap-4">
+                <p className="text-xl text-gray-500">
+                  <span className="dark:text-gray-100 text-gray-900">I get around.</span> As well as helping startups with their products, I&apos;ve also organised design events, built a crypto startup, and designed some cool logos.
+                </p>
+                <p className="dark:text-gray-500 text-gray-500 text-sm">
+                  I&apos;m a bit of a “yes man” and love trying new things. Especially if I get to try out a new visual style or work with a new technology. Below are some (most) of the things I&apos;ve worked on over the past decade.
+                </p>
+              </div>
+            </AppearIn>
+
+            <div className="border-t dark:border-gray-900 border-gray-200 flex flex-col">
 
               {cv.map((item) => (
-                <div key={item.company} className="border-b border-gray-900 flex flex-col cursor-pointer group" onClick={() => toggleCollapse(item.company)}>
-                  <div className="items-center gap-4 flex flex-row justify-between py-4">
-                    <div className="flex flex-row gap-4">
-                      <div className="text-right text-neutral-500 text-sm font-normal font-['Inter'] leading-tight">{item.date}</div>
-                      <div className="text-neutral-50 text-sm font-normal font-['Inter'] leading-tight">{item.company}</div>
-                    </div>
-                    <div className="flex flex-row justify-end gap-4">
-                      <div className="text-right text-neutral-500 text-sm font-normal font-['Inter'] leading-tight">{item.role}</div>
-                      <PlusIcon className={`
-                        h-4 w-4 fill-gray-500 group-hover:fill-gray-50 transition-all 
+                <AppearIn key={item.company}>
+                  <div className="border-b dark:border-gray-900 border-gray-200 flex flex-col cursor-pointer group" onClick={() => toggleCollapse(item.company)}>
+                    <div className="items-center gap-4 flex flex-row justify-between py-4">
+                      <div className="flex flex-row gap-4">
+                        <div className="text-right text-neutral-500 text-sm font-normal font-['Inter'] leading-tight">{item.date}</div>
+                        <div className="dark:text-neutral-50 text-gray-900 text-sm font-normal font-['Inter'] leading-tight">{item.company}</div>
+                      </div>
+                      <div className="flex flex-row justify-end gap-4">
+                        <div className="text-right text-neutral-500 text-sm font-normal font-['Inter'] leading-tight">{item.role}</div>
+                        <PlusIcon className={`
+                        h-4 w-4 fill-gray-500 dark:group-hover:fill-gray-50 group-hover:fill-gray-900 transition-all 
                         ${!collapsedStates[item.company] ? 'rotate-0' : 'rotate-45'}
                         `} />
+                      </div>
+                    </div>
+                    <div className={`overflow-hidden transition-all ${!collapsedStates[item.company] ? 'max-h-0' : 'max-h-48'}`}>
+                      <p className="text-gray-500 pb-4">{item.text}</p>
                     </div>
                   </div>
-                  <div className={`overflow-hidden transition-all ${!collapsedStates[item.company] ? 'max-h-0' : 'max-h-48'}`}>
-                    <p className="text-gray-500 pb-4">{item.text}</p>
-                  </div>
-                </div>
+                </AppearIn>
               ))}
             </div>
+
           </div>
 
-          <div className="flex flex-col gap-10 mb-20">
-            <div className="flex flex-col gap-5">
-              <p className="text-xl text-gray-500">
-                <span className="text-gray-100">I&apos;m heads-down on incident.io right now.</span> I&apos;m not taking on new projects atm, but if you have something<span className="text-gray-100">*</span> you think I can help with, then I&apos;m always open to chat.
-              </p>
-              <p className="dark:text-gray-500 text-gray-500 text-sm">
-                *I find it very hard to turn down logo/brand design projects
-              </p>
-            </div>
-            <div className="flex flex-row gap-3">
-              <Link
-                href="mailto:hey@samwill.is"
-                target="_blank"
-                className="button"
-              >
-                <ChatBubbleLeftRightIcon className="h-4 w-4 mr-2" />{" "}
-                Get in touch</Link>
-              <Link
-                href="https://twitter.com/samwill_is"
-                target="_blank"
-                className="button button-round"
-              ><Icon name="twitter" className="social-icon" size={14} /></Link>
-              <Link
-                href="https://linkedin.com/in/samjwillis"
-                target="_blank"
-                className="button button-round"
-              ><Icon name="linkedin" className="social-icon" size={14} /></Link>
-              {/* <Link
+          <AppearIn>
+            <div className="flex flex-col gap-10 mb-20">
+              <div className="flex flex-col gap-5">
+                <p className="text-xl text-gray-500">
+                  <span className="dark:text-gray-100 text-gray-900">I&apos;m heads-down on incident.io right now.</span> I&apos;m not taking on new projects atm, but if you have something<span className="text-gray-100">*</span> you think I can help with, then I&apos;m always open to chat.
+                </p>
+                <p className="dark:text-gray-500 text-gray-500 text-sm">
+                  *I find it very hard to turn down logo/brand design projects
+                </p>
+              </div>
+              <div className="flex flex-row gap-3">
+                <Link
+                  href="mailto:hey@samwill.is"
+                  target="_blank"
+                  className="button"
+                >
+                  <ChatBubbleLeftRightIcon className="h-4 w-4 mr-2" />{" "}
+                  Get in touch</Link>
+                <Link
+                  href="https://twitter.com/samwill_is"
+                  target="_blank"
+                  className="button button-round"
+                ><Icon name="twitter" className="social-icon" size={14} /></Link>
+                <Link
+                  href="https://linkedin.com/in/samjwillis"
+                  target="_blank"
+                  className="button button-round"
+                ><Icon name="linkedin" className="social-icon" size={14} /></Link>
+                {/* <Link
                 href="https://dribbble.com/sjwillis"
                 target="_blank"
                 className="button button-round"
               ><Icon name="dribbble" className="social-icon" size={14} /></Link> */}
+              </div>
             </div>
-          </div>
+          </AppearIn>
           <div className="flex flex-col gap-10 mb-2">
 
           </div>
         </div>
-      </div>
-      <div className="special">
-        <div className="flex flex-col py-6 px-8 gap-32 max-w-xl mx-auto border-x border-dashed border-gray-800 h-full"></div>
-      </div>
-    </main>
+        <div className="special">
+          <div className="flex flex-col py-6 px-8 gap-32 max-w-xl mx-auto border-x border-dashed dark:border-gray-800 border-gray-300 h-full"></div>
+        </div>
+      </div >
+    </main >
   );
 }
