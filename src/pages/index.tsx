@@ -172,9 +172,13 @@ export default function Home() {
     }
   }, []);
 
-  const [collapsedStates, setCollapsedStates] = useState({});
+  type CollapsedStates = {
+    [key: string]: boolean;
+  };
 
-  const toggleCollapse = (company) => {
+  const [collapsedStates, setCollapsedStates] = useState<CollapsedStates>({});
+
+  const toggleCollapse = (company: string) => {
     setCollapsedStates(prevStates => ({
       ...prevStates,
       [company]: !prevStates[company]
