@@ -295,15 +295,15 @@ export default function Home() {
                   </p>
                 </div>
                 <div>
-                  <div className="p-px bg-gradient-to-r from-[#412525] via-gray-800 to-gray-800 rounded-full inline-flex">
-                    <div className="h-9 px-4 rounded-full bg-gray-900 justify-start items-center gap-3 inline-flex">
-                      <div className="w-2 h-2 bg-red-700 rounded-full availability-orb" />
-                      <div className="text-neutral-500 text-sm font-medium">Limited space for new projects</div>
+                  <div className="p-px bg-gradient-to-r dark:from-[#412525] dark:via-gray-800 dark:to-gray-800 from-red-200 via-gray-200 to-gray-200 rounded-full inline-flex">
+                    <div className="h-9 px-4 rounded-full dark:bg-gray-900 bg-gray-50 justify-start items-center gap-3 inline-flex">
+                      <div className="w-2 h-2 dark:bg-red-700 bg-red-500 rounded-full availability-orb" />
+                      <div className="dark:text-gray-500 text-gray-500 text-sm font-medium">Limited space for new projects</div>
                       <div className="availability-divider"></div>
                       <a
                         href="#"
                         onClick={copyToClipboard}
-                        className="text-gray-300 text-sm font-medium hover:text-gray-50 transition-colors"
+                        className="dark:text-gray-300 text-gray-900 text-sm font-medium dark:hover:text-gray-50 hover:text-gray-500 transition-colors"
                       >
                         {buttonText}
                       </a>
