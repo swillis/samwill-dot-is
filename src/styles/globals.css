@@ -8,11 +8,9 @@
   /* font-feature-settings: "zero" 1, "liga" 1, "calt" 1, "ss04" 1, "ss06" 1, "kern"; */
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 3, 7, 18;
-  }
-} */
+a {
+  @apply dark:hover:!text-gray-50 dark:text-gray-400 transition-colors;
+}
 
 @font-face {
   font-family: "Favorit";
@@ -25,7 +23,6 @@
 }
 
 body {
-  /* background: rgb(var(--foreground-rgb)); */
   -webkit-font-smoothing: antialiased;
   @apply tracking-tight bg-gradient-to-b from-gray-800 to-gray-900;
 }
@@ -46,9 +43,6 @@ body {
   @apply dark:fill-gray-100 fill-gray-900 dark:group-hover:fill-gray-50 group-hover:fill-gray-900;
 }
 
-.title {
-  @apply text-gray-900 dark:text-gray-50 text-base font-medium;
-}
 
 .animate-first {
   opacity: 0;
@@ -78,6 +72,18 @@ body {
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   animation-timing-function: cubic-bezier(0.17, 0.55, 0.55, 1);
+}
+
+.availability-divider {
+  @apply dark:bg-gray-800 bg-gray-900;
+  width: 1px;
+  height: 20px;
+}
+
+.availability-orb {
+  filter: drop-shadow(0px 0px 8px #B91C1C);
+  /* box-shadow: 0px 1px 0px 0px #B91C1C); */
+
 }
 
 @keyframes slidein {
@@ -148,7 +154,7 @@ body {
 }
 
 .button {
-  @apply h-10 px-5 dark:bg-gray-900 bg-gray-50 border dark:border-gray-800 border-gray-300 dark:text-gray-100 text-gray-900 flex items-center justify-center rounded-lg text-sm dark:hover:bg-gray-950 hover:bg-gray-100 shadow-sm;
+  @apply h-10 px-5 dark:bg-gray-900 bg-gray-50 border dark:border-gray-800 border-gray-300 dark:text-gray-100 text-gray-900 flex items-center justify-center rounded-full text-sm dark:hover:border-gray-700 hover:bg-gray-100 shadow-sm;
 }
 
 .button-round {

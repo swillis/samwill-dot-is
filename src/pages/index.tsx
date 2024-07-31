@@ -78,7 +78,7 @@ const cv = [
     date: "2023",
     link: "https://incident.io",
     icon: <Icon name="incident" className="cv-item_icon" size={20} />,
-    text: "I joined incident in 2023 and have been working almost exclusively on their new on-call offering—the software that wakes engineers up when there is an outage. It has been a real adventure, building this feature out from scratch. And has often felt a bit like a startup within a startup. At time of writing, the on-call product has generated over $1m in revenue since it launched back in March.",
+    text: "I joined incident in 2023 and worked almost exclusively on their new on-call offering—the software that woke engineers up when there was an outage. It was a real adventure, building this feature out from scratch. And often felt a bit like a startup within a startup. At the time of writing, the on-call product had generated over $1m in revenue since it launched back in March.",
   },
   {
     company: "Alba",
@@ -86,7 +86,7 @@ const cv = [
     date: "2022",
     link: "https://alba.art",
     icon: <Icon name="alba" className="cv-item_icon" size={20} />,
-    text: "I joined incident in 2023 and have been working almost exclusively on their new on-call offering—the software that wakes engineers up when there is an outage. It has been a real adventure, building this feature out from scratch. And has often felt a bit like a startup within a startup. At time of writing, the on-call product has generated over $1m in revenue since it launched back in March.",
+    text: "I started Alba in 2022, a platform for generative art on Ethereum. I worked on this project in my spare time, and it was a real learning experience. I was able to experiment with new visual styles and learn about the world of crypto. I also had the opportunity to work with some amazing artists and build a community around the project.",
   },
   {
     company: "Duffel",
@@ -94,7 +94,7 @@ const cv = [
     date: "2021",
     link: "https://duffel.com",
     icon: <Icon name="duffel" className="cv-item_icon" size={20} />,
-    text: "I joined incident in 2023 and have been working almost exclusively on their new on-call offering—the software that wakes engineers up when there is an outage. It has been a real adventure, building this feature out from scratch. And has often felt a bit like a startup within a startup. At time of writing, the on-call product has generated over $1m in revenue since it launched back in March.",
+    text: "I joined Duffel in 2021 as a solo product designer, working closely with design-founder, Tom Bates. A year or so into my tenure, Tom moved on and I took over as head of product design. I grew the team to 4 designers and worked on a range of projects, from the merchant dashboard to the stays search to the API documentation. I also worked on the brand and the design system.",
   },
   {
     company: "Design Club",
@@ -102,7 +102,7 @@ const cv = [
     date: "2015",
     link: "https://designclub.io",
     icon: <Icon name="design_club" className="cv-item_icon" size={20} />,
-    text: "I joined incident in 2023 and have been working almost exclusively on their new on-call offering—the software that wakes engineers up when there is an outage. It has been a real adventure, building this feature out from scratch. And has often felt a bit like a startup within a startup. At time of writing, the on-call product has generated over $1m in revenue since it launched back in March.",
+    text: "I started Design Club in 2015, a community for designers in London. I ran the group for over 6 years, and it grew to over 3,000 members. We ran regular events with talks and socializing. I got to meet and learn from some incredible people along the way. I also had the opportunity to work with some amazing sponsors and build a community around the group.",
   },
   {
     company: "Memrise",
@@ -110,7 +110,7 @@ const cv = [
     date: "2019",
     link: "https://memrise.com",
     icon: <Icon name="memrise" className="cv-item_icon" size={20} />,
-    text: "I joined incident in 2023 and have been working almost exclusively on their new on-call offering—the software that wakes engineers up when there is an outage. It has been a real adventure, building this feature out from scratch. And has often felt a bit like a startup within a startup. At time of writing, the on-call product has generated over $1m in revenue since it launched back in March.",
+    text: "I joined Memrise in 2019 as a design manager. It was a hybrid role where I split my time 50:50 between management and IC work. It was a great opportunity to learn how to manage a team and work on a range of projects, as well as experiment with new visual styles and delve into the fascinating psychology of learning languages.",
   },
   {
     company: "Fat Llama",
@@ -118,7 +118,7 @@ const cv = [
     date: "2018",
     link: "https://fatllama.com",
     icon: <Icon name="fat_llama" className="cv-item_icon" size={20} />,
-    text: "I joined incident in 2023 and have been working almost exclusively on their new on-call offering—the software that wakes engineers up when there is an outage. It has been a real adventure, building this feature out from scratch. And has often felt a bit like a startup within a startup. At time of writing, the on-call product has generated over $1m in revenue since it launched back in March.",
+    text: "I joined fat llama as the first product designer in 2018. It was super interesting learning how create a two-sided marketplace, and I enjoyed working with both Lenders and Borrowers to create an ecosystem that worked well for both. At it's peak the team grew to 3 designers and I was promoted to design lead. I worked on a range of projects across web and mobile, from KYC flows, product filtering and search, and checkout.",
   },
   {
     company: "GoCardless",
@@ -126,7 +126,7 @@ const cv = [
     date: "2015",
     link: "https://gocardless.com",
     icon: <Icon name="gocardless" className="cv-item_icon" size={20} />,
-    text: "I joined incident in 2023 and have been working almost exclusively on their new on-call offering—the software that wakes engineers up when there is an outage. It has been a real adventure, building this feature out from scratch. And has often felt a bit like a startup within a startup. At time of writing, the on-call product has generated over $1m in revenue since it launched back in March.",
+    text: "I joined GoCardless in 2015 as a fairly juior product designer. Working with suc an incredibly talented team, it was a transformative experience for me. In my time there I worked on sophisticated admin panels built to detect things like fraud and money laundering. I worked on onboarding flows that could verify organisations of all shapes and sizes.",
   },
   {
     company: "Design+Banter",
@@ -134,7 +134,7 @@ const cv = [
     date: "2013",
     link: "https://twitter.com/designandbanter",
     icon: <Icon name="design_and_banter" className="cv-item_icon" size={20} />,
-    text: "I joined incident in 2023 and have been working almost exclusively on their new on-call offering—the software that wakes engineers up when there is an outage. It has been a real adventure, building this feature out from scratch. And has often felt a bit like a startup within a startup. At time of writing, the on-call product has generated over $1m in revenue since it launched back in March.",
+    text: "I started Design+Banter in 2013 with my good friend Gearoid. It started out as a small, 50 person meetup in the basement of a bowling alley, but later grew to a 300 person event hosted at the swankiest offices and spaces in East London. I'm incredibly grateful for the friends and network I made D+B, and the opportunities it opened up for me.",
   },
 ];
 
@@ -178,6 +178,8 @@ export default function Home() {
 
   const [collapsedStates, setCollapsedStates] = useState<CollapsedStates>({});
 
+  const [buttonText, setButtonText] = useState('Get in touch');
+
   const toggleCollapse = (company: string) => {
     setCollapsedStates(prevStates => ({
       ...prevStates,
@@ -186,6 +188,18 @@ export default function Home() {
   };
 
   const [controlledSwiper, setControlledSwiper] = useState(null);
+
+  const copyToClipboard = () => {
+    const email = 'hey@samwill.is';
+    navigator.clipboard.writeText(email).then(() => {
+      setButtonText('Copied!');
+      setTimeout(() => {
+        setButtonText('Get in touch');
+      }, 1000); // Change text back after 2 seconds
+    }, (err) => {
+      console.error('Could not copy text: ', err);
+    });
+  };
 
   return (
     <main className={`${theme}`}>
@@ -223,7 +237,7 @@ export default function Home() {
       </Head>
 
       <div className="transition-colors">
-        <div className="flex flex-col py-6 px-8 gap-40 max-w-xl mx-auto">
+        <div className="flex flex-col pt-6 pb-4 px-8 gap-40 max-w-xl mx-auto">
           {/* Header */}
           <div className="animate-first flex flex-row justify-between items-center">
 
@@ -286,13 +300,22 @@ export default function Home() {
                     I&apos;ve spent over 10 years helping companies turn vision to reality, and design to competitive advantage. Check out some selected work below, or get in touch if you&apos;d like to read case studies.
                   </p>
                 </div>
-                <Link
-                  href="mailto:hey@samwill.is"
-                  target="_blank"
-                  className="button flex flex-row items-center gap-2 grow-0 self-start"
-                >
-                  <ChatBubbleLeftRightIcon className="h-4 w-4" />{" "}
-                  Get in touch</Link>
+                <div>
+                  <div className="p-px bg-gradient-to-r from-[#412525] via-gray-800 to-gray-800 rounded-full inline-flex">
+                    <div className="h-9 px-4 rounded-full bg-gray-900 justify-start items-center gap-3 inline-flex">
+                      <div className="w-2 h-2 bg-red-700 rounded-full availability-orb" />
+                      <div className="text-neutral-500 text-sm font-medium">Limited space for new projects</div>
+                      <div className="availability-divider"></div>
+                      <a
+                        href="#"
+                        onClick={copyToClipboard}
+                        className="text-gray-300 text-sm font-medium hover:text-gray-50 transition-colors"
+                      >
+                        {buttonText}
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -308,7 +331,8 @@ export default function Home() {
               className="mySwiper"
               cardsEffect={{
                 slideShadows: false,
-                // perSlideOffset: 8,
+                perSlideOffset: 8,
+                perSlideRotate: 4,
               }}
               navigation={{
                 prevEl: '.prev',
@@ -343,15 +367,6 @@ export default function Home() {
                           {project.company}
                         </Link>
                       </div>
-                      {/* <div className="gradient-blur z-0">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div> */}
-                      {/* </div> */}
                     </div>
                   </SwiperSlide>
                 </AppearIn>
@@ -369,7 +384,7 @@ export default function Home() {
                   <span className="dark:text-gray-100 text-gray-900">I get around.</span> As well as helping startups with their products, I&apos;ve also organised design events, built a crypto startup, and designed some cool logos.
                 </p>
                 <p className="dark:text-gray-500 text-gray-500 text-sm">
-                  I&apos;m a bit of a “yes man” and love trying new things. Especially if I get to try out a new visual style or work with a new technology. Below are some (most) of the things I&apos;ve worked on over the past decade.
+                  I love saying yes to things. Especially if it means I get to try out a new visual style or work with new technology. Below are some (most) of the things I&apos;ve worked on over the past decade.
                 </p>
               </div>
             </AppearIn>
@@ -413,13 +428,13 @@ export default function Home() {
                 </p>
               </div>
               <div className="flex flex-row gap-3">
-                <Link
-                  href="mailto:hey@samwill.is"
-                  target="_blank"
-                  className="button"
+                <button
+                  onClick={copyToClipboard}
+                  className="button w-[145px] !justify-start"
                 >
-                  <ChatBubbleLeftRightIcon className="h-4 w-4 mr-2" />{" "}
-                  Get in touch</Link>
+                  <ChatBubbleLeftRightIcon className="h-4 w-4 mr-2" />
+                  {buttonText}
+                </button>
                 <Link
                   href="https://twitter.com/samwill_is"
                   target="_blank"
@@ -430,22 +445,18 @@ export default function Home() {
                   target="_blank"
                   className="button button-round"
                 ><Icon name="linkedin" className="social-icon" size={14} /></Link>
-                {/* <Link
-                href="https://dribbble.com/sjwillis"
-                target="_blank"
-                className="button button-round"
-              ><Icon name="dribbble" className="social-icon" size={14} /></Link> */}
               </div>
             </div>
           </AppearIn>
-          <div className="flex flex-col gap-10 mb-2">
-
+          <div className="flex flex-row justify-between gap-10 mb-2">
+            <span className="text-sm dark:text-gray-700 text-gray-400">© 2024</span>
+            <span className="text-sm dark:text-gray-700 text-gray-400">Muddled together by me, <a href="http://github.com/swillis" target="_blank" className="dark:text-gray-500 text-gray-500">Swillis</a></span>
           </div>
         </div>
         <div className="special">
           <div className="flex flex-col py-6 px-8 gap-32 max-w-xl mx-auto border-x border-dashed dark:border-gray-800 border-gray-300 h-full"></div>
         </div>
       </div >
-    </main >
+    </main>
   );
 }
