@@ -75,7 +75,7 @@ body {
 }
 
 .availability-divider {
-  @apply dark:bg-gray-800 bg-gray-900;
+  @apply dark:bg-gray-800 bg-gray-200;
   width: 1px;
   height: 20px;
 }
