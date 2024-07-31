@@ -39,12 +39,6 @@ const selectedWork = [
     link: "https://duffel.com/stays",
     image: "/selected-work/stays-search.jpg",
   },
-  // {
-  //   title: "White-label search & book flow",
-  //   company: "Duffel",
-  //   link: "https://duffel.com/links",
-  //   image: "/selected-work/duffel-links.jpg",
-  // },
   {
     title: "Logo design",
     company: "Incident.io",
@@ -324,9 +318,7 @@ export default function Home() {
           <div className="flex flex-col gap-5 animate-third">
             <Swiper
               initialSlide={0}
-              // loop
               effect={'cards'}
-              // grabCursor={true}
               modules={[EffectCards, Navigation]}
               className="mySwiper"
               cardsEffect={{
@@ -354,7 +346,6 @@ export default function Home() {
                         <div className="prev absolute top-0 bottom-0 left-0 right-1/2 cursor-w-resize"></div>
                         <div className="next absolute top-0 bottom-0 left-1/2 right-0 cursor-e-resize"></div>
                       </div>
-                      {/* <div className="px-5 py-4 absolute bottom-0 left-0 right-0 backdrop-blur-sm"> */}
                       <div className="hide-details w-full flex flex-row justify-between pt-5 px-1">
                         <p className="dark:text-gray-500 text-gray-500 text-sm">
                           {project.title}
