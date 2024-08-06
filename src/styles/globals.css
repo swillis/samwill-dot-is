@@ -25,6 +25,10 @@ a {
 body {
   -webkit-font-smoothing: antialiased;
   @apply tracking-tight bg-gradient-to-b from-gray-800 to-gray-900;
+  /* font-family: "Favorit", sans-serif; */
+  font-family: "Inter", sans-serif;
+  /* font-feature-settings: 'dlig' on, 'ss01' on, 'ss03' on, 'ss04' on, 'ss07' on, 'ss11' on; */
+  font-feature-settings: 'dlig' on, 'salt' on, 'ss01' on, 'ss03' on, 'ss04' on, 'ss07' on, 'ss11' on;
 }
 
 .digital-font {

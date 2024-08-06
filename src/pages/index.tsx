@@ -16,6 +16,12 @@ import { Icon } from "../components/Icon";
 
 const selectedWork = [
   {
+    title: "On-call app",
+    company: "incident.io",
+    link: "https://incident.io",
+    image: "/selected-work/incident-app.jpg",
+  },
+  {
     title: "Insights dashboard",
     company: "Duffel",
     link: "https://duffel.com",
@@ -43,7 +49,7 @@ const selectedWork = [
     title: "Logo design",
     company: "Incident.io",
     link: "https://incident.io",
-    image: "/selected-work/incident.jpg",
+    image: "/selected-work/incident-new-logo.jpg",
   },
   {
     title: "Project page",
@@ -58,7 +64,7 @@ const selectedWork = [
     image: "/selected-work/api-docs.jpg",
   },
   {
-    title: "Logo + brand design",
+    title: "Logo design",
     company: "Dependabot",
     link: "https://dependabot.com",
     image: "/selected-work/dependabot.jpg",
@@ -231,7 +237,7 @@ export default function Home() {
       </Head>
 
       <div className="transition-colors">
-        <div className="flex flex-col pt-6 pb-4 px-8 gap-40 max-w-xl mx-auto">
+        <div className="flex flex-col p-6 sm:p-8 gap-40 max-w-xl mx-auto">
           {/* Header */}
           <div className="animate-first flex flex-row justify-between items-center">
 
@@ -283,7 +289,7 @@ export default function Home() {
           </div>
 
           {/* Hero */}
-          <div className="mx-auto w-fulltext-left animate-second">
+          <div className="mx-auto w-full text-left animate-second">
             <div className="flex flex-col gap-6 items-start sm:items-center">
               <div className="flex flex-col gap-8">
                 <div className="flex flex-col gap-4">
@@ -298,12 +304,12 @@ export default function Home() {
                   <div className="p-px bg-gradient-to-r dark:from-[#412525] dark:via-gray-800 dark:to-gray-800 from-red-200 via-gray-200 to-gray-200 rounded-full inline-flex">
                     <div className="h-9 px-4 rounded-full dark:bg-gray-900 bg-gray-50 justify-start items-center gap-3 inline-flex">
                       <div className="w-2 h-2 dark:bg-red-700 bg-red-500 rounded-full availability-orb" />
-                      <div className="dark:text-gray-500 text-gray-500 text-sm font-medium">Limited space for new projects</div>
+                      <div className="dark:text-gray-500 text-gray-500 text-sm font-medium">Low availability</div>
                       <div className="availability-divider"></div>
                       <a
                         href="#"
                         onClick={copyToClipboard}
-                        className="dark:text-gray-300 text-gray-900 text-sm font-medium dark:hover:text-gray-50 hover:text-gray-500 transition-colors"
+                        className="dark:text-gray-300 text-gray-900 text-sm font-medium dark:hover:text-gray-50 hover:text-gray-500 transition-colors text-center w-[77px]"
                       >
                         {buttonText}
                       </a>
@@ -347,13 +353,13 @@ export default function Home() {
                         <div className="next absolute top-0 bottom-0 left-1/2 right-0 cursor-e-resize"></div>
                       </div>
                       <div className="hide-details w-full flex flex-row justify-between pt-5 px-1">
-                        <p className="dark:text-gray-500 text-gray-500 text-sm">
+                        <p className="dark:text-gray-500 text-gray-400 text-sm">
                           {project.title}
                         </p>
                         <Link
                           href={project.link}
                           target="_blank"
-                          className="dark:text-gray-300 text-gray-400 flex flex-row items-center gap-1 justify-center text-sm group dark:hover:text-gray-50 hover:text-gray-900"
+                          className="dark:text-gray-300 text-gray-600 flex flex-row items-center gap-1 justify-center text-sm group dark:hover:text-gray-100 hover:text-gray-900"
                         >
                           {project.company}
                         </Link>
@@ -387,11 +393,11 @@ export default function Home() {
                   <div className="border-b dark:border-gray-900 border-gray-200 flex flex-col cursor-pointer group" onClick={() => toggleCollapse(item.company)}>
                     <div className="items-center gap-4 flex flex-row justify-between py-4">
                       <div className="flex flex-row gap-4">
-                        <div className="text-right text-neutral-500 text-sm font-normal font-['Inter'] leading-tight">{item.date}</div>
-                        <div className="dark:text-neutral-50 text-gray-900 text-sm font-normal font-['Inter'] leading-tight">{item.company}</div>
+                        <div className="text-right text-neutral-500 text-sm font-normal leading-tight tabular-nums lining-nums">{item.date}</div>
+                        <div className="dark:text-neutral-50 text-gray-900 text-sm font-normal leading-tight">{item.company}</div>
                       </div>
                       <div className="flex flex-row justify-end gap-4">
-                        <div className="text-right text-neutral-500 text-sm font-normal font-['Inter'] leading-tight">{item.role}</div>
+                        <div className="text-right text-neutral-500 text-sm font-normal leading-tight">{item.role}</div>
                         <PlusIcon className={`
                         h-4 w-4 fill-gray-500 dark:group-hover:fill-gray-50 group-hover:fill-gray-900 transition-all 
                         ${!collapsedStates[item.company] ? 'rotate-0' : 'rotate-45'}
@@ -421,10 +427,12 @@ export default function Home() {
               <div className="flex flex-row gap-3">
                 <button
                   onClick={copyToClipboard}
-                  className="button w-[145px] !justify-start"
+                  className="button w-[147px]"
                 >
                   <ChatBubbleLeftRightIcon className="h-4 w-4 mr-2" />
-                  {buttonText}
+                  <span className="flex flex-col text-center flex-1">
+                    {buttonText}
+                  </span>
                 </button>
                 <Link
                   href="https://twitter.com/samwill_is"
@@ -439,13 +447,15 @@ export default function Home() {
               </div>
             </div>
           </AppearIn>
-          <div className="flex flex-row justify-between gap-10 mb-2">
+
+          {/* Footer */}
+          <div className="flex flex-row justify-between gap-10">
             <span className="text-sm dark:text-gray-700 text-gray-400">© 2024</span>
-            <span className="text-sm dark:text-gray-700 text-gray-400">Muddled together by me, <a href="http://github.com/swillis" target="_blank" className="dark:text-gray-500 text-gray-500">Swillis</a></span>
+            <span className="text-sm dark:text-gray-700 text-gray-400">Muddled together by me, <a href="http://github.com/swillis" target="_blank" className="dark:text-gray-500 text-gray-500 hover:dark:text-gray-100 hover:text-gray-900">Swillis</a></span>
           </div>
         </div>
         <div className="special">
-          <div className="flex flex-col py-6 px-8 gap-32 max-w-xl mx-auto border-x border-dashed dark:border-gray-800 border-gray-300 h-full"></div>
+          <div className="flex flex-col py-6 px-8 gap-32 max-w-xl mx-auto sm:border-x border-dashed dark:border-gray-800 border-gray-300 h-full"></div>
         </div>
       </div >
     </main>
