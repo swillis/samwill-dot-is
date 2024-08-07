@@ -234,6 +234,7 @@ export default function Home() {
           content="I've spent the past 10+ years helping companies translate vision into reality, and design into competitive advantage. I'm currently building the future of travel at Duffel, and on the side I'm building Alba — an open platform for generative art on Ethereum."
         />
         <meta name="twitter:image" content="" />
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
       </Head>
 
       <div className="transition-colors">

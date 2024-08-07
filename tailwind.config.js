@@ -14,15 +14,9 @@ module.exports = {
   theme: {
 
     fontFamily: {
-      sans: [
-        "Favorit, serif",
-        // "Favorit, system, sans-serif",
-        // {
-        //   fontFeatureSettings: '"cv11", "ss01"',
-        //   fontVariationSettings: '"opsz" 32'
-        // },
-      ],
+      sans: ['Inter var', 'Inter', 'sans-serif'],
     },
+
 
     extend: {
       backgroundImage: {
