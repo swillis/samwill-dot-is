@@ -28,16 +28,22 @@ const selectedWork = [
     image: "/selected-work/incident-app.jpg",
   },
   {
-    title: "Insights dashboard",
-    company: "Duffel",
-    link: "https://duffel.com",
-    image: "/selected-work/merchant-insights.jpg",
-  },
-  {
     title: "Home page",
     company: "gm.studio",
     link: "https://gmstudio.art",
     image: "/selected-work/gmstudio.jpg",
+  },
+  {
+    title: "Logo design",
+    company: "Incident.io",
+    link: "https://incident.io",
+    image: "/selected-work/incident-logo-sandbox.jpg",
+  },
+  {
+    title: "Insights dashboard",
+    company: "Duffel",
+    link: "https://duffel.com",
+    image: "/selected-work/merchant-insights.jpg",
   },
   {
     title: "Alba home page",
@@ -50,12 +56,6 @@ const selectedWork = [
     company: "Duffel",
     link: "https://duffel.com/stays",
     image: "/selected-work/stays-search.jpg",
-  },
-  {
-    title: "Logo design",
-    company: "Incident.io",
-    link: "https://incident.io",
-    image: "/selected-work/incident-new-logo.jpg",
   },
   {
     title: "Project page",
