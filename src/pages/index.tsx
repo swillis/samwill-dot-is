@@ -16,6 +16,12 @@ import { Icon } from "../components/Icon";
 
 const selectedWork = [
   {
+    title: "Unused logo concept",
+    company: "working.dev",
+    link: "https://working.dev",
+    image: "/selected-work/working-dot-dev.jpg",
+  },
+  {
     title: "On-call app",
     company: "incident.io",
     link: "https://incident.io",
@@ -209,7 +215,7 @@ export default function Home() {
         <title>Sam Willis is a product designer in London.</title>
         <meta
           name="description"
-          content="I've spent the past 10+ years helping companies translate vision into reality, and design into competitive advantage. I'm currently building the future of travel at Duffel, and on the side I'm building Alba — an open platform for generative art on Ethereum."
+          content="I help companies translate vision into reality, and design into competitive advantage."
         />
         <meta property="og:url" content="https://samwill.is" />
         <meta property="og:type" content="website" />
@@ -219,7 +225,7 @@ export default function Home() {
         />
         <meta
           property="og:description"
-          content="I've spent the past 10+ years helping companies translate vision into reality, and design into competitive advantage. I'm currently building the future of travel at Duffel, and on the side I'm building Alba — an open platform for generative art on Ethereum."
+          content="I help companies translate vision into reality, and design into competitive advantage."
         />
         <meta property="og:image" content="" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -231,7 +237,7 @@ export default function Home() {
         />
         <meta
           name="twitter:description"
-          content="I've spent the past 10+ years helping companies translate vision into reality, and design into competitive advantage. I'm currently building the future of travel at Duffel, and on the side I'm building Alba — an open platform for generative art on Ethereum."
+          content="I help companies translate vision into reality, and design into competitive advantage."
         />
         <meta name="twitter:image" content="" />
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
@@ -342,7 +348,7 @@ export default function Home() {
                 <AppearIn key={project.title}>
                   <SwiperSlide>
                     <div className="relative flex flex-col justify-center items-center">
-                      <div className="relative aspect-square w-full h-full rounded-2xl overflow-clip shadow-lg">
+                      <div className="relative aspect-square w-full h-full rounded-xl overflow-clip shadow-lg">
                         <Image
                           src={project.image}
                           alt={`Picture of ${project.title}`}
@@ -451,7 +457,7 @@ export default function Home() {
 
           {/* Footer */}
           <div className="flex flex-row justify-between gap-10">
-            <span className="text-sm dark:text-gray-700 text-gray-400">© 2024</span>
+            <span className="text-sm dark:text-gray-700 text-gray-400">© 2025</span>
             <span className="text-sm dark:text-gray-700 text-gray-400">Muddled together by me, <a href="http://github.com/swillis" target="_blank" className="dark:text-gray-500 text-gray-500 hover:dark:text-gray-100 hover:text-gray-900">Swillis</a></span>
           </div>
         </div>
